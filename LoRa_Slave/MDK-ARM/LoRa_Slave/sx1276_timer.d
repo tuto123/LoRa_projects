@@ -1,0 +1,9 @@
+lora_slave\sx1276_timer.o: ..\App\radio\src\sx1276_timer.c
+lora_slave\sx1276_timer.o: ..\App\radio\inc\sx1276_timer.h
+lora_slave\sx1276_timer.o: G:\design_tool\KEIL_MDK\Keil5\ARM\ARMCC\Bin\..\include\stdint.h
+lora_slave\sx1276_timer.o: G:\design_tool\KEIL_MDK\Keil5\ARM\ARMCC\Bin\..\include\stdarg.h
+lora_slave\sx1276_timer.o: G:\design_tool\KEIL_MDK\Keil5\ARM\ARMCC\Bin\..\include\string.h
+lora_slave\sx1276_timer.o: G:\design_tool\KEIL_MDK\Keil5\ARM\ARMCC\Bin\..\include\stdbool.h
+lora_slave\sx1276_timer.o: G:\design_tool\KEIL_MDK\Keil5\ARM\ARMCC\Bin\..\include\stdio.h
+lora_slave\sx1276_timer.o: G:\design_tool\KEIL_MDK\Keil5\ARM\ARMCC\Bin\..\include\stddef.h
+lora_slave\sx1276_timer.o: G:\design_tool\KEIL_MDK\Keil5\ARM\ARMCC\Bin\..\include\stdlib.h
