@@ -9,7 +9,10 @@ enum
    STIMER_LED_BLUE  = 0x01, 
    STIMER_LED_GREEN = 0x02, 
 	 STIMER_KEY       = 0x03,	
-	 STIMER_USART     = 0x04,	 
+	 STIMER_USART     = 0x04,	
+	 STIMER_BEEP      = 0x05,
+	 STIMER_LIGHT     = 0x06,
+	 STIMER_OFFLIGHT  = 0x07,
 };
 
 //定时任务函数

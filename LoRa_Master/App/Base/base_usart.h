@@ -1,12 +1,13 @@
 #ifndef _BASE_USART_H_
 #define _BASE_USART_H_
 
-#include "stm32l0xx_hal.h"
+#include "stm32f1xx_hal.h"
 #define USART_MAX_LEN 256
 
 struct USART_t
 {
-	uint8_t  RecvBuffer[USART_MAX_LEN];
+	uint8_t  RecvBuffer;
+	uint8_t  RxMes[USART_MAX_LEN];
   uint16_t RecvLen;
 	uint16_t RecvCount;
   uint8_t  RecvFalg;

@@ -32,7 +32,7 @@ enum
 *************************************************/
 static void _timer_led_red_cb(void *args)
 { 
-	LED_RED_TOG();
+	//LED_RED_TOG();
 } 
 
 
@@ -45,7 +45,7 @@ static void _timer_led_red_cb(void *args)
 *************************************************/
 static void _timer_led_blue_cb(void *args)
 { 
-	LED_BLUE_TOG();
+	//LED_BLUE_TOG();
 }   
 
 
@@ -69,7 +69,7 @@ static void _timer_led_green_cb(void *args)
 *************************************************/
 static void _timer_beep_cb(void *args)
 { 
-	BEEP_TOG();
+	//BEEP_TOG();
 }  
 
 /************************************************
@@ -81,7 +81,7 @@ static void _timer_beep_cb(void *args)
 *************************************************/
 static void _timer_light_cb(void *args)
 { 
-	LIGHT_ON();
+	//LIGHT_ON();
 }  
 /************************************************
 函数名称 ： _timer_offlight_cb
@@ -92,7 +92,7 @@ static void _timer_light_cb(void *args)
 *************************************************/
 static void _timer_offlight_cb(void *args)
 { 
-	LIGHT_OFF();
+	//LIGHT_OFF();
 } 
 /************************************************
 函数名称 ： _timer_key_cb

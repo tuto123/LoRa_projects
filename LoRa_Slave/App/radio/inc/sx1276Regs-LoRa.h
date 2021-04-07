@@ -236,7 +236,7 @@ Maintainer: Miguel Luis and Gregory Cristian
 #define RFLR_FIFOTXBASEADDR                         0x00 // Default80
 
 /*!
- * RegFifoTxBaseAddr
+ * RegFifoRxBaseAddr
  */
 #define RFLR_FIFORXBASEADDR                         0x00 // Default00
 

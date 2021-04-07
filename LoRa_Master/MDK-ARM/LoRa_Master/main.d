@@ -33,3 +33,13 @@ lora_master\main.o: ../Core/Inc/gpio.h
 lora_master\main.o: G:\design_tool\KEIL_MDK\Keil5\ARM\ARMCC\Bin\..\include\stdio.h
 lora_master\main.o: ..\App\Task\stask.h
 lora_master\main.o: ..\App\Base\base_usart.h
+lora_master\main.o: ..\App\radio\inc\sx1276_user.h
+lora_master\main.o: ..\App\radio\inc\sx1276.h
+lora_master\main.o: ..\App\radio\inc\radio.h
+lora_master\main.o: ..\App\radio\inc\sx1276_timer.h
+lora_master\main.o: G:\design_tool\KEIL_MDK\Keil5\ARM\ARMCC\Bin\..\include\stdarg.h
+lora_master\main.o: G:\design_tool\KEIL_MDK\Keil5\ARM\ARMCC\Bin\..\include\string.h
+lora_master\main.o: G:\design_tool\KEIL_MDK\Keil5\ARM\ARMCC\Bin\..\include\stdbool.h
+lora_master\main.o: G:\design_tool\KEIL_MDK\Keil5\ARM\ARMCC\Bin\..\include\stdlib.h
+lora_master\main.o: ..\App\radio\inc\sx1276Regs-Fsk.h
+lora_master\main.o: ..\App\radio\inc\sx1276Regs-LoRa.h

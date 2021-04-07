@@ -77,6 +77,8 @@ void Error_Handler(void);
 #define SX1276_TXRX_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
 #define LED_GREEN_TOG()		HAL_GPIO_TogglePin(MCU_LED_GPIO_Port,MCU_LED_Pin)
+#define LED_GREEN_ON()		HAL_GPIO_WritePin(MCU_LED_GPIO_Port,MCU_LED_Pin,GPIO_PIN_RESET)
+#define LED_GREEN_OFF()		HAL_GPIO_WritePin(MCU_LED_GPIO_Port,MCU_LED_Pin,GPIO_PIN_SET)
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

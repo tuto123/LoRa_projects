@@ -5,13 +5,13 @@ static void tea_encrypt(uint32_t  *v, uint32_t  *k)
 	uint32_t  y = v[0], z = v[1], sum = 0, i;
 	uint32_t  delta = 0x9e3779b9;
 	uint32_t  a = k[0], b = k[1], c = k[2], d = k[3];
-
 	for (i = 0; i < 32; i++)
 	{
 		sum += delta;
 		y += ((z << 4) + a) ^ (z + sum) ^ ((z >> 5) + b);
 		z += ((y << 4) + c) ^ (y + sum) ^ ((y >> 5) + d);
 	}
+	
 	v[0] = y;
 	v[1] = z;
 }
@@ -27,7 +27,7 @@ static void tea_decrypt(uint32_t  *v, uint32_t  *k)
 	uint32_t  y = v[0], z = v[1], sum = 0xC6EF3720, i;
 	uint32_t  delta = 0x9e3779b9;
 	uint32_t  a = k[0], b = k[1], c = k[2], d = k[3];
-
+ 
 	for (i = 0; i < 32; i++)
 	{
 		z -= ((y << 4) + c) ^ (y + sum) ^ ((y >> 5) + d);
@@ -88,15 +88,15 @@ uint16_t  decrypt(uint8_t  *src, uint16_t  size_src, uint8_t  *key)
 	{
 		return 0;
 	}
-
 	//Ω‚√‹
 	num = size_src / 8;
 	for (i = 0; i < num; i++)
 	{
 		tea_decrypt((uint32_t  *)(src + i * 8), (uint32_t  *)key);
+	
 	}
-
 	return size_src;
+	
 }
  
 /*int testsamples()

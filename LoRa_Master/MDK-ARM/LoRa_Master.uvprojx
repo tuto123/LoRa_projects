@@ -332,7 +332,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F103xB</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc; ../Drivers/STM32F1xx_HAL_Driver/Inc; ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy; ../Drivers/CMSIS/Device/ST/STM32F1xx/Include; ../Drivers/CMSIS/Include; ..\App\radio\inc; ..\App\Base; ..\App\Task</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32F1xx_HAL_Driver/Inc;../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F1xx/Include;../Drivers/CMSIS/Include;..\App\radio\inc;..\App\Base;..\App\Task;..\App\Cjson;..\App\Tea</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -569,6 +569,31 @@
               <FileName>base_usart.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\App\Base\base_usart.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Application/Cjson</GroupName>
+          <Files>
+            <File>
+              <FileName>cJSON.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\App\Cjson\cJSON.c</FilePath>
+            </File>
+            <File>
+              <FileName>cJSON_Utils.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\App\Cjson\cJSON_Utils.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Application/Tea</GroupName>
+          <Files>
+            <File>
+              <FileName>tea.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\App\Tea\tea.c</FilePath>
             </File>
           </Files>
         </Group>

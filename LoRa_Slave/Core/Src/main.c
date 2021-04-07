@@ -25,7 +25,11 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "stask.h"
+#include "base_usart.h"
+#include "sx1276_user.h"
+#include "sx1276.h"
+#include "stdio.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -90,15 +94,20 @@ int main(void)
   MX_SPI1_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-
+	Base_Usart1_Init();
+	SX1276AppInit();
+	uint8_t LoraVersion;
+	LoraVersion = SX1276Read( REG_LR_VERSION );
+	printf("Lora Version:%d!\r\n",LoraVersion);
+	printf("Master Start!\r\n");
   /* USER CODE END 2 */
-
+	
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
     /* USER CODE END WHILE */
-
+		spTaskScheduler();
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -142,7 +151,18 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-
+#ifdef __GNUC__
+/* With GCC/RAISONANCE, small printf (option LD Linker->Libraries->Small printf
+   set to 'Yes') calls __io_putchar() */
+#define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
+#else
+#define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
+#endif
+PUTCHAR_PROTOTYPE
+{
+    HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, 0xFF);
+    return ch;
+}
 /* USER CODE END 4 */
 
 /**

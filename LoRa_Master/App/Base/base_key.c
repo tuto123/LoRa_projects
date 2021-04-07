@@ -13,6 +13,7 @@ struct KEY_t
 struct KEY_t key1_s = {0,0};
 struct KEY_t key2_s = {0,0};
 struct KEY_t key3_s = {0,0};
+#if 0
 void key1_process(void)
 {
 	if(KEY1_READ())
@@ -39,6 +40,5 @@ void key1_process(void)
 		key1_s.PressCount = 0;
 		
 	}
-	
-
 }
+#endif

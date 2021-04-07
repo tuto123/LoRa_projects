@@ -32,7 +32,7 @@ enum
 *************************************************/
 static void _timer_led_red_cb(void *args)
 { 
-	LED_RED_TOG();
+	//LED_RED_TOG();
 } 
 
 
@@ -45,7 +45,7 @@ static void _timer_led_red_cb(void *args)
 *************************************************/
 static void _timer_led_blue_cb(void *args)
 { 
-	LED_BLUE_TOG();
+	//LED_BLUE_TOG();
 }   
 
 
@@ -60,7 +60,40 @@ static void _timer_led_green_cb(void *args)
 { 
 	LED_GREEN_TOG();
 }  
+/************************************************
+函数名称 ： _timer_beep_cb
+功    能 ： 2000ms定时器回调函数
+参    数 ： void
+返 回 值 ： void
+作    者 ： sun
+*************************************************/
+static void _timer_beep_cb(void *args)
+{ 
+	//BEEP_TOG();
+}  
 
+/************************************************
+函数名称 ： _timer_light_cb
+功    能 ： 2000ms定时器回调函数
+参    数 ： void
+返 回 值 ： void
+作    者 ： sun
+*************************************************/
+static void _timer_light_cb(void *args)
+{ 
+	//LIGHT_ON();
+}  
+/************************************************
+函数名称 ： _timer_offlight_cb
+功    能 ： 2000ms定时器回调函数
+参    数 ： void
+返 回 值 ： void
+作    者 ： sun
+*************************************************/
+static void _timer_offlight_cb(void *args)
+{ 
+	//LIGHT_OFF();
+} 
 /************************************************
 函数名称 ： _timer_key_cb
 功    能 ： 10ms定时器回调函数
@@ -70,7 +103,7 @@ static void _timer_led_green_cb(void *args)
 *************************************************/
 static void _timer_key_cb(void *args)
 { 
-	key1_process();
+	//key1_process();
 	//key2_process();
 	//key3_process();
 }
@@ -97,7 +130,10 @@ struct stimer_t  stimerlist[] =
 {
 	 creat_timer( STIMER_LED_RED,	  ALIVE,	  500,   ALWAYS_UNLIVE, NULL,	_timer_led_red_cb 	    ),
 	 creat_timer( STIMER_LED_BLUE,	ALIVE,	  1000,  ALWAYS_UNLIVE, NULL,	_timer_led_blue_cb 	    ),
-	 creat_timer( STIMER_LED_GREEN,	ALIVE,	  2000,  ALWAYS_UNLIVE, NULL,	_timer_led_green_cb 	  ),
+	 creat_timer( STIMER_LED_GREEN,	ALIVE,	  500,   ALWAYS_ALIVE, NULL,	_timer_led_green_cb 	  ),
+	 creat_timer( STIMER_BEEP,     	ALIVE,	  500,   ALWAYS_UNLIVE, NULL,	_timer_beep_cb 	        ),
+	 creat_timer( STIMER_LIGHT,     ALIVE,	  500,   ALWAYS_UNLIVE, NULL,	_timer_light_cb 	      ),
+	 creat_timer( STIMER_OFFLIGHT,  ALIVE,	  500,   ALWAYS_UNLIVE, NULL,	_timer_offlight_cb 	      ),
 	 creat_timer( STIMER_KEY,	      ALIVE,	  10,    ALWAYS_ALIVE,  NULL,	_timer_key_cb 	        ),
 	 creat_timer( STIMER_USART,	    UNALIVE,	10,    ALWAYS_UNLIVE, NULL,	_timer_usart_cb 	      ),
 };

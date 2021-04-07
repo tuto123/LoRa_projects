@@ -32,6 +32,9 @@
 "lora_master\sx1276-board.o"
 "lora_master\base_key.o"
 "lora_master\base_usart.o"
+"lora_master\cjson.o"
+"lora_master\cjson_utils.o"
+"lora_master\tea.o"
 --library_type=microlib --strict --scatter "LoRa_Master\LoRa_Master.sct"
 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

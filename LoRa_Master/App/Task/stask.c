@@ -61,9 +61,9 @@ static void _task_scan_usart_cb(void *args)
 {
 		if(USER_Get_Usart_Receive_Flag())
 		{
-			USER_Clear_Usart_Receive_Flag();
 			//USER_UART1_SendData(usart1_s.RecvBuffer,usart1_s.RecvLen);
-			Radio.Send(usart1_s.RecvBuffer,usart1_s.RecvLen);			
+			Radio.Send(usart1_s.RxMes,usart1_s.RecvLen);	
+			USER_Clear_Usart_Receive_Flag();			
 		}
 }
 /************************************************

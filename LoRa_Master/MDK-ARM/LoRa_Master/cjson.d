@@ -1,0 +1,9 @@
+lora_master\cjson.o: ..\App\Cjson\cJSON.c
+lora_master\cjson.o: G:\design_tool\KEIL_MDK\Keil5\ARM\ARMCC\Bin\..\include\string.h
+lora_master\cjson.o: G:\design_tool\KEIL_MDK\Keil5\ARM\ARMCC\Bin\..\include\stdio.h
+lora_master\cjson.o: G:\design_tool\KEIL_MDK\Keil5\ARM\ARMCC\Bin\..\include\math.h
+lora_master\cjson.o: G:\design_tool\KEIL_MDK\Keil5\ARM\ARMCC\Bin\..\include\stdlib.h
+lora_master\cjson.o: G:\design_tool\KEIL_MDK\Keil5\ARM\ARMCC\Bin\..\include\limits.h
+lora_master\cjson.o: G:\design_tool\KEIL_MDK\Keil5\ARM\ARMCC\Bin\..\include\ctype.h
+lora_master\cjson.o: ..\App\Cjson\cJSON.h
+lora_master\cjson.o: G:\design_tool\KEIL_MDK\Keil5\ARM\ARMCC\Bin\..\include\stddef.h

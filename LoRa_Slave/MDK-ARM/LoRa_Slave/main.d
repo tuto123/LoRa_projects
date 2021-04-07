@@ -30,3 +30,16 @@ lora_slave\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
 lora_slave\main.o: ../Core/Inc/spi.h
 lora_slave\main.o: ../Core/Inc/usart.h
 lora_slave\main.o: ../Core/Inc/gpio.h
+lora_slave\main.o: ..\App\Task\stask.h
+lora_slave\main.o: ..\App\Base\base_usart.h
+lora_slave\main.o: ..\App\radio\inc\sx1276_user.h
+lora_slave\main.o: ..\App\radio\inc\sx1276.h
+lora_slave\main.o: ..\App\radio\inc\radio.h
+lora_slave\main.o: ..\App\radio\inc\sx1276_timer.h
+lora_slave\main.o: G:\design_tool\KEIL_MDK\Keil5\ARM\ARMCC\Bin\..\include\stdarg.h
+lora_slave\main.o: G:\design_tool\KEIL_MDK\Keil5\ARM\ARMCC\Bin\..\include\string.h
+lora_slave\main.o: G:\design_tool\KEIL_MDK\Keil5\ARM\ARMCC\Bin\..\include\stdbool.h
+lora_slave\main.o: G:\design_tool\KEIL_MDK\Keil5\ARM\ARMCC\Bin\..\include\stdio.h
+lora_slave\main.o: G:\design_tool\KEIL_MDK\Keil5\ARM\ARMCC\Bin\..\include\stdlib.h
+lora_slave\main.o: ..\App\radio\inc\sx1276Regs-Fsk.h
+lora_slave\main.o: ..\App\radio\inc\sx1276Regs-LoRa.h

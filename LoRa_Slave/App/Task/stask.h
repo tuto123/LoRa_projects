@@ -18,6 +18,7 @@ enum
 	  TASK_SCAN_KEY   = 0x01,
 		TASK_SCAN_USART = 0x02 ,
 	  TASK_SCAN_RADIO = 0x03 ,
+	  TASK_SCAN_decrypt = 0x04 ,
 };
 void spTaskStart(uint8_t task_id);
 void spTaskStop(uint8_t task_id);

@@ -1,5 +1,5 @@
 #include "base_usart.h"
-#include "stm32l0xx_hal.h"
+#include "stm32f1xx_hal.h"
 #include "stimer.h"
 
 #include "usart.h"
@@ -24,10 +24,10 @@ void USER_Clear_Usart_Receive_Flag(void)
 	usart1_s.RecvFalg = 0;
 }
 
-
+#if 0
 void USER_UART_Receive(UART_HandleTypeDef *huart)
 {
-	uint8_t data = (uint8_t)(huart->Instance->RDR);
+	uint8_t data = (uint8_t)(huart->Instance->DR);
 	usart1_s.RecvBuffer[usart1_s.RecvCount++] = data;
 
 	usart1_s.RecvLen = usart1_s.RecvCount;
@@ -39,6 +39,7 @@ void USER_UART_Receive(UART_HandleTypeDef *huart)
 	}
 	spTimerStart(STIMER_USART,50,1);
 }
+#endif
 
 void USER_UART1_SendData(uint8_t *data,uint16_t len)
 {
@@ -46,6 +47,7 @@ void USER_UART1_SendData(uint8_t *data,uint16_t len)
   HAL_UART_Transmit(&huart1,data,len,0xFF);
 
 }
+#if 0
 void USER_UART_IRQHandler(UART_HandleTypeDef *huart)
 {
   uint32_t isrflags   = READ_REG(huart->Instance->ISR);
@@ -194,12 +196,34 @@ void USER_UART_IRQHandler(UART_HandleTypeDef *huart)
   }
 
 }
+#endif
 void Base_Usart1_Init(void)
 {
-	memset(usart1_s.RecvBuffer,0,sizeof(usart1_s.RecvBuffer));
+	memset(usart1_s.RxMes,0,sizeof(usart1_s.RecvBuffer));
 	usart1_s.RecvCount = 0;
 	usart1_s.RecvFalg = 0;
 	usart1_s.RecvLen = 0;
 	__HAL_UART_ENABLE_IT(&huart1, UART_IT_RXNE);
 	__HAL_UART_ENABLE_IT(&huart1, UART_IT_ERR);
+}
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+	 
+		UNUSED(huart);
+		if(huart == &huart1)
+		{
+			if(usart1_s.RecvBuffer == '\r')
+			{
+				usart1_s.RecvLen = usart1_s.RecvCount;
+				USER_UART_Receive_Timeout();
+				memset(usart1_s.RxMes, 0, sizeof(char));		
+			}
+			else
+			{
+				usart1_s.RxMes[usart1_s.RecvCount] = usart1_s.RecvBuffer;
+				++usart1_s.RecvCount;
+			}
+			HAL_UART_Receive_IT(&huart1, (uint8_t *)&usart1_s.RecvBuffer, 1);
+		}	
 }

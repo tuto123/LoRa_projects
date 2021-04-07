@@ -3,18 +3,10 @@
 #include "stimer.h"
 #include "base_usart.h"
 #include "sx1276.h"
-
-/*************åŠ å¯†åŠŸèƒ½*****************/
-#include "tea.h"
-#include "stdio.h"
-#include "stdlib.h"
-#include "string.h"
-#include "cJSON.h"
-uint8_t  key[]="123456789987654321";
-/**************************************/
-
 #define spTASK_SIZE(array) (sizeof(array)/sizeof(*array))
 #define  TASK_INVALID  0xFF
+
+
 
 enum
 {
@@ -24,12 +16,13 @@ enum
 };
 
 
+
 /************************************************
-å‡½æ•°åç§° ï¼š _task_soft_timer_cb
-åŠŸ    èƒ½ ï¼š å®šæ—¶ä»»åŠ¡çš„å›žè°ƒå‡½æ•°
-å‚    æ•° ï¼š void
-è¿” å›ž å€¼ ï¼š æ— 
-ä½œ    è€… ï¼š sun
+º¯ÊýÃû³Æ £º _task_soft_timer_cb
+¹¦    ÄÜ £º ¶¨Ê±ÈÎÎñµÄ»Øµ÷º¯Êý
+²Î    Êý £º void
+·µ »Ø Öµ £º ÎÞ
+×÷    Õß £º sun
 *************************************************/
 static void _task_soft_timer_cb(void *args)
 {
@@ -37,50 +30,48 @@ static void _task_soft_timer_cb(void *args)
 }
 
 /************************************************
-å‡½æ•°åç§° ï¼š _task_scan_key_cb
-åŠŸ    èƒ½ ï¼š å®šæ—¶ä»»åŠ¡çš„å›žè°ƒå‡½æ•°
-å‚    æ•° ï¼š void
-è¿” å›ž å€¼ ï¼š æ— 
-ä½œ    è€… ï¼š sun
+º¯ÊýÃû³Æ £º _task_scan_key_cb
+¹¦    ÄÜ £º ¶¨Ê±ÈÎÎñµÄ»Øµ÷º¯Êý
+²Î    Êý £º void
+·µ »Ø Öµ £º ÎÞ
+×÷    Õß £º sun
 *************************************************/
 static void _task_scan_key_cb(void *args)
 {
-	  /*æ·»åŠ æŒ‰é”®æ‰«ç§’å¾ªçŽ¯å‡½æ•°*/
+	  /*Ìí¼Ó°´¼üÉ¨ÃëÑ­»·º¯Êý*/
 }
 
-
-
 /************************************************
-å‡½æ•°åç§° ï¼š _task_scan_key_cb
-åŠŸ    èƒ½ ï¼š å®šæ—¶ä»»åŠ¡çš„å›žè°ƒå‡½æ•°
-å‚    æ•° ï¼š void
-è¿” å›ž å€¼ ï¼š æ— 
-ä½œ    è€… ï¼š sun
+º¯ÊýÃû³Æ £º _task_scan_key_cb
+¹¦    ÄÜ £º ¶¨Ê±ÈÎÎñµÄ»Øµ÷º¯Êý
+²Î    Êý £º void
+·µ »Ø Öµ £º ÎÞ
+×÷    Õß £º sun
 *************************************************/
+
+/*************¼ÓÃÜ¹¦ÄÜ*****************/
+#include "tea.h"
+#include "stdio.h"
+#include "stdlib.h"
+#include "string.h"
+#include "cJSON.h"
+uint8_t  key[]="123456789987654321";
+/**************************************/
 static void _task_scan_usart_cb(void *args)
 {
 		if(USER_Get_Usart_Receive_Flag())
 		{
-			USER_Clear_Usart_Receive_Flag();
 			//USER_UART1_SendData(usart1_s.RecvBuffer,usart1_s.RecvLen);
-			if(usart1_s.RecvLen>0&&usart1_s.RecvLen<=248)
-			{
-				printf("write:%d\r\n",usart1_s.RecvLen);
-				uint8_t n = encrypt(usart1_s.RecvBuffer,usart1_s.RecvLen, key);
-				Radio.Send(usart1_s.RecvBuffer,n);          //åŽŸæ¥çš„éƒ¨åˆ†
-				//decrypt(usart1_s.RecvBuffer,n,key);
-				//printf("%s\r\n",usart1_s.RecvBuffer);
-				printf("send:%d\r\n",n);	
-			}
-			//memset(usart1_s.RecvBuffer,0,usart1_s.RecvLen);
+			Radio.Send(usart1_s.RxMes,usart1_s.RecvLen);	
+			USER_Clear_Usart_Receive_Flag();			
 		}
 }
 /************************************************
-å‡½æ•°åç§° ï¼š _task_scan_radio_cb
-åŠŸ    èƒ½ ï¼š å®šæ—¶ä»»åŠ¡çš„å›žè°ƒå‡½æ•°
-å‚    æ•° ï¼š void
-è¿” å›ž å€¼ ï¼š æ— 
-ä½œ    è€… ï¼š sun
+º¯ÊýÃû³Æ £º _task_scan_radio_cb
+¹¦    ÄÜ £º ¶¨Ê±ÈÎÎñµÄ»Øµ÷º¯Êý
+²Î    Êý £º void
+·µ »Ø Öµ £º ÎÞ
+×÷    Õß £º sun
 *************************************************/
 static void _task_scan_radio_cb(void *args)
 {
@@ -88,29 +79,28 @@ static void _task_scan_radio_cb(void *args)
 }
 
 
-
 /************************************************
-å‡½æ•°åç§° ï¼š tasklist
-åŠŸ    èƒ½ ï¼š ä»»åŠ¡åˆ—è¡¨
-å‚    æ•° ï¼š 
-è¿” å›ž å€¼ ï¼š 
-ä½œ    è€… ï¼š sun
+º¯ÊýÃû³Æ £º tasklist
+¹¦    ÄÜ £º ÈÎÎñÁÐ±í
+²Î    Êý £º 
+·µ »Ø Öµ £º 
+×÷    Õß £º sun
 *************************************************/
 struct task_t tasklist[] =
 {
-	 { TASK_SOFT_TIMER,		ALWAYS_ALIVE,	 NULL,	_task_soft_timer_cb 	  }, //æ—¶é—´ç®¡ç†ä»»åŠ¡ï¼Œè¯·å‹¿åˆ é™¤
+	 { TASK_SOFT_TIMER,		ALWAYS_ALIVE,	 NULL,	_task_soft_timer_cb 	  }, //Ê±¼ä¹ÜÀíÈÎÎñ£¬ÇëÎðÉ¾³ý
 	 { TASK_SCAN_KEY,		  ALWAYS_ALIVE,	 NULL,	_task_scan_key_cb     	}, 
 	 { TASK_SCAN_USART,		ALWAYS_ALIVE,	 NULL,	_task_scan_usart_cb   	}, 
-	 { TASK_SCAN_RADIO,		ALWAYS_ALIVE,	 NULL,	_task_scan_radio_cb   	}, //æ— çº¿Sx1278ä»»åŠ¡ç®¡ç†
+	 { TASK_SCAN_RADIO,		ALWAYS_ALIVE,	 NULL,	_task_scan_radio_cb   	}, //ÎÞÏßSx1278ÈÎÎñ¹ÜÀí
 };
 
 
 /************************************************
-å‡½æ•°åç§° ï¼š _getTaskNum
-åŠŸ    èƒ½ ï¼š èŽ·å–æŒ‡å®šä»»åŠ¡åœ¨ä»»åŠ¡åˆ—è¡¨ä¸­çš„ä½ç½®
-å‚    æ•° ï¼š ä»»åŠ¡å·
-è¿” å›ž å€¼ ï¼š ä»»åŠ¡Idå·
-ä½œ    è€… ï¼š sun
+º¯ÊýÃû³Æ £º _getTaskNum
+¹¦    ÄÜ £º »ñÈ¡Ö¸¶¨ÈÎÎñÔÚÈÎÎñÁÐ±íÖÐµÄÎ»ÖÃ
+²Î    Êý £º ÈÎÎñºÅ
+·µ »Ø Öµ £º ÈÎÎñIdºÅ
+×÷    Õß £º sun
 *************************************************/
 static uint8_t _getTaskNum (uint8_t task_id)
 {
@@ -126,11 +116,11 @@ static uint8_t _getTaskNum (uint8_t task_id)
 }
 
 /************************************************
-å‡½æ•°åç§° ï¼š spTaskStart
-åŠŸ    èƒ½ ï¼š å¼€å§‹æŒ‡å®šä»»åŠ¡
-å‚    æ•° ï¼š ä»»åŠ¡å·
-è¿” å›ž å€¼ ï¼š æ— 
-ä½œ    è€… ï¼š sun
+º¯ÊýÃû³Æ £º spTaskStart
+¹¦    ÄÜ £º ¿ªÊ¼Ö¸¶¨ÈÎÎñ
+²Î    Êý £º ÈÎÎñºÅ
+·µ »Ø Öµ £º ÎÞ
+×÷    Õß £º sun
 *************************************************/
 void spTaskStart(uint8_t task_id)
 {
@@ -143,11 +133,11 @@ void spTaskStart(uint8_t task_id)
 	tasklist[t_id].flags = ALIVE;
 }
 /************************************************
-å‡½æ•°åç§° ï¼š spTaskStop
-åŠŸ    èƒ½ ï¼š åœæ­¢æŒ‡å®šä»»åŠ¡
-å‚    æ•° ï¼š ä»»åŠ¡å·
-è¿” å›ž å€¼ ï¼š æ— 
-ä½œ    è€… ï¼š sun
+º¯ÊýÃû³Æ £º spTaskStop
+¹¦    ÄÜ £º Í£Ö¹Ö¸¶¨ÈÎÎñ
+²Î    Êý £º ÈÎÎñºÅ
+·µ »Ø Öµ £º ÎÞ
+×÷    Õß £º sun
 *************************************************/
 void spTaskStop(uint8_t task_id)
 {
@@ -161,11 +151,11 @@ void spTaskStop(uint8_t task_id)
 }
 
 /************************************************
-å‡½æ•°åç§° ï¼š spTaskScheduler
-åŠŸ    èƒ½ ï¼š è½®è®­ä»»åŠ¡åˆ—è¡¨ä¸­çš„ä»»åŠ¡,ä»»åŠ¡åˆ†é…å™¨
-å‚    æ•° ï¼š void
-è¿” å›ž å€¼ ï¼š void
-ä½œ    è€… ï¼š sun
+º¯ÊýÃû³Æ £º spTaskScheduler
+¹¦    ÄÜ £º ÂÖÑµÈÎÎñÁÐ±íÖÐµÄÈÎÎñ,ÈÎÎñ·ÖÅäÆ÷
+²Î    Êý £º void
+·µ »Ø Öµ £º void
+×÷    Õß £º sun
 *************************************************/
 void spTaskScheduler(void)
 {

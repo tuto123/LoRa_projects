@@ -21,62 +21,13 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V2.0.18.0
 Dialog DLL:      TCM.DLL V1.14.8.0
  
 <h2>Project:</h2>
-F:\College\Graduate\LoRa_project\LoRa_Slave\MDK-ARM\LoRa_Slave.uvprojx
+F:\College\Graduate\LoRa_projects\LoRa_Slave\MDK-ARM\LoRa_Slave.uvprojx
 Project File Date:  04/07/2021
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 1 (build 61)', folder: 'G:\design_tool\KEIL_MDK\Keil5\ARM\ARMCC\Bin'
 Build target 'LoRa_Slave'
-compiling base_usart.c...
-..\App\Base\base_usart.c(30): error:  #136: struct "<unnamed>" has no field "RDR"
-  	uint8_t data = (uint8_t)(huart->Instance->RDR);
-..\App\Base\base_usart.c(51): error:  #136: struct "<unnamed>" has no field "ISR"
-    uint32_t isrflags   = 
-EAD_REG(huart->Instance->ISR);
-..\App\Base\base_usart.c(57): error:  #20: identifier "USART_ISR_PE" is undefined
-    errorflags = (isrflags & (uint32_t)(USART_ISR_PE | USART_ISR_FE | USART_ISR_ORE | USART_ISR_NE));
-..\App\Base\base_usart.c(57): error:  #20: identifier "USART_ISR_FE" is undefined
-    errorflags = (isrflags & (uint32_t)(USART_ISR_PE | USART_ISR_FE | USART_ISR_ORE | USART_ISR_NE));
-..\App\Base\base_usart.c(57): error:  #20: identifier "USART_ISR_ORE" is undefined
-    errorflags = (isrflags & (uint32_t)(USART_ISR_PE | USART_ISR_FE | USART_ISR_ORE | USART_ISR_NE));
-..\App\Base\base_usart.c(57): error:  #20: identifier "USART_ISR_NE" is undefined
-    errorflags = (isrflags & (uint32_t)(USART_ISR_PE | USART_ISR_FE | USART_ISR_ORE | USART_ISR_NE));
-..\App\Base\base_usart.c(61): error:  #20: identifier "USART_ISR_RXNE" is undefined
-      if(((isrflags & USART_ISR_RXNE) != RESET) && ((cr1its & USART_CR1_RXNEIE) != RESET))
-..\App\Base\base_usart.c(79): warning:  #223-D: function "__HAL_UART_CLEAR_IT" declared implicitly
-        __HAL_UART_CLEAR_IT(huart, UART_CLEAR_PEF);
-..\App\Base\base_usart.c(79): error:  #20: identifier "UART_CLEAR_PEF" is undefined
-        __HAL_UART_CLEAR_IT(huart, UART_CLEAR_PEF);
-..\App\Base\base_usart.c(87): warning:  #223-D: function "__HAL_UART_CLEAR_IT" declared implicitly
-        __HAL_UART_CLEAR_IT(huart, UART_CLEAR_FEF);
-..\App\Base\base_usart.c(87): error:  #20: identifier "UART_CLEAR_FEF" is undefined
-        __HAL_UART_CLEAR_IT(huart, UART_CLEAR_FEF);
-..\App\Base\base_usart.c(95): warning:  #223-D: function "__HAL_UART_CLEAR_IT" declared implicitly
-        __HAL_UART_CLEAR_IT(huart, UART_CLEAR_NEF);
-..\App\Base\base_usart.c(95): error:  #20: identifier "UART_CLEAR_NEF" is undefined
-        __HAL_UART_CLEAR_IT(huart, UART_CLEAR_NEF);
-..\App\Base\base_usart.c(104): warning:  #223-D: function "__HAL_UART_CLEAR_IT" declared implicitly
-        __HAL_UART_CLEAR_IT(huart, UART_CLEAR_OREF);
-..\App\Base\base_usart.c(104): error:  #20: identifier "UART_CLEAR_OREF" is undefined
-        __HAL_UART_CLEAR_IT(huart, UART_CLEAR_OREF);
-..\App\Base\base_usart.c(113): error:  #20: identifier "USART_ISR_RXNE" is undefined
-        if(((isrflags & USART_ISR_RXNE) != RESET) && ((cr1its & USART_CR1_RXNEIE) != RESET))
-..\App\Base\base_usart.c(172): error:  #20: identifier "USART_ISR_WUF" is undefined
-    if(((isrflags & USART_ISR_WUF) != RESET) && ((cr3its & USART_CR3_WUFIE) != RESET))
-..\App\Base\base_usart.c(172): error:  #20: identifier "USART_CR3_WUFIE" is undefined
-    if(((isrflags & USART_ISR_WUF) != RESET) && ((cr3its & USART_CR3_WUFIE) != RESET))
-..\App\Base\base_usart.c(174): warning:  #223-D: function "__HAL_UART_CLEAR_IT" declared implicitly
-      __HAL_UART_CLEAR_IT(huart, UART_CLEAR_WUF);
-..\App\Base\base_usart.c(174): error:  #20: identifier "UART_CLEAR_WUF" is undefined
-      __HAL_UART_CLEAR_IT(huart, UART_CLEAR_WUF);
-..\App\Base\base_usart.c(178): warning:  #223-D: function "HAL_UARTEx_WakeupCallback" declared implicitly
-      HAL_UARTEx_WakeupCallback(huart);
-..\App\Base\base_usart.c(183): error:  #20: identifier "USART_ISR_TXE" is undefined
-    if(((isrflags & USART_ISR_TXE) != RESET) && ((cr1its & USART_CR1_TXEIE) != RESET))
-..\App\Base\base_usart.c(190): error:  #20: identifier "USART_ISR_TC" is undefined
-    if(((isrflags & USART_ISR_TC) != RESET) && ((cr1its & USART_CR1_TCIE) != RESET))
-..\App\Base\base_usart.c: 6 warnings, 17 errors
-"LoRa_Slave\LoRa_Slave.axf" - 17 Error(s), 6 Warning(s).
+"LoRa_Slave\LoRa_Slave.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -87,15 +38,14 @@ Package Vendor: ARM
    * Component: CORE Version: 4.3.0
 
 <h2>Collection of Component include folders:</h2>
-  F:\College\Graduate\LoRa_project\LoRa_Slave\MDK-ARM\RTE
+  F:\College\Graduate\LoRa_projects\LoRa_Slave\MDK-ARM\RTE
   G:\design_tool\KEIL_MDK\Keil5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include
   G:\design_tool\KEIL_MDK\Keil5\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include
 
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:4.3.0
-Target not created.
-Build Time Elapsed:  00:00:02
+Build Time Elapsed:  00:00:00
 </pre>
 </body>
 </html>
