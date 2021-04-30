@@ -332,7 +332,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F103xB</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../Drivers/STM32F1xx_HAL_Driver/Inc;../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F1xx/Include;../Drivers/CMSIS/Include;..\App\Base;..\App\Cjson;..\App\radio\inc;..\App\Task;..\App\Tea;..\App\Temperature;..\App\FAN</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32F1xx_HAL_Driver/Inc;../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F1xx/Include;../Drivers/CMSIS/Include;..\App\Base;..\App\Cjson;..\App\radio\inc;..\App\Task;..\App\Tea;..\App\Temperature;..\App\FAN;..\App\ParseData</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -619,6 +619,16 @@
               <FileName>fan.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\App\FAN\fan.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Application/ParseData</GroupName>
+          <Files>
+            <File>
+              <FileName>getData.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\App\ParseData\getData.c</FilePath>
             </File>
           </Files>
         </Group>

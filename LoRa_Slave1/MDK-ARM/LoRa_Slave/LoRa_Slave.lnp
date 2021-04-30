@@ -38,6 +38,7 @@
 "lora_slave\system_stm32f1xx.o"
 "lora_slave\temperature.o"
 "lora_slave\fan.o"
+"lora_slave\getdata.o"
 --library_type=microlib --strict --scatter "LoRa_Slave\LoRa_Slave.sct"
 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

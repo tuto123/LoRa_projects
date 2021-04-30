@@ -46,5 +46,3 @@ lora_slave\main.o: G:\design_tool\KEIL_MDK\Keil5\ARM\ARMCC\Bin\..\include\stdio.
 lora_slave\main.o: G:\design_tool\KEIL_MDK\Keil5\ARM\ARMCC\Bin\..\include\stdlib.h
 lora_slave\main.o: ..\App\radio\inc\sx1276Regs-Fsk.h
 lora_slave\main.o: ..\App\radio\inc\sx1276Regs-LoRa.h
-lora_slave\main.o: ..\App\Temperature\Temperature.h
-lora_slave\main.o: ..\App\FAN\fan.h

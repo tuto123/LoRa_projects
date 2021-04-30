@@ -41,5 +41,11 @@ lora_slave\stask.o: G:\design_tool\KEIL_MDK\Keil5\ARM\ARMCC\Bin\..\include\stdbo
 lora_slave\stask.o: G:\design_tool\KEIL_MDK\Keil5\ARM\ARMCC\Bin\..\include\stdio.h
 lora_slave\stask.o: ..\App\radio\inc\sx1276Regs-Fsk.h
 lora_slave\stask.o: ..\App\radio\inc\sx1276Regs-LoRa.h
+lora_slave\stask.o: ../Core/Inc/gpio.h
+lora_slave\stask.o: ../Core/Inc/main.h
+lora_slave\stask.o: ..\App\ParseData\getData.h
+lora_slave\stask.o: ..\App\Temperature\Temperature.h
+lora_slave\stask.o: ..\App\FAN\fan.h
+lora_slave\stask.o: ../Core/Inc/tim.h
 lora_slave\stask.o: ..\App\Tea\tea.h
 lora_slave\stask.o: ..\App\Cjson\cJSON.h

@@ -130,7 +130,7 @@ struct stimer_t  stimerlist[] =
 {
 	 creat_timer( STIMER_LED_RED,	  ALIVE,	  500,   ALWAYS_UNLIVE, NULL,	_timer_led_red_cb 	    ),
 	 creat_timer( STIMER_LED_BLUE,	ALIVE,	  1000,  ALWAYS_UNLIVE, NULL,	_timer_led_blue_cb 	    ),
-	 creat_timer( STIMER_LED_GREEN,	ALIVE,	  500,   ALWAYS_ALIVE, NULL,	_timer_led_green_cb 	  ),
+	 creat_timer( STIMER_LED_GREEN,	ALIVE,	  500,   ALWAYS_ALIVE, 	NULL,	_timer_led_green_cb 	  ),
 	 creat_timer( STIMER_BEEP,     	ALIVE,	  500,   ALWAYS_UNLIVE, NULL,	_timer_beep_cb 	        ),
 	 creat_timer( STIMER_LIGHT,     ALIVE,	  500,   ALWAYS_UNLIVE, NULL,	_timer_light_cb 	      ),
 	 creat_timer( STIMER_OFFLIGHT,  ALIVE,	  500,   ALWAYS_UNLIVE, NULL,	_timer_offlight_cb 	      ),

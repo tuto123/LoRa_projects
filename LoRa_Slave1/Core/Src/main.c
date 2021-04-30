@@ -31,8 +31,6 @@
 #include "sx1276_user.h"
 #include "sx1276.h"
 #include "stdio.h"
-#include "Temperature.h"
-#include "fan.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -63,8 +61,7 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-static float float_temp, float_humi;
-static uint8_t int_temp, int_humi;
+
 /* USER CODE END 0 */
 
 /**
@@ -106,7 +103,6 @@ int main(void)
 	}
 	printf("DHT11 checked success!!!\r\n");
 	Base_Usart1_Init();
-	uint8_t fanSpeed=0; 
 	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_1);
 	//SX1276AppInit();
 	//uint8_t LoraVersion;
@@ -120,28 +116,8 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-		#if 0
-		int ret = 1;
-		ret = DHT11_Get_Temperature_Humidity(&int_temp, &int_humi);
-		if(ret == 0)
-		{
-			printf("temperature = %d degree humidity: %d\r\n",int_temp ,int_humi);
-			HAL_Delay(200);
-		}
-		#endif
-		while (fanSpeed < 100)
-	  {
-		  fanSpeed++;
-		  FAN_Set_Speed(fanSpeed);
-		  HAL_Delay(10);
-	  }
-	  while (fanSpeed)
-	  {
-		  fanSpeed--;
-		  FAN_Set_Speed(fanSpeed);
-		  HAL_Delay(10);
-	  }
-	  HAL_Delay(200);
+		spTaskScheduler();
+		
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

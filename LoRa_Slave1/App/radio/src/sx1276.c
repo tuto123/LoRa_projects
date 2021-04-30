@@ -24,7 +24,7 @@ Maintainer: Miguel Luis, Gregory Cristian and Wael Guibene
 
 /*!
  * Radio registers definition
- * ÎŞÏß¼Ä´æÆ÷¶¨Òå
+ * æ— çº¿å¯„å­˜å™¨å®šä¹‰
  */
 typedef struct
 {
@@ -35,7 +35,7 @@ typedef struct
 
 /*!
  * FSK bandwidth definition
- * FSK´ø¿í¶¨Òå
+ * FSKå¸¦å®½å®šä¹‰
  */
 typedef struct
 {
@@ -62,9 +62,9 @@ __IO uint8_t  SX1276EventIrqFlag[EVENT_NUM] = {0};
  */
 
 /*!
- * Performs the Rx chain calibration for LF and HF bands (¶ÔLFºÍHF²¨¶Î½øĞĞRXÁ´Ğ£×¼)
+ * Performs the Rx chain calibration for LF and HF bands (å¯¹LFå’ŒHFæ³¢æ®µè¿›è¡ŒRXé“¾æ ¡å‡†)
  * \remark Must be called just after the reset so all registers are at their
- *         default values £¨ÔÚÖØÖÃºóµ÷ÓÃ£¬ËùÒÔËùÓĞ¼Ä´æÆ÷¶¼´¦ÓÚÄ¬ÈÏÖµ¡££©
+ *         default values ï¼ˆåœ¨é‡ç½®åè°ƒç”¨ï¼Œæ‰€ä»¥æ‰€æœ‰å¯„å­˜å™¨éƒ½å¤„äºé»˜è®¤å€¼ã€‚ï¼‰
  */
 static void RxChainCalibration( void );
 
@@ -74,9 +74,9 @@ static void RxChainCalibration( void );
 void SX1276Reset( void );
 
 /*!
- * \brief Sets the SX1276 in transmission mode for the given time(ÉèÖÃSX1276·¢ËÍ³¬Ê±Ê±¼ä)
+ * \brief Sets the SX1276 in transmission mode for the given time(è®¾ç½®SX1276å‘é€è¶…æ—¶æ—¶é—´)
  * \param [IN] timeout Transmission timeout [ms] [0: continuous, others timeout]
- * \param [IN] ·¢ËÍ³¬Ê±Ê±¼ä                  [ms] [0: ³ÖĞø·¢ËÍ, ³¬Ê±Ê±¼ä]
+ * \param [IN] å‘é€è¶…æ—¶æ—¶é—´                  [ms] [0: æŒç»­å‘é€, è¶…æ—¶æ—¶é—´]
  */
 void SX1276SetTx( uint32_t timeout );
 
@@ -199,7 +199,7 @@ static RadioEvents_t *RadioEvents;
 
 /*!
  * Reception buffer
- * ÊÕ·¢»º´æÇø
+ * æ”¶å‘ç¼“å­˜åŒº
  */
 static uint8_t RxTxBuffer[RX_BUFFER_SIZE];
 
@@ -239,11 +239,11 @@ void memcpy1( uint8_t *dst, const uint8_t *src, uint16_t size )
  * Radio driver functions implementation
  */
  /************************************************
-º¯ÊıÃû³Æ £º SX1276Init
-¹¦    ÄÜ £º SX1276³õÊ¼»¯
-²Î    Êı £º RadioEvents_t *events£¬sx1276ÊÂ¼ş
-·µ »Ø Öµ £º ÎŞ
-×÷    Õß £º sun
+å‡½æ•°åç§° ï¼š SX1276Init
+åŠŸ    èƒ½ ï¼š SX1276åˆå§‹åŒ–
+å‚    æ•° ï¼š RadioEvents_t *eventsï¼Œsx1276äº‹ä»¶
+è¿” å› å€¼ ï¼š æ— 
+ä½œ    è€… ï¼š sun
 *************************************************/
 
 void SX1276Init( RadioEvents_t *events )
@@ -277,11 +277,11 @@ void SX1276Init( RadioEvents_t *events )
 
 
  /************************************************
-º¯ÊıÃû³Æ £º SX1276GetStatus
-¹¦    ÄÜ £º ¶ÁÈ¡µ±Ç°´¦ÓÚÊ²Ã´×´Ì¬
-²Î    Êı £º ÎŞ
-·µ »Ø Öµ £º ·µ»Øµ±Ç°×´Ì¬
-×÷    Õß £º sun
+å‡½æ•°åç§° ï¼š SX1276GetStatus
+åŠŸ    èƒ½ ï¼š è¯»å–å½“å‰å¤„äºä»€ä¹ˆçŠ¶æ€
+å‚    æ•° ï¼š æ— 
+è¿” å› å€¼ ï¼š è¿”å›å½“å‰çŠ¶æ€
+ä½œ    è€… ï¼š sun
 *************************************************/
 
 RadioState_t SX1276GetStatus( void )
@@ -289,11 +289,11 @@ RadioState_t SX1276GetStatus( void )
     return SX1276.Settings.State;
 }
  /************************************************
-º¯ÊıÃû³Æ £º SX1276SetChannel
-¹¦    ÄÜ £º ÉèÖÃSX1276¹¤×÷ÆµÂÊ
-²Î    Êı £º uint32_t freq£º¹¤×÷ÆµÂÊ
-·µ »Ø Öµ £º ÎŞ
-×÷    Õß £º sun
+å‡½æ•°åç§° ï¼š SX1276SetChannel
+åŠŸ    èƒ½ ï¼š è®¾ç½®SX1276å·¥ä½œé¢‘ç‡
+å‚    æ•° ï¼š uint32_t freqï¼šå·¥ä½œé¢‘ç‡
+è¿” å› å€¼ ï¼š æ— 
+ä½œ    è€… ï¼š sun
 *************************************************/
 void SX1276SetChannel( uint32_t freq )
 {
@@ -304,11 +304,11 @@ void SX1276SetChannel( uint32_t freq )
     SX1276Write( REG_FRFLSB, ( uint8_t )( freq & 0xFF ) );
 }
  /************************************************
-º¯ÊıÃû³Æ £º  SX1276IsChannelFree
-¹¦    ÄÜ £º ¶ÁÈ¡µ±Ç°ĞÅµÀÊÇ·ñÃ¦
-²Î    Êı £º RadioModems_t modem£ºµ±Ç°¹¤×÷Ä£Ê½ uint32_t freq:´ı¼ì²âĞÅµÀ int16_t rssiThresh£ºÖ¸¶¨µÄĞÅºÅÖµ uint32_t maxCarrierSenseTime:×î´óÉ¨ÃèÊ±¼ä
-·µ »Ø Öµ £º 1:²»Ã¦  0:Ã¦
-×÷    Õß £º sun
+å‡½æ•°åç§° ï¼š  SX1276IsChannelFree
+åŠŸ    èƒ½ ï¼š è¯»å–å½“å‰ä¿¡é“æ˜¯å¦å¿™
+å‚    æ•° ï¼š RadioModems_t modemï¼šå½“å‰å·¥ä½œæ¨¡å¼ uint32_t freq:å¾…æ£€æµ‹ä¿¡é“ int16_t rssiThreshï¼šæŒ‡å®šçš„ä¿¡å·å€¼ uint32_t maxCarrierSenseTime:æœ€å¤§æ‰«ææ—¶é—´
+è¿” å› å€¼ ï¼š 1:ä¸å¿™  0:å¿™
+ä½œ    è€… ï¼š sun
 *************************************************/
 bool SX1276IsChannelFree( RadioModems_t modem, uint32_t freq, int16_t rssiThresh, uint32_t maxCarrierSenseTime )
 {
@@ -342,11 +342,11 @@ bool SX1276IsChannelFree( RadioModems_t modem, uint32_t freq, int16_t rssiThresh
 }
 
  /************************************************
-º¯ÊıÃû³Æ £º  SX1276IsChannelFree
-¹¦    ÄÜ £º ¶ÁÈ¡µ±Ç°ĞÅµÀÊÇ·ñÃ¦
-²Î    Êı £º RadioModems_t modem£ºµ±Ç°¹¤×÷Ä£Ê½ uint32_t freq:´ı¼ì²âĞÅµÀ int16_t rssiThresh£ºÖ¸¶¨µÄĞÅºÅÖµ uint32_t maxCarrierSenseTime:×î´óÉ¨ÃèÊ±¼ä
-·µ »Ø Öµ £º 1:²»Ã¦  0:Ã¦
-×÷    Õß £º sun
+å‡½æ•°åç§° ï¼š  SX1276IsChannelFree
+åŠŸ    èƒ½ ï¼š è¯»å–å½“å‰ä¿¡é“æ˜¯å¦å¿™
+å‚    æ•° ï¼š RadioModems_t modemï¼šå½“å‰å·¥ä½œæ¨¡å¼ uint32_t freq:å¾…æ£€æµ‹ä¿¡é“ int16_t rssiThreshï¼šæŒ‡å®šçš„ä¿¡å·å€¼ uint32_t maxCarrierSenseTime:æœ€å¤§æ‰«ææ—¶é—´
+è¿” å› å€¼ ï¼š 1:ä¸å¿™  0:å¿™
+ä½œ    è€… ï¼š sun
 *************************************************/
 bool SX1276CheckLoRaChannelFree(  int16_t rssiThresh )
 {
@@ -368,11 +368,11 @@ bool SX1276CheckLoRaChannelFree(  int16_t rssiThresh )
 
 
  /************************************************
-º¯ÊıÃû³Æ £º  SX1276Random
-¹¦    ÄÜ £º ÓÃÀ´Éú³ÉËæ»úÊı
-²Î    Êı £º ÎŞ
-·µ »Ø Öµ £º Ëæ»úÊı
-×÷    Õß £º sun
+å‡½æ•°åç§° ï¼š  SX1276Random
+åŠŸ    èƒ½ ï¼š ç”¨æ¥ç”Ÿæˆéšæœºæ•°
+å‚    æ•° ï¼š æ— 
+è¿” å› å€¼ ï¼š éšæœºæ•°
+ä½œ    è€… ï¼š sun
 *************************************************/
 uint32_t SX1276Random( void )
 {
@@ -417,11 +417,11 @@ uint32_t SX1276Random( void )
  */
  
   /************************************************
-º¯ÊıÃû³Æ £º  RxChainCalibration
-¹¦    ÄÜ £º ÎªµÍÆµºÍ¸ßÆµ´øÖ´ĞĞRxÁ´Ğ£×¼
-²Î    Êı £º ÎŞ
-·µ »Ø Öµ £º ÎŞ
-×÷    Õß £º sun
+å‡½æ•°åç§° ï¼š  RxChainCalibration
+åŠŸ    èƒ½ ï¼š ä¸ºä½é¢‘å’Œé«˜é¢‘å¸¦æ‰§è¡ŒRxé“¾æ ¡å‡†
+å‚    æ•° ï¼š æ— 
+è¿” å› å€¼ ï¼š æ— 
+ä½œ    è€… ï¼š sun
 *************************************************/
 static void RxChainCalibration( void )
 {
@@ -465,11 +465,11 @@ static void RxChainCalibration( void )
  */
  
 /************************************************
-º¯ÊıÃû³Æ £º  GetFskBandwidthRegValue
-¹¦    ÄÜ £º ·µ»ØÒÑÖªµÄFSK´ø¿í¼Ä´æÆ÷Öµ
-²Î    Êı £º uint32_t bandwidth
-·µ »Ø Öµ £º ÎŞ
-×÷    Õß £º sun
+å‡½æ•°åç§° ï¼š  GetFskBandwidthRegValue
+åŠŸ    èƒ½ ï¼š è¿”å›å·²çŸ¥çš„FSKå¸¦å®½å¯„å­˜å™¨å€¼
+å‚    æ•° ï¼š uint32_t bandwidth
+è¿” å› å€¼ ï¼š æ— 
+ä½œ    è€… ï¼š sun
 *************************************************/
 static uint8_t GetFskBandwidthRegValue( uint32_t bandwidth )
 {
@@ -488,41 +488,41 @@ static uint8_t GetFskBandwidthRegValue( uint32_t bandwidth )
 
 
    /************************************************
-º¯ÊıÃû³Æ £º  SX1276SetRxConfig
-¹¦    ÄÜ £º ½ÓÊÕÅäÖÃ
-²Î    Êı £º uint32_t bandwidth
-·µ »Ø Öµ £º RadioModems_t modem,  :LoRa»òÕßFSK
-					 uint32_t bandwidth,   £º´ø¿í
-					 uint32_t datarate,    :LORaÀ©ÆµÒò×Ó 
+å‡½æ•°åç§° ï¼š  SX1276SetRxConfig
+åŠŸ    èƒ½ ï¼š æ¥æ”¶é…ç½®
+å‚    æ•° ï¼š uint32_t bandwidth
+è¿” å› å€¼ ï¼š RadioModems_t modem,  :LoRaæˆ–è€…FSK
+					 uint32_t bandwidth,   ï¼šå¸¦å®½
+					 uint32_t datarate,    :LORaæ‰©é¢‘å› å­ 
 					                         FSK : 600..300000 bits/s
  *                                 LoRa: [6: 64, 7: 128, 8: 256, 9: 512,
  *                                         10: 1024, 11: 2048, 12: 4096  chips]
-					 uint8_t coderate,      ÉèÖÃ±àÂëÂÊ (Ö»Õë¶ÔLoRa)
+					 uint8_t coderate,      è®¾ç½®ç¼–ç ç‡ (åªé’ˆå¯¹LoRa)
  *                                FSK : N/A ( set to 0 )
  *                                LoRa: [1: 4/5, 2: 4/6, 3: 4/7, 4: 4/8]
-					 uint32_t bandwidthAfc, ÉèÖÃ AFC Bandwidth (Ö¸Õë¶ÔFSK )
+					 uint32_t bandwidthAfc, è®¾ç½® AFC Bandwidth (æŒ‡é’ˆå¯¹FSK )
  *                                FSK : >= 2600 and <= 250000 Hz
  *                                LoRa: N/A ( set to 0 )
-					 uint16_t preambleLen,  ÉèÖÃÇ°µ¼Âë
+					 uint16_t preambleLen,  è®¾ç½®å‰å¯¼ç 
  *                                FSK : Number of bytes
- *                                LoRa: Length in symbols (Ó²¼şÔö¼ÓÁË4¸ö×Ö·û)
-					 uint16_t symbTimeout,  ÉèÖÃ½ÓÊÕ³¬Ê±
+ *                                LoRa: Length in symbols (ç¡¬ä»¶å¢åŠ äº†4ä¸ªå­—ç¬¦)
+					 uint16_t symbTimeout,  è®¾ç½®æ¥æ”¶è¶…æ—¶
  *                                FSK : timeout number of bytes
  *                                LoRa: timeout in symbols
-					 bool fixLen,           ÊÇ·ñÎª¹Ì¶¨³¤¶ÈµÄ°ü [0: ¿É±äµÄ, 1: ¹Ì¶¨µÄ]
-					 uint8_t payloadLen,    ÉèÖÃ¸ºÔØ³¤¶È£¬µ±fixlenÎª1ÊÇĞèÒªÉèÖÃ
-					 bool crcOn,            ÊÇ·ñÊ¹ÄÜ CRC [0: OFF, 1: ON]
-					 bool freqHopOn,        µ÷Æµ¿ª¹Ø
+					 bool fixLen,           æ˜¯å¦ä¸ºå›ºå®šé•¿åº¦çš„åŒ… [0: å¯å˜çš„, 1: å›ºå®šçš„]
+					 uint8_t payloadLen,    è®¾ç½®è´Ÿè½½é•¿åº¦ï¼Œå½“fixlenä¸º1æ˜¯éœ€è¦è®¾ç½®
+					 bool crcOn,            æ˜¯å¦ä½¿èƒ½ CRC [0: OFF, 1: ON]
+					 bool freqHopOn,        è°ƒé¢‘å¼€å…³
  *                                FSK : N/A ( set to 0 )
  *                                LoRa: [0: OFF, 1: ON]
-					 uint8_t hopPeriod,     Ã¿ÌøÖ®¼äµÄ·ûºÅÊı
+					 uint8_t hopPeriod,     æ¯è·³ä¹‹é—´çš„ç¬¦å·æ•°
  *                                FSK : N/A ( set to 0 )
  *                                LoRa: Number of symbols
-					 bool iqInverted,       ÖĞ¶ÏĞÅºÅ·­×ª(LoRa only)
+					 bool iqInverted,       ä¸­æ–­ä¿¡å·ç¿»è½¬(LoRa only)
  *                                FSK : N/A ( set to 0 )
  *                                LoRa: [0: not inverted, 1: inverted]
-					 bool rxContinuous )    //ÔÚÁ¬ĞøÄ£Ê½ÏÂ½ÓÊÕĞÅºÅ 0:µ¥´Î½ÓÊÕ  1:Á¬Ğø½ÓÊÕ
-×÷    Õß £º sun
+					 bool rxContinuous )    //åœ¨è¿ç»­æ¨¡å¼ä¸‹æ¥æ”¶ä¿¡å· 0:å•æ¬¡æ¥æ”¶  1:è¿ç»­æ¥æ”¶
+ä½œ    è€… ï¼š sun
 *************************************************/
 void SX1276SetRxConfig( RadioModems_t modem, uint32_t bandwidth,
                          uint32_t datarate, uint8_t coderate,
@@ -709,42 +709,42 @@ void SX1276SetRxConfig( RadioModems_t modem, uint32_t bandwidth,
 
 
 /************************************************
-º¯ÊıÃû³Æ £º  SX1276SetTxConfig
-¹¦    ÄÜ £º SX1276·¢ËÍÉèÖÃ
-²Î    Êı £º 
-          RadioModems_t modem,   //LoRa/FSK mÄ£Ê½
-					int8_t power,         ÉèÖÃ·¢ËÍ¹¦ÂÊ  dbm
-					uint32_t fdev,        ÉèÖÃÆµÂÊÆ«ÒÆ(FSK only)
+å‡½æ•°åç§° ï¼š  SX1276SetTxConfig
+åŠŸ    èƒ½ ï¼š SX1276å‘é€è®¾ç½®
+å‚    æ•° ï¼š 
+          RadioModems_t modem,   //LoRa/FSK mæ¨¡å¼
+					int8_t power,         è®¾ç½®å‘é€åŠŸç‡  dbm
+					uint32_t fdev,        è®¾ç½®é¢‘ç‡åç§»(FSK only)
                                  FSK : [Hz]
                                  LoRa: 0
-					uint32_t bandwidth,    ÉèÖÃ´ø¿í
-					uint32_t datarate,      LORaÀ©ÆµÒò×Ó 
+					uint32_t bandwidth,    è®¾ç½®å¸¦å®½
+					uint32_t datarate,      LORaæ‰©é¢‘å› å­ 
 					                        FSK : 600..300000 bits/s
  *                                LoRa: [6: 64, 7: 128, 8: 256, 9: 512,
  *                                         10: 1024, 11: 2048, 12: 4096  chips]
-					uint8_t coderate,       ÉèÖÃ±àÂëÂÊ (Ö»Õë¶ÔLoRa)
+					uint8_t coderate,       è®¾ç½®ç¼–ç ç‡ (åªé’ˆå¯¹LoRa)
  *                                FSK : N/A ( set to 0 )
  *                                LoRa: [1: 4/5, 2: 4/6, 3: 4/7, 4: 4/8]
-					uint16_t preambleLen,   ÉèÖÃÇ°µ¼Âë
+					uint16_t preambleLen,   è®¾ç½®å‰å¯¼ç 
  *                                FSK : Number of bytes
- *                                LoRa: Length in symbols (Ó²¼şÔö¼ÓÁË4¸ö×Ö·û)
-					bool fixLen,            ÊÇ·ñÎª¹Ì¶¨³¤¶ÈµÄ°ü [0: ¿É±äµÄ, 1: ¹Ì¶¨µÄ]
-					bool crcOn,             ÊÇ·ñÊ¹ÄÜ CRC [0: OFF, 1: ON]
-					bool freqHopOn,         µ÷Æµ¿ª¹Ø
+ *                                LoRa: Length in symbols (ç¡¬ä»¶å¢åŠ äº†4ä¸ªå­—ç¬¦)
+					bool fixLen,            æ˜¯å¦ä¸ºå›ºå®šé•¿åº¦çš„åŒ… [0: å¯å˜çš„, 1: å›ºå®šçš„]
+					bool crcOn,             æ˜¯å¦ä½¿èƒ½ CRC [0: OFF, 1: ON]
+					bool freqHopOn,         è°ƒé¢‘å¼€å…³
  *                                FSK : N/A ( set to 0 )
  *                                LoRa: [0: OFF, 1: ON]
-					uint8_t hopPeriod,      Ã¿ÌøÖ®¼äµÄ·ûºÅÊı
+					uint8_t hopPeriod,      æ¯è·³ä¹‹é—´çš„ç¬¦å·æ•°
  *                                FSK : N/A ( set to 0 )
  *                                LoRa: Number of symbols
 					 bool iqInverted,        LoRa: Number of symbols
-					 bool iqInverted,       ÖĞ¶ÏĞÅºÅ·­×ª(LoRa only)
+					 bool iqInverted,       ä¸­æ–­ä¿¡å·ç¿»è½¬(LoRa only)
  *                                FSK : N/A ( set to 0 )
  *                                LoRa: [0: not inverted, 1: inverted]
-					uint32_t timeout        ·¢ËÍ³¬Ê±Ê±¼ä
+					uint32_t timeout        å‘é€è¶…æ—¶æ—¶é—´
 
 
-·µ »Ø Öµ £º ÎŞ
-×÷    Õß £º sun
+è¿” å› å€¼ ï¼š æ— 
+ä½œ    è€… ï¼š sun
 *************************************************/
 void SX1276SetTxConfig( RadioModems_t modem, int8_t power, uint32_t fdev,
                         uint32_t bandwidth, uint32_t datarate,
@@ -893,12 +893,12 @@ void SX1276SetTxConfig( RadioModems_t modem, int8_t power, uint32_t fdev,
 
 
 /************************************************
-º¯ÊıÃû³Æ £º  SX1276GetTimeOnAir
-¹¦    ÄÜ £º »ñÈ¡¿ÕÖĞÊ±¼ä
-²Î    Êı £º RadioModems_t modem, LoRa/FSK Ä£Ê½
-            uint8_t pktLen    ¸ºÔØ³¤¶È
-·µ »Ø Öµ £º Ê±¼äµ¥Î»ms
-×÷    Õß £º sun
+å‡½æ•°åç§° ï¼š  SX1276GetTimeOnAir
+åŠŸ    èƒ½ ï¼š è·å–ç©ºä¸­æ—¶é—´
+å‚    æ•° ï¼š RadioModems_t modem, LoRa/FSK æ¨¡å¼
+            uint8_t pktLen    è´Ÿè½½é•¿åº¦
+è¿” å› å€¼ ï¼š æ—¶é—´å•ä½ms
+ä½œ    è€… ï¼š sun
 *************************************************/
 uint32_t SX1276GetTimeOnAir( RadioModems_t modem, uint8_t pktLen )
 {
@@ -982,12 +982,12 @@ uint32_t SX1276GetTimeOnAir( RadioModems_t modem, uint8_t pktLen )
 
 
 /************************************************
-º¯ÊıÃû³Æ £º  SX1276Send
-¹¦    ÄÜ £º Êı¾İ·¢ËÍ
-²Î    Êı £º uint8_t *buffer, ·¢ËÍ»º³åÇø
-            uint8_t size     Êı¾İ³¤¶È
-·µ »Ø Öµ £º ÎŞ
-×÷    Õß £º sun
+å‡½æ•°åç§° ï¼š  SX1276Send
+åŠŸ    èƒ½ ï¼š æ•°æ®å‘é€
+å‚    æ•° ï¼š uint8_t *buffer, å‘é€ç¼“å†²åŒº
+            uint8_t size     æ•°æ®é•¿åº¦
+è¿” å› å€¼ ï¼š æ— 
+ä½œ    è€… ï¼š sun
 *************************************************/
 void SX1276Send( uint8_t *buffer, uint8_t size )
 {
@@ -1065,11 +1065,11 @@ void SX1276Send( uint8_t *buffer, uint8_t size )
 
 
 /************************************************
-º¯ÊıÃû³Æ £º SX1276SetSleep
-¹¦    ÄÜ £º ÉèÖÃSX1276ĞİÃß
-²Î    Êı £º ÎŞ
-·µ »Ø Öµ £º ÎŞ
-×÷    Õß £º sun
+å‡½æ•°åç§° ï¼š SX1276SetSleep
+åŠŸ    èƒ½ ï¼š è®¾ç½®SX1276ä¼‘çœ 
+å‚    æ•° ï¼š æ— 
+è¿” å› å€¼ ï¼š æ— 
+ä½œ    è€… ï¼š sun
 *************************************************/
 void SX1276SetSleep( void )
 {
@@ -1082,11 +1082,11 @@ void SX1276SetSleep( void )
 
 
 /************************************************
-º¯ÊıÃû³Æ £º SX1276SetStby
-¹¦    ÄÜ £º ÉèÖÃSX1276Îª´ı»úÄ£Ê½
-²Î    Êı £º ÎŞ
-·µ »Ø Öµ £º ÎŞ
-×÷    Õß £º sun
+å‡½æ•°åç§° ï¼š SX1276SetStby
+åŠŸ    èƒ½ ï¼š è®¾ç½®SX1276ä¸ºå¾…æœºæ¨¡å¼
+å‚    æ•° ï¼š æ— 
+è¿” å› å€¼ ï¼š æ— 
+ä½œ    è€… ï¼š sun
 *************************************************/
 void SX1276SetStby( void )
 {
@@ -1096,11 +1096,11 @@ void SX1276SetStby( void )
     SX1276.Settings.State = RF_IDLE;
 }
 /************************************************
-º¯ÊıÃû³Æ £º SX1276SetRx
-¹¦    ÄÜ £º ÉèÖÃSX1276Îª½ÓÊÕÄ£Ê½
-²Î    Êı £º uint32_t timeout ½ÓÊÕ³¬Ê±Ê±¼ä 0:Îª³ÖĞø½ÓÊÕ  
-·µ »Ø Öµ £º ÎŞ
-×÷    Õß £º sun
+å‡½æ•°åç§° ï¼š SX1276SetRx
+åŠŸ    èƒ½ ï¼š è®¾ç½®SX1276ä¸ºæ¥æ”¶æ¨¡å¼
+å‚    æ•° ï¼š uint32_t timeout æ¥æ”¶è¶…æ—¶æ—¶é—´ 0:ä¸ºæŒç»­æ¥æ”¶  
+è¿” å› å€¼ ï¼š æ— 
+ä½œ    è€… ï¼š sun
 *************************************************/
 void SX1276SetRx( uint32_t timeout )
 {
@@ -1274,11 +1274,11 @@ void SX1276SetRx( uint32_t timeout )
 
 
 /************************************************
-º¯ÊıÃû³Æ £º SX1276SetTx
-¹¦    ÄÜ £º ÉèÖÃSX1276Îª·¢ËÍÄ£Ê½
-²Î    Êı £º uint32_t timeout ·¢ËÍ³¬Ê±Ê±¼ä   
-·µ »Ø Öµ £º ÎŞ
-×÷    Õß £º sun
+å‡½æ•°åç§° ï¼š SX1276SetTx
+åŠŸ    èƒ½ ï¼š è®¾ç½®SX1276ä¸ºå‘é€æ¨¡å¼
+å‚    æ•° ï¼š uint32_t timeout å‘é€è¶…æ—¶æ—¶é—´   
+è¿” å› å€¼ ï¼š æ— 
+ä½œ    è€… ï¼š sun
 *************************************************/
 void SX1276SetTx( uint32_t timeout )
 {
@@ -1346,11 +1346,11 @@ void SX1276SetTx( uint32_t timeout )
 }
 
 /************************************************
-º¯ÊıÃû³Æ £º SX1276StartCad
-¹¦    ÄÜ £º Æô¶¯CADÄ£Ê½
-²Î    Êı £º ÎŞ  
-·µ »Ø Öµ £º ÎŞ
-×÷    Õß £º sun
+å‡½æ•°åç§° ï¼š SX1276StartCad
+åŠŸ    èƒ½ ï¼š å¯åŠ¨CADæ¨¡å¼
+å‚    æ•° ï¼š æ—   
+è¿” å› å€¼ ï¼š æ— 
+ä½œ    è€… ï¼š sun
 *************************************************/
 
 void SX1276StartCad( void )
@@ -1388,13 +1388,13 @@ void SX1276StartCad( void )
 
 
 /************************************************
-º¯ÊıÃû³Æ £º  SX1276SetTxContinuousWave
-¹¦    ÄÜ £º ÉèÖÃSX1276ÎªÁ¬Ğø·¢ËÍÄ£Ê½
-²Î    Êı £º  uint32_t freq,  ·¢ËÍµÄÆµÂÊ 
-						int8_t power,    ·¢ËÍµÄ¹¦ÂÊ
-						uint16_t time    ³¬Ê±Ê±¼ä£¬µ¥Î»Îªs
-·µ »Ø Öµ £º ÎŞ
-×÷    Õß £º sun
+å‡½æ•°åç§° ï¼š  SX1276SetTxContinuousWave
+åŠŸ    èƒ½ ï¼š è®¾ç½®SX1276ä¸ºè¿ç»­å‘é€æ¨¡å¼
+å‚    æ•° ï¼š  uint32_t freq,  å‘é€çš„é¢‘ç‡ 
+						int8_t power,    å‘é€çš„åŠŸç‡
+						uint16_t time    è¶…æ—¶æ—¶é—´ï¼Œå•ä½ä¸ºs
+è¿” å› å€¼ ï¼š æ— 
+ä½œ    è€… ï¼š sun
 *************************************************/
 void SX1276SetTxContinuousWave( uint32_t freq, int8_t power, uint16_t time )
 {
@@ -1421,11 +1421,11 @@ void SX1276SetTxContinuousWave( uint32_t freq, int8_t power, uint16_t time )
 
 
 /************************************************
-º¯ÊıÃû³Æ £º  SX1276ReadRssi
-¹¦    ÄÜ £º ¶ÁÈ¡µ±Ç°Ä£Ê½ÏÂµÄĞÅºÅÇ¿¶È
-²Î    Êı £º  RadioModems_t modem  ¹¤×÷Ä£Ê½
-·µ »Ø Öµ £º ĞÅºÅÇ¿¶È
-×÷    Õß £º sun
+å‡½æ•°åç§° ï¼š  SX1276ReadRssi
+åŠŸ    èƒ½ ï¼š è¯»å–å½“å‰æ¨¡å¼ä¸‹çš„ä¿¡å·å¼ºåº¦
+å‚    æ•° ï¼š  RadioModems_t modem  å·¥ä½œæ¨¡å¼
+è¿” å› å€¼ ï¼š ä¿¡å·å¼ºåº¦
+ä½œ    è€… ï¼š sun
 *************************************************/
 int16_t SX1276ReadRssi( RadioModems_t modem )
 {
@@ -1455,11 +1455,11 @@ int16_t SX1276ReadRssi( RadioModems_t modem )
 
 
 /************************************************
-º¯ÊıÃû³Æ £º  SX1276Reset
-¹¦    ÄÜ £º SX1276ÖØÆô
-²Î    Êı £º ÎŞ
-·µ »Ø Öµ £º ÎŞ
-×÷    Õß £º sun
+å‡½æ•°åç§° ï¼š  SX1276Reset
+åŠŸ    èƒ½ ï¼š SX1276é‡å¯
+å‚    æ•° ï¼š æ— 
+è¿” å› å€¼ ï¼š æ— 
+ä½œ    è€… ï¼š sun
 *************************************************/
 void SX1276Reset( void )
 {
@@ -1469,11 +1469,11 @@ void SX1276Reset( void )
 
 
 /************************************************
-º¯ÊıÃû³Æ £º SX1276SetOpMode
-¹¦    ÄÜ £º SX1276½ÓÊÕ·¢ËÍÇĞ»»
-²Î    Êı £º 1£º·¢ËÍ 0½ÓÊÕ
-·µ »Ø Öµ £º ÎŞ
-×÷    Õß £º sun
+å‡½æ•°åç§° ï¼š SX1276SetOpMode
+åŠŸ    èƒ½ ï¼š SX1276æ¥æ”¶å‘é€åˆ‡æ¢
+å‚    æ•° ï¼š 1ï¼šå‘é€ 0æ¥æ”¶
+è¿” å› å€¼ ï¼š æ— 
+ä½œ    è€… ï¼š sun
 *************************************************/
 void SX1276SetOpMode( uint8_t opMode )
 {
@@ -1491,11 +1491,11 @@ void SX1276SetOpMode( uint8_t opMode )
 
 
 /************************************************
-º¯ÊıÃû³Æ £º SX1276SetModem
-¹¦    ÄÜ £º ÉèÖÃsx1276¹¤×÷Ä£Ê½
-²Î    Êı £º LoRa  /FSK
-·µ »Ø Öµ £º ÎŞ
-×÷    Õß £º sun
+å‡½æ•°åç§° ï¼š SX1276SetModem
+åŠŸ    èƒ½ ï¼š è®¾ç½®sx1276å·¥ä½œæ¨¡å¼
+å‚    æ•° ï¼š LoRa  /FSK
+è¿” å› å€¼ ï¼š æ— 
+ä½œ    è€… ï¼š sun
 *************************************************/
 
 void SX1276SetModem( RadioModems_t modem )
@@ -1539,12 +1539,12 @@ void SX1276SetModem( RadioModems_t modem )
 
 
 /************************************************
-º¯ÊıÃû³Æ £º SX1276Write
-¹¦    ÄÜ £º SPIĞ´
-²Î    Êı £º uint8_t addr, µØÖ·
-            uint8_t data  Êı¾İ
-·µ »Ø Öµ £º ÎŞ
-×÷    Õß £º sun
+å‡½æ•°åç§° ï¼š SX1276Write
+åŠŸ    èƒ½ ï¼š SPIå†™
+å‚    æ•° ï¼š uint8_t addr, åœ°å€
+            uint8_t data  æ•°æ®
+è¿” å› å€¼ ï¼š æ— 
+ä½œ    è€… ï¼š sun
 *************************************************/
 void SX1276Write( uint8_t addr, uint8_t data )
 {
@@ -1553,11 +1553,11 @@ void SX1276Write( uint8_t addr, uint8_t data )
 
 
 /************************************************
-º¯ÊıÃû³Æ £º SX1276Read
-¹¦    ÄÜ £º SPI¶Á
-²Î    Êı £º uint8_t addr, µØÖ·
-·µ »Ø Öµ £º Êı¾İ
-×÷    Õß £º sun
+å‡½æ•°åç§° ï¼š SX1276Read
+åŠŸ    èƒ½ ï¼š SPIè¯»
+å‚    æ•° ï¼š uint8_t addr, åœ°å€
+è¿” å› å€¼ ï¼š æ•°æ®
+ä½œ    è€… ï¼š sun
 *************************************************/
 uint8_t SX1276Read( uint8_t addr )
 {
@@ -1568,14 +1568,14 @@ uint8_t SX1276Read( uint8_t addr )
 
 
 /************************************************
-º¯ÊıÃû³Æ £º SX1276WriteBuffer
-¹¦    ÄÜ £º SPIÁ¬ĞøĞ´¶à¸öµØÖ·
-²Î    Êı £º uint8_t addr, µØÖ·
-						uint8_t *buffer, ´ıĞ´Èë»º³åÇø
-						uint8_t size     Êı¾İ³¤¶È
+å‡½æ•°åç§° ï¼š SX1276WriteBuffer
+åŠŸ    èƒ½ ï¼š SPIè¿ç»­å†™å¤šä¸ªåœ°å€
+å‚    æ•° ï¼š uint8_t addr, åœ°å€
+						uint8_t *buffer, å¾…å†™å…¥ç¼“å†²åŒº
+						uint8_t size     æ•°æ®é•¿åº¦
 
-·µ »Ø Öµ £º ÎŞ
-×÷    Õß £º sun
+è¿” å› å€¼ ï¼š æ— 
+ä½œ    è€… ï¼š sun
 *************************************************/
 void SX1276WriteBuffer( uint8_t addr, uint8_t *buffer, uint8_t size )
 {
@@ -1590,14 +1590,14 @@ void SX1276WriteBuffer( uint8_t addr, uint8_t *buffer, uint8_t size )
     SpiSetNss(1);
 }
 /************************************************
-º¯ÊıÃû³Æ £º SX1276ReadBuffer
-¹¦    ÄÜ £º SPIÁ¬Ğø¶Á¶à¸öµØÖ·
-²Î    Êı £º uint8_t addr, µØÖ·
-						uint8_t *buffer, ¶Á³ö»º³åÇø
-						uint8_t size     Êı¾İ³¤¶È
+å‡½æ•°åç§° ï¼š SX1276ReadBuffer
+åŠŸ    èƒ½ ï¼š SPIè¿ç»­è¯»å¤šä¸ªåœ°å€
+å‚    æ•° ï¼š uint8_t addr, åœ°å€
+						uint8_t *buffer, è¯»å‡ºç¼“å†²åŒº
+						uint8_t size     æ•°æ®é•¿åº¦
 
-·µ »Ø Öµ £º ÎŞ
-×÷    Õß £º sun
+è¿” å› å€¼ ï¼š æ— 
+ä½œ    è€… ï¼š sun
 *************************************************/
 void SX1276ReadBuffer( uint8_t addr, uint8_t *buffer, uint8_t size )
 {
@@ -1612,28 +1612,28 @@ void SX1276ReadBuffer( uint8_t addr, uint8_t *buffer, uint8_t size )
     SpiSetNss(1);
 }
 /************************************************
-º¯ÊıÃû³Æ £º SX1276WriteFifo
-¹¦    ÄÜ £º Ğ´ÈëSX1276·¢ËÍ»º³åÇø
-²Î    Êı £º 
-						uint8_t *buffer, Ğ´Èë»º³åÇø
-						uint8_t size     Êı¾İ³¤¶È
+å‡½æ•°åç§° ï¼š SX1276WriteFifo
+åŠŸ    èƒ½ ï¼š å†™å…¥SX1276å‘é€ç¼“å†²åŒº
+å‚    æ•° ï¼š 
+						uint8_t *buffer, å†™å…¥ç¼“å†²åŒº
+						uint8_t size     æ•°æ®é•¿åº¦
 
-·µ »Ø Öµ £º ÎŞ
-×÷    Õß £º sun
+è¿” å› å€¼ ï¼š æ— 
+ä½œ    è€… ï¼š sun
 *************************************************/
 void SX1276WriteFifo( uint8_t *buffer, uint8_t size )
 {
     SX1276WriteBuffer( 0, buffer, size );
 }
 /************************************************
-º¯ÊıÃû³Æ £º SX1276ReadFifo
-¹¦    ÄÜ £º ´ÓSX1276½ÓÊÕ»º³åÇø¶ÁÈ¡Êı¾İ
-²Î    Êı £º 
-						uint8_t *buffer, ¶Á³ö»º³åÇø
-						uint8_t size     Êı¾İ³¤¶È
+å‡½æ•°åç§° ï¼š SX1276ReadFifo
+åŠŸ    èƒ½ ï¼š ä»SX1276æ¥æ”¶ç¼“å†²åŒºè¯»å–æ•°æ®
+å‚    æ•° ï¼š 
+						uint8_t *buffer, è¯»å‡ºç¼“å†²åŒº
+						uint8_t size     æ•°æ®é•¿åº¦
 
-·µ »Ø Öµ £º ÎŞ
-×÷    Õß £º sun
+è¿” å› å€¼ ï¼š æ— 
+ä½œ    è€… ï¼š sun
 *************************************************/
 void SX1276ReadFifo( uint8_t *buffer, uint8_t size )
 {
@@ -1642,12 +1642,12 @@ void SX1276ReadFifo( uint8_t *buffer, uint8_t size )
 
 
 /************************************************
-º¯ÊıÃû³Æ £º SX1276SetMaxPayloadLength
-¹¦    ÄÜ £º ÉèÖÃSX1276×î´ó¸ºÔØ³¤¶È
-²Î    Êı £º  RadioModems_t modem ¹¤×÷Ä£Ê½
-            uint8_t max ×î´óÊı¾İ³¤¶È
-·µ »Ø Öµ £º ÎŞ
-×÷    Õß £º sun
+å‡½æ•°åç§° ï¼š SX1276SetMaxPayloadLength
+åŠŸ    èƒ½ ï¼š è®¾ç½®SX1276æœ€å¤§è´Ÿè½½é•¿åº¦
+å‚    æ•° ï¼š  RadioModems_t modem å·¥ä½œæ¨¡å¼
+            uint8_t max æœ€å¤§æ•°æ®é•¿åº¦
+è¿” å› å€¼ ï¼š æ— 
+ä½œ    è€… ï¼š sun
 *************************************************/
 void SX1276SetMaxPayloadLength( RadioModems_t modem, uint8_t max )
 {
@@ -1669,12 +1669,12 @@ void SX1276SetMaxPayloadLength( RadioModems_t modem, uint8_t max )
 
 
 /************************************************
-º¯ÊıÃû³Æ £º SX1276SetPublicNetwork
-¹¦    ÄÜ £º ÉèÖÃSX1276  SYNC_WORD Í¬²½×Ö
-²Î    Êı £º  enable ¹«ÓĞ»¹ÊÇË½ÓĞ
+å‡½æ•°åç§° ï¼š SX1276SetPublicNetwork
+åŠŸ    èƒ½ ï¼š è®¾ç½®SX1276  SYNC_WORD åŒæ­¥å­—
+å‚    æ•° ï¼š  enable å…¬æœ‰è¿˜æ˜¯ç§æœ‰
            
-·µ »Ø Öµ £º ÎŞ
-×÷    Õß £º sun
+è¿” å› å€¼ ï¼š æ— 
+ä½œ    è€… ï¼š sun
 *************************************************/
 void SX1276SetPublicNetwork( bool enable )
 {
@@ -1699,7 +1699,7 @@ void SX1276SetPublicNetwork( bool enable )
 
 
 
-///³¬Ê±»òÕßIO¿ÚÊÂ¼ş´¦Àí
+///è¶…æ—¶æˆ–è€…IOå£äº‹ä»¶å¤„ç†
 void SX1276OnTimeoutEvent( void )
 {
  switch( SX1276.Settings.State )
@@ -2257,12 +2257,12 @@ void SX1276OnDio4Irq( void )
 }
 
 
-// »ñÈ¡°æ±¾ĞÅÏ¢
+// è·å–ç‰ˆæœ¬ä¿¡æ¯
 uint8_t SX1276GetVersion(void)
 {
     return SX1276Read( REG_LR_VERSION );
 }
-//»ñÈ¡µ±Ç°¹¤×÷ÆµÂÊ
+//è·å–å½“å‰å·¥ä½œé¢‘ç‡
 uint32_t SX1276LoRaGetRFFrequency( void )
 {
     uint32_t RFFrequency;
@@ -2285,7 +2285,7 @@ uint32_t SX1276LoRaGetErrorRFFrequency( void )
 
 
 
-//´Ëº¯ÊıÌí¼Óµ½Ö÷ÈÎÎñ¹ÜÀíÖĞ¼´whileÑ­»·ÖĞ
+//æ­¤å‡½æ•°æ·»åŠ åˆ°ä¸»ä»»åŠ¡ç®¡ç†ä¸­å³whileå¾ªç¯ä¸­
 void SX1276Task(void)
 {
 	#ifdef  EVENT_IN_IRQ
