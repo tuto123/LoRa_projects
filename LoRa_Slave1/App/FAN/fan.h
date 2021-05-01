@@ -3,7 +3,7 @@
 
 #include "tim.h"
 
-void FAN_Set_Speed(uint8_t fanSpeed);
+void FAN_Set_Speed(uint32_t fanSpeed);
 
 #endif //__FAN_H__
 

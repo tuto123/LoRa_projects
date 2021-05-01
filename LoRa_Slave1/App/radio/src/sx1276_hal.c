@@ -17,16 +17,16 @@ Maintainer: Miguel Luis, Gregory Cristian and Wael Guibene
 #include "spi.h"
 
 
-//¸ÃÎÄ¼þÏÂÐèÒª¸ù¾ÝÊµ¼ÊÓ²¼þÐÞ¸Ä
+//è¯¥æ–‡ä»¶ä¸‹éœ€è¦æ ¹æ®å®žé™…ç¡¬ä»¶ä¿®æ”¹
 
 
-//Òý½Å³õÊ¼»¯
+//å¼•è„šåˆå§‹åŒ–
 void SX1276HalPinInit(void)
 {
-    //HalSpiInit();//SPI³õÊ¼»¯ £¨ÓÉÓÚcubeÉú³ÉµÄ´úÂëÒÑ¾­ÔÚÖ÷º¯ÊýÖÐ³õÊ¼»¯£¬ËùÒÔ´Ë´¦¿ÉÒÔÆÁ±Îµô£©
-		//HalDioInit();//IO¿Ú³õÊ¼»¯ ÖÐ¶ÏÒý½ÅDIO0  DIO1 DIO2 DIO3  ÆÕÍ¨Êý¾Ý RESET  RXTXÇÐ»» 
+    //HalSpiInit();//SPIåˆå§‹åŒ– ï¼ˆç”±äºŽcubeç”Ÿæˆçš„ä»£ç å·²ç»åœ¨ä¸»å‡½æ•°ä¸­åˆå§‹åŒ–ï¼Œæ‰€ä»¥æ­¤å¤„å¯ä»¥å±è”½æŽ‰ï¼‰
+		//HalDioInit();//IOå£åˆå§‹åŒ– ä¸­æ–­å¼•è„šDIO0  DIO1 DIO2 DIO3  æ™®é€šæ•°æ® RESET  RXTXåˆ‡æ¢ 
 }
-//¿ØÖÆspi nssÐÅºÅ
+//æŽ§åˆ¶spi nssä¿¡å·
 void HalSpiWriteNss(uint8_t level)
 {
     if(!level)
@@ -47,29 +47,29 @@ uint8_t HalSpiTransmit( uint8_t outData )
     return rxData;
 }
 
-//¿ØÖÆ¸´Î»ÐÅºÅ
+//æŽ§åˆ¶å¤ä½ä¿¡å·
 void HalWriteReset(uint8_t level)
 {
 	if(!level)
-	{ //Êä³öµÍµçÆ½
+	{ //è¾“å‡ºä½Žç”µå¹³
 			HAL_GPIO_WritePin(RESET_IOPORT,RESET_PIN,GPIO_PIN_RESET);
 		 
 	}else
-	{ //ÉèÎªÊäÈë
+	{ //è®¾ä¸ºè¾“å…¥
 			HAL_GPIO_WritePin(RESET_IOPORT,RESET_PIN,GPIO_PIN_SET);
-			//ÉèÖÃÎªÊäÈë¿ÉÒÔ¼õÉÙ¹¦ºÄ
+			//è®¾ç½®ä¸ºè¾“å…¥å¯ä»¥å‡å°‘åŠŸè€—
 	}
 }
 
-//¿ØÖÆ·¢Éä½ÓÊÕÒý½Å ¸ßÊÕµÍ·¢
+//æŽ§åˆ¶å‘å°„æŽ¥æ”¶å¼•è„š é«˜æ”¶ä½Žå‘
 void HalWriteRxTx(uint8_t level)
 {
 	if(!level)
-	{  //Êä³öµÍ
+	{  //è¾“å‡ºä½Ž
 			HAL_GPIO_WritePin( RXTX_IOPORT, RXTX_PIN, GPIO_PIN_RESET );
 	}
 	else
-	{  //Êä³ö¸ß
+	{  //è¾“å‡ºé«˜
 			HAL_GPIO_WritePin( RXTX_IOPORT, RXTX_PIN, GPIO_PIN_SET );
 	}
 }

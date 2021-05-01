@@ -60,9 +60,15 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define MCU_LED_Pin GPIO_PIN_13
 #define MCU_LED_GPIO_Port GPIOC
+#define ADC_SOIL_Pin GPIO_PIN_0
+#define ADC_SOIL_GPIO_Port GPIOA
 #define SX1276_DIO0_Pin GPIO_PIN_1
 #define SX1276_DIO0_GPIO_Port GPIOA
 #define SX1276_DIO0_EXTI_IRQn EXTI1_IRQn
+#define ADC_AIR_Pin GPIO_PIN_2
+#define ADC_AIR_GPIO_Port GPIOA
+#define ADC_LIGHT_Pin GPIO_PIN_3
+#define ADC_LIGHT_GPIO_Port GPIOA
 #define SX1276_SPI_NSS_Pin GPIO_PIN_4
 #define SX1276_SPI_NSS_GPIO_Port GPIOA
 #define SX1276_SPI_SCK_Pin GPIO_PIN_5
@@ -77,6 +83,8 @@ void Error_Handler(void);
 #define SX1276_TXRX_GPIO_Port GPIOB
 #define FAN_PWM_Pin GPIO_PIN_8
 #define FAN_PWM_GPIO_Port GPIOA
+#define BODY_INPUT_Pin GPIO_PIN_15
+#define BODY_INPUT_GPIO_Port GPIOA
 #define TEMP_DATA_Pin GPIO_PIN_4
 #define TEMP_DATA_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
