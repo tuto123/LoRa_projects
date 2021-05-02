@@ -11,7 +11,7 @@
 
 #define DEVICE_ID       1
 #define TERMINAL_ID     1
-#define MASK_NUM        63
+#define MASK_NUM        7
 #define SPLIT_CHAR      "_"
 #define StrCat(str1, str2) str1##str2
 

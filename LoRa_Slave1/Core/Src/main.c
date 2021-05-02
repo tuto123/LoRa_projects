@@ -99,13 +99,13 @@ int main(void)
   MX_TIM1_Init();
   MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
-	HAL_ADCEx_Calibration_Start(&hadc1);    //ADУ׼
-	//while(DHT11_Init())
+	HAL_ADCEx_Calibration_Start(&hadc1);    //ADC校准
+	while(DHT11_Init())
 	{
 		printf("DHT11 checked failed!!!\r\n");
 		HAL_Delay(500);
 	}
-	printf("DHT11 checked success!!!\r\n");
+	//printf("DHT11 checked success!!!\r\n");
 	Base_Usart1_Init();
 	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_1);
 	//SX1276AppInit();

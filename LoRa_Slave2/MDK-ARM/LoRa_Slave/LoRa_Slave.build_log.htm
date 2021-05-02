@@ -1,0 +1,64 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ¦ÌVision V5.18.0.0
+Copyright (C) 2016 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: tuto li, li, LIC=MPPLD-8YIFS-8TY3P-MSVYV-EUBX7-Q74RL
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Standard  Version: 5.18
+Toolchain Path:  G:\design_tool\KEIL_MDK\Keil5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 1 (build 61)
+Assembler:       Armasm.exe V5.06 update 1 (build 61)
+Linker/Locator:  ArmLink.exe V5.06 update 1 (build 61)
+Library Manager: ArmAr.exe V5.06 update 1 (build 61)
+Hex Converter:   FromElf.exe V5.06 update 1 (build 61)
+CPU DLL:         SARMCM3.DLL V5.18
+Dialog DLL:      DCM.DLL V1.13.6.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V2.0.18.0
+Dialog DLL:      TCM.DLL V1.14.8.0
+ 
+<h2>Project:</h2>
+F:\College\Graduate\LoRa_projects\LoRa_Slave1\MDK-ARM\LoRa_Slave.uvprojx
+Project File Date:  05/01/2021
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 1 (build 61)', folder: 'G:\design_tool\KEIL_MDK\Keil5\ARM\ARMCC\Bin'
+Build target 'LoRa_Slave'
+compiling getData.c...
+..\App\SoilHumi\soilHumi.h(9): warning:  #1295-D: Deprecated declaration SoilHumi_Get_Data - give arg types
+  uint16_t SoilHumi_Get_Data();
+..\App\Body\body.h(9): warning:  #1295-D: Deprecated declaration Body_Get_Status - give arg types
+  int Body_Get_Status();
+..\App\ParseData\getData.h(18): warning:  #1295-D: Deprecated declaration GenerateTask - give arg types
+  void GenerateTask();
+..\App\ParseData\getData.c(9): warning:  #177-D: function "myitoa" was declared but never referenced
+  static char *myitoa(int value, char *string, int radix)
+..\App\ParseData\getData.c: 4 warnings, 0 errors
+linking...
+Program Size: Code=22012 RO-data=632 RW-data=340 ZI-data=5012  
+FromELF: creating hex file...
+"LoRa_Slave\LoRa_Slave.axf" - 0 Error(s), 4 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.4.5.0.pack
+                ARM::CMSIS:CORE:4.3.0
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 4.3.0
+
+<h2>Collection of Component include folders:</h2>
+  F:\College\Graduate\LoRa_projects\LoRa_Slave1\MDK-ARM\RTE
+  G:\design_tool\KEIL_MDK\Keil5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include
+  G:\design_tool\KEIL_MDK\Keil5\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:4.3.0
+Build Time Elapsed:  00:00:03
+</pre>
+</body>
+</html>

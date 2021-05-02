@@ -49,3 +49,4 @@ lora_slave\getdata.o: G:\design_tool\KEIL_MDK\Keil5\ARM\ARMCC\Bin\..\include\str
 lora_slave\getdata.o: G:\design_tool\KEIL_MDK\Keil5\ARM\ARMCC\Bin\..\include\stdbool.h
 lora_slave\getdata.o: ..\App\radio\inc\sx1276Regs-Fsk.h
 lora_slave\getdata.o: ..\App\radio\inc\sx1276Regs-LoRa.h
+lora_slave\getdata.o: ../Core/Inc/usart.h
