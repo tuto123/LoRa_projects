@@ -67,8 +67,6 @@ void Error_Handler(void);
 #define SX1276_DIO0_EXTI_IRQn EXTI1_IRQn
 #define ADC_AIR_Pin GPIO_PIN_2
 #define ADC_AIR_GPIO_Port GPIOA
-#define ADC_LIGHT_Pin GPIO_PIN_3
-#define ADC_LIGHT_GPIO_Port GPIOA
 #define SX1276_SPI_NSS_Pin GPIO_PIN_4
 #define SX1276_SPI_NSS_GPIO_Port GPIOA
 #define SX1276_SPI_SCK_Pin GPIO_PIN_5

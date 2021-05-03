@@ -8,6 +8,7 @@
 #include "string.h"
 #include "cJson.h"
 #include <stdio.h>
+#include "fan.h"
 
 #define RF_FREQUENCY                               435575000 // 定义工作频率
 #define TX_OUTPUT_POWER                            20        // 定义发送功率
@@ -43,6 +44,9 @@ char buffer6[] = "reset done!";
 char buffer0[BUFFER_SIZE];
 char buffer_cjson[BUFFER_SIZE];
 
+bool userControlFan = false;
+uint32_t userControlFanSpeed;
+
 /*************解密功能**************/
 #include "tea.h"
 #include "stdio.h"
@@ -59,7 +63,6 @@ void delay_ms(uint32_t cnt)
     volatile uint32_t i = cnt * 3190;
     while(i--);
 }
-
 
 void OnTxDone( void )
 {
@@ -81,8 +84,59 @@ void OnRxDone( uint8_t *payload, uint16_t size, int16_t _rssi, int8_t _snr )
 			//printf("recieve:%d\r\n",mybufferSize);
 	    decrypt(mybuffer,mybufferSize,paw);
 		  //HAL_UART_Transmit(&huart1, buffer, bufferSize, 0xFF);
-		  HAL_UART_Transmit(&huart1, mybuffer, mybufferSize, 0xFF);
+		  //HAL_UART_Transmit(&huart1, mybuffer, mybufferSize, 0xFF);
+			cJSON *json_ret,*json_fanSpeed,*json_lightStatus;
+			json_ret = cJSON_Parse(payload); //parse cJSOn
+			if(json_ret == NULL)
+			{
+					//printf("Not standard cjson data...\r");
+			}
+
+			json_fanSpeed = cJSON_GetObjectItem(json_ret,"FanSpeed");
+			json_lightStatus = cJSON_GetObjectItem(json_ret,"LightStatus");
+			
+			if(json_fanSpeed != NULL)
+			{
+				userControlFanSpeed = json_fanSpeed->valueint;
+				if(userControlFanSpeed > 0 && userControlFanSpeed < 100)
+				{
+					if(userControlFanSpeed != 1)
+					{
+							if(userControlFan == false)
+							{
+								userControlFan = true;
+							}
+					}
+					if(userControlFanSpeed == 1)
+					{
+							if(userControlFan == true)
+							{
+								userControlFan = false;
+							}
+					}
+					FAN_Set_Speed((uint32_t)userControlFanSpeed);
+				}
+			}
+			
+			if(json_lightStatus != NULL)
+			{
+				if(json_lightStatus->valueint == 1)
+				{
+					HAL_GPIO_WritePin(MCU_LED_GPIO_Port, MCU_LED_Pin, GPIO_PIN_RESET);
+				}
+				else if(json_lightStatus->valueint == 0)
+				{
+					HAL_GPIO_WritePin(MCU_LED_GPIO_Port, MCU_LED_Pin, GPIO_PIN_SET);
+				}
+			}
+			
+			USER_Clear_Usart_Receive_Flag();
+
+			free(json_ret);
+			free(json_fanSpeed);
+			free(json_lightStatus);
 	    spTimerStart(STIMER_LED_GREEN,200,2);//接收到有效数据蓝色LED闪烁 
+			
 		}
 		//Radio.Send(buffer, bufferSize);
     Radio.Rx(0);//连续接收

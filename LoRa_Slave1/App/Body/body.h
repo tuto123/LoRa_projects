@@ -6,7 +6,7 @@
 #include "stm32f1xx_hal.h"
 #include "gpio.h"
 
-int Body_Get_Status();
+int Body_Get_Status(void);
 
 #endif //__BODY_H__
 

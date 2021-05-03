@@ -15,10 +15,9 @@
 #define SPLIT_CHAR      "_"
 #define StrCat(str1, str2) str1##str2
 
-void GenerateTask();
+void GenerateTask(void);
 static void GenerateData(uint8_t *generateData);
 static void GetAllData(uint32_t *getvalue);
-static char *myitoa(int value, char *string, int radix);
 
 #endif //__GETVALUE_H__
 

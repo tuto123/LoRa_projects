@@ -4,7 +4,7 @@
 
 #include "usart.h"
 #include "string.h"
-struct USART_t usart1_s = {{0},0,0,0};
+struct USART_t usart1_s = {0,{0},0,0,0};
 
 
 
@@ -15,13 +15,14 @@ void USER_UART_Receive_Timeout(void)
 }
 uint8_t USER_Get_Usart_Receive_Flag(void)
 {
-
 	return usart1_s.RecvFalg;
 }
 
 void USER_Clear_Usart_Receive_Flag(void)
 {
 	usart1_s.RecvFalg = 0;
+	
+	memset(usart1_s.RxMes, 0, sizeof(char));
 }
 
 #if 0
@@ -203,21 +204,20 @@ void Base_Usart1_Init(void)
 	usart1_s.RecvCount = 0;
 	usart1_s.RecvFalg = 0;
 	usart1_s.RecvLen = 0;
-	__HAL_UART_ENABLE_IT(&huart1, UART_IT_RXNE);
-	__HAL_UART_ENABLE_IT(&huart1, UART_IT_ERR);
+	//__HAL_UART_ENABLE_IT(&huart1, UART_IT_RXNE);
+	//__HAL_UART_ENABLE_IT(&huart1, UART_IT_ERR);
+	HAL_UART_Receive_IT(&huart1, (uint8_t *)&usart1_s.RecvBuffer, 1);
 }
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
-	 
 		UNUSED(huart);
 		if(huart == &huart1)
 		{
 			if(usart1_s.RecvBuffer == '\r')
 			{
 				usart1_s.RecvLen = usart1_s.RecvCount;
-				USER_UART_Receive_Timeout();
-				memset(usart1_s.RxMes, 0, sizeof(char));		
+				USER_UART_Receive_Timeout();		
 			}
 			else
 			{
@@ -226,4 +226,5 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 			}
 			HAL_UART_Receive_IT(&huart1, (uint8_t *)&usart1_s.RecvBuffer, 1);
 		}	
+		
 }

@@ -5,57 +5,9 @@
 #define ADC_CHANNEL	1
 
 //static uint32_t fanSpeed = 0;
-static uint32_t lightStatus = 0;
+//static uint32_t lightStatus = 0;
 
-static char *myitoa(int value, char *string, int radix)
-{
-    int     i, d;
-    int     flag = 0;
-    char    *ptr = string;
- 
-    /* This implementation only works for decimal numbers. */
-    if (radix != 10)
-    {
-        *ptr = 0;
-        return string;
-    }
- 
-    if (!value)
-    {
-        *ptr++ = 0x30;
-        *ptr = 0;
-        return string;
-    }
- 
-    /* if this is a negative value insert the minus sign. */
-    if (value < 0)
-    {
-        *ptr++ = '-';
- 
-        /* Make the value positive. */
-        value *= -1;
-    }
- 
-    for (i = 10000; i > 0; i /= 10)
-    {
-        d = value / i;
- 
-        if (d || flag)
-        {
-            *ptr++ = (char)(d + 0x30);
-            value -= (d * i);
-            flag = 1;
-        }
-    }
- 
-    /* Null terminate the string. */
-    *ptr = 0;
- 
-    return string;
- 
-} /* NCL_Itoa */
-
-void GenerateTask()
+void GenerateTask(void)
 {
     uint8_t *generateData;
 		uint16_t generateDataSize;
@@ -66,8 +18,8 @@ void GenerateTask()
 		generateDataSize = strlen(generateData);
 		HAL_UART_Transmit(&huart1, generateData, generateDataSize, 0xFF);
 		//printf("===================\r\n");
-		free(generateData);
 		//Radio.Send(generateData, sizeof(generateData));
+		free(generateData);
 }
 
 /*
@@ -109,12 +61,10 @@ static void GenerateData(uint8_t *generateData)
 		lightIntensity = 100 - (getValue[0] * 100 / 4096);
 		if(lightIntensity < 40 && lightIntensity > 0)
 		{
-				lightStatus = 1;
 				HAL_GPIO_WritePin(MCU_LED_GPIO_Port, MCU_LED_Pin, GPIO_PIN_RESET);
 		}
 		if(lightIntensity >= 40 && lightIntensity < 100)
 		{
-				lightStatus = 0;
 				HAL_GPIO_WritePin(MCU_LED_GPIO_Port, MCU_LED_Pin, GPIO_PIN_SET);
 		}
 		//printf("lightIntensity = %d\r\n",lightIntensity);
@@ -125,15 +75,7 @@ static void GenerateData(uint8_t *generateData)
     char str_temp[20];
     char str_humidity[20];
     char str_lightIntensity[20];
-#if 0
-		myitoa(DEVICE_ID, 			str_device_id, 			10);
-		myitoa(TERMINAL_ID, 		str_terminal_id, 		10);
-		myitoa(MASK_NUM, 				str_maskNum, 				10);
-		myitoa(int_temp, 				str_temp, 					10);
-		myitoa(int_humi, 				str_humidity, 			10);
-		myitoa(lightIntensity, 	str_lightIntensity, 10);
-#endif	
-
+		
 		sprintf(str_device_id, 			"%u", DEVICE_ID);
 		sprintf(str_terminal_id, 		"%u", TERMINAL_ID);
 		sprintf(str_maskNum, 				"%u", MASK_NUM);
@@ -150,8 +92,7 @@ static void GenerateData(uint8_t *generateData)
     strcat((char *)generateData, str_temp);
     strcat((char *)generateData, SPLIT_CHAR);
     strcat((char *)generateData, str_humidity);
-    strcat((char *)generateData, SPLIT_CHAR);
-    strcat((char *)generateData, str_lightIntensity);
+
 		
 		//HAL_GPIO_TogglePin(MCU_LED_GPIO_Port, MCU_LED_Pin);
 		

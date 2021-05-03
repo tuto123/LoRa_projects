@@ -6,7 +6,7 @@
 #include "stm32f1xx_hal.h"
 #include "adc.h"
 
-uint16_t SoilHumi_Get_Data();
+uint16_t SoilHumi_Get_Data(void);
 
 #endif //__SOILHUMI_H__
 

@@ -10,6 +10,9 @@
 #include "gpio.h"
 #include "getData.h"
 
+//bool userControlFan = false;
+//uint32_t userControlFanSpeed;
+
 enum
 {
 	  UNALIVE      = 0x00, 
@@ -64,8 +67,59 @@ static void _task_scan_usart_cb(void *args)
 		if(USER_Get_Usart_Receive_Flag())
 		{
 			//USER_UART1_SendData(usart1_s.RecvBuffer,usart1_s.RecvLen);
-			Radio.Send(usart1_s.RxMes,usart1_s.RecvLen);	
-			USER_Clear_Usart_Receive_Flag();			
+			//Radio.Send(usart1_s.RxMes,usart1_s.RecvLen);	
+#if 0
+			cJSON *json_ret,*json_fanSpeed,*json_lightStatus;
+			json_ret = cJSON_Parse(usart1_s.RxMes); //判断是否为JSON格式
+			if(json_ret == NULL)
+			{
+					//printf("Not standard cjson data...\r");
+			}
+
+			json_fanSpeed = cJSON_GetObjectItem(json_ret,"FanSpeed");
+			json_lightStatus = cJSON_GetObjectItem(json_ret,"LightStatus");
+			
+			if(json_fanSpeed != NULL)
+			{
+				userControlFanSpeed = json_fanSpeed->valueint;
+				if(userControlFanSpeed > 0 && userControlFanSpeed < 100)
+				{
+					if(userControlFanSpeed != 1)
+					{
+							if(userControlFan == false)
+							{
+								userControlFan = true;
+							}
+					}
+					if(userControlFanSpeed == 1)
+					{
+							if(userControlFan == true)
+							{
+								userControlFan = false;
+							}
+					}
+					FAN_Set_Speed((uint32_t)userControlFanSpeed);
+				}
+			}
+			
+			if(json_lightStatus != NULL)
+			{
+				if(json_lightStatus->valueint == 1)
+				{
+					HAL_GPIO_WritePin(MCU_LED_GPIO_Port, MCU_LED_Pin, GPIO_PIN_RESET);
+				}
+				else if(json_lightStatus->valueint == 0)
+				{
+					HAL_GPIO_WritePin(MCU_LED_GPIO_Port, MCU_LED_Pin, GPIO_PIN_SET);
+				}
+			}
+			
+			USER_Clear_Usart_Receive_Flag();
+
+			free(json_ret);
+			free(json_fanSpeed);
+			free(json_lightStatus);
+#endif
 		}
 }
 /************************************************
@@ -102,7 +156,7 @@ static void _task_scan_value_cb(void *args)
 struct task_t tasklist[] =
 {
 	 { TASK_SOFT_TIMER,		ALWAYS_ALIVE,	 NULL,	_task_soft_timer_cb 	  }, //时间管理任务，请勿删除
-	 { TASK_SCAN_KEY,		ALWAYS_ALIVE,	 NULL,	_task_scan_key_cb     	}, 
+	 { TASK_SCAN_KEY,			ALWAYS_ALIVE,	 NULL,	_task_scan_key_cb     	}, 
 	 { TASK_SCAN_USART,		ALWAYS_ALIVE,	 NULL,	_task_scan_usart_cb   	}, 
 	 { TASK_SCAN_RADIO,		ALWAYS_ALIVE,	 NULL,	_task_scan_radio_cb   	}, //无线Sx1278任务管理
 	 { TASK_SCAN_VALUE,		ALWAYS_ALIVE,	 NULL,	_task_scan_value_cb   	}, //获取数据任务

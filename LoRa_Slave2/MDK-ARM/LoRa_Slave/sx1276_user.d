@@ -47,4 +47,6 @@ lora_slave\sx1276_user.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart
 lora_slave\sx1276_user.o: ../Core/Inc/usart.h
 lora_slave\sx1276_user.o: ..\App\Task\stimer.h
 lora_slave\sx1276_user.o: ..\App\Cjson\cJson.h
+lora_slave\sx1276_user.o: ..\App\FAN\fan.h
+lora_slave\sx1276_user.o: ../Core/Inc/tim.h
 lora_slave\sx1276_user.o: ..\App\Tea\tea.h

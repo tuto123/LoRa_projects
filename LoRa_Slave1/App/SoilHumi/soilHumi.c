@@ -8,7 +8,7 @@ SoilHumi_Get_Data
 返回值：读取到的湿度数据
 备  注：
 ***************************************************************************/
-uint16_t SoilHumi_Get_Data()
+uint16_t SoilHumi_Get_Data(void)
 {
     uint16_t ADC_Value, Humi_Value;
     HAL_ADC_Start(&hadc1);     //启动ADC转换
