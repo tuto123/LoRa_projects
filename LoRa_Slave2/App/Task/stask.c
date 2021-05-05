@@ -60,7 +60,8 @@ static void _task_scan_key_cb(void *args)
 #include "stdlib.h"
 #include "string.h"
 #include "cJSON.h"
-uint8_t  key[]="123456789987654321";
+uint8_t key[]="123456789987654321";
+//uint8_t encryptKey[] = "lifu123@outlook.com";
 /**************************************/
 static void _task_scan_usart_cb(void *args)
 {
@@ -69,56 +70,60 @@ static void _task_scan_usart_cb(void *args)
 			//USER_UART1_SendData(usart1_s.RecvBuffer,usart1_s.RecvLen);
 			//Radio.Send(usart1_s.RxMes,usart1_s.RecvLen);	
 #if 0
-			cJSON *json_ret,*json_fanSpeed,*json_lightStatus;
-			json_ret = cJSON_Parse(usart1_s.RxMes); //判断是否为JSON格式
-			if(json_ret == NULL)
+			if(usart1_s.RecvLen > 0 && usart1_s.RecvLen <= 248)	
 			{
-					//printf("Not standard cjson data...\r");
-			}
+				decrypt(usart1_s.RxMes, usart1_s.RecvLen, encryptKey);
+				cJSON *json_ret,*json_fanSpeed,*json_lightStatus;
+				json_ret = cJSON_Parse(usart1_s.RxMes); //判断是否为JSON格式
+				if(json_ret == NULL)
+				{
+						//printf("Not standard cjson data...\r");
+				}
 
-			json_fanSpeed = cJSON_GetObjectItem(json_ret,"FanSpeed");
-			json_lightStatus = cJSON_GetObjectItem(json_ret,"LightStatus");
+				json_fanSpeed = cJSON_GetObjectItem(json_ret,"FanSpeed");
+				json_lightStatus = cJSON_GetObjectItem(json_ret,"LightStatus");
 			
-			if(json_fanSpeed != NULL)
-			{
-				userControlFanSpeed = json_fanSpeed->valueint;
-				if(userControlFanSpeed > 0 && userControlFanSpeed < 100)
+				if(json_fanSpeed != NULL)
 				{
-					if(userControlFanSpeed != 1)
+					userControlFanSpeed = json_fanSpeed->valueint;
+					if(userControlFanSpeed > 0 && userControlFanSpeed < 100)
 					{
-							if(userControlFan == false)
-							{
-								userControlFan = true;
-							}
+						if(userControlFanSpeed != 1)
+						{
+								if(userControlFan == false)
+								{
+									userControlFan = true;
+								}
+						}
+						if(userControlFanSpeed == 1)
+						{
+								if(userControlFan == true)
+								{
+									userControlFan = false;
+								}
+						}
+						FAN_Set_Speed((uint32_t)userControlFanSpeed);
 					}
-					if(userControlFanSpeed == 1)
+				}
+			
+				if(json_lightStatus != NULL)
+				{
+					if(json_lightStatus->valueint == 1)
 					{
-							if(userControlFan == true)
-							{
-								userControlFan = false;
-							}
+						HAL_GPIO_WritePin(MCU_LED_GPIO_Port, MCU_LED_Pin, GPIO_PIN_RESET);
 					}
-					FAN_Set_Speed((uint32_t)userControlFanSpeed);
+					else if(json_lightStatus->valueint == 0)
+					{	
+						HAL_GPIO_WritePin(MCU_LED_GPIO_Port, MCU_LED_Pin, GPIO_PIN_SET);
+					}
 				}
-			}
 			
-			if(json_lightStatus != NULL)
-			{
-				if(json_lightStatus->valueint == 1)
-				{
-					HAL_GPIO_WritePin(MCU_LED_GPIO_Port, MCU_LED_Pin, GPIO_PIN_RESET);
-				}
-				else if(json_lightStatus->valueint == 0)
-				{
-					HAL_GPIO_WritePin(MCU_LED_GPIO_Port, MCU_LED_Pin, GPIO_PIN_SET);
-				}
-			}
-			
-			USER_Clear_Usart_Receive_Flag();
+				USER_Clear_Usart_Receive_Flag();
 
-			free(json_ret);
-			free(json_fanSpeed);
-			free(json_lightStatus);
+				free(json_ret);
+				free(json_fanSpeed);
+				free(json_lightStatus);
+			}
 #endif
 		}
 }

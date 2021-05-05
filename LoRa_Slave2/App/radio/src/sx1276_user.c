@@ -51,7 +51,8 @@ uint32_t userControlFanSpeed;
 #include "tea.h"
 #include "stdio.h"
 #include "stdlib.h"
-uint8_t  paw[]="123456789987654321";     
+uint8_t  paw[]="123456789987654321";   
+uint8_t encryptKey[] = "lifu123@outlook.com";
 static uint16_t mybufferSize = BUFFER_SIZE;
 static uint8_t  mybuffer[BUFFER_SIZE];
 /***********************************/
@@ -82,11 +83,11 @@ void OnRxDone( uint8_t *payload, uint16_t size, int16_t _rssi, int8_t _snr )
 	  if(mybufferSize>0&&mybufferSize<=248)	
 		{
 			//printf("recieve:%d\r\n",mybufferSize);
-	    decrypt(mybuffer,mybufferSize,paw);
+	    decrypt(mybuffer, bufferSize, encryptKey);
 		  //HAL_UART_Transmit(&huart1, buffer, bufferSize, 0xFF);
 		  //HAL_UART_Transmit(&huart1, mybuffer, mybufferSize, 0xFF);
 			cJSON *json_ret,*json_fanSpeed,*json_lightStatus;
-			json_ret = cJSON_Parse(payload); //parse cJSOn
+			json_ret = cJSON_Parse(mybuffer); //parse cJSOn
 			if(json_ret == NULL)
 			{
 					//printf("Not standard cjson data...\r");
