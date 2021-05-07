@@ -3,11 +3,11 @@
 <title>Static Call Graph - [LoRa_Master\LoRa_Master.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image LoRa_Master\LoRa_Master.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060061: Last Updated: Thu Apr 08 20:40:38 2021
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060061: Last Updated: Thu May 06 16:55:05 2021
 <BR><P>
-<H3>Maximum Stack Usage =        264 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        320 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
-SX1276SetTxContinuousWave &rArr; SX1276SetTxConfig &rArr; SX1276SetModem &rArr; SX1276SetSleep &rArr; SX1276SetOpMode &rArr; SX1276Write &rArr; SX1276WriteBuffer &rArr; SpiTransfer &rArr; HalSpiTransmit &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
+_task_scan_usart_cb &rArr; encrypt
 <P>
 <H3>
 Mutually Recursive functions
@@ -140,7 +140,7 @@ Global Symbols
 <P><STRONG><a name="[48]"></a>__main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry.o(.ARM.Collect$$$$00000000))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f103xb.o(.text)
 </UL>
-<P><STRONG><a name="[ec]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry2.o(.ARM.Collect$$$$00000001))
+<P><STRONG><a name="[ea]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry2.o(.ARM.Collect$$$$00000001))
 
 <P><STRONG><a name="[6f]"></a>_main_scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry5.o(.ARM.Collect$$$$00000004))
 <BR><BR>[Calls]<UL><LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
@@ -150,15 +150,15 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
 </UL>
 
-<P><STRONG><a name="[ed]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
+<P><STRONG><a name="[eb]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
 
-<P><STRONG><a name="[ee]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
+<P><STRONG><a name="[ec]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
 
-<P><STRONG><a name="[ef]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
+<P><STRONG><a name="[ed]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
 
-<P><STRONG><a name="[f0]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
+<P><STRONG><a name="[ee]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
 
-<P><STRONG><a name="[f1]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
+<P><STRONG><a name="[ef]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
 
 <P><STRONG><a name="[11]"></a>Reset_Handler</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, startup_stm32f103xb.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f103xb.o(RESET)
@@ -299,36 +299,35 @@ Global Symbols
 <LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2ulz
 </UL>
 
-<P><STRONG><a name="[f2]"></a>_ll_ushift_r</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llushr.o(.text), UNUSED)
+<P><STRONG><a name="[f0]"></a>_ll_ushift_r</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llushr.o(.text), UNUSED)
 
-<P><STRONG><a name="[b2]"></a>__aeabi_memcpy</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, memcpya.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OnRxDone
-<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;internal_alloc
+<P><STRONG><a name="[e7]"></a>__aeabi_memcpy</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, memcpya.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;internal_alloc
 </UL>
 
-<P><STRONG><a name="[f3]"></a>__aeabi_memcpy4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text), UNUSED)
+<P><STRONG><a name="[f1]"></a>__aeabi_memcpy4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text), UNUSED)
 
-<P><STRONG><a name="[f4]"></a>__aeabi_memcpy8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text), UNUSED)
+<P><STRONG><a name="[f2]"></a>__aeabi_memcpy8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text), UNUSED)
 
 <P><STRONG><a name="[72]"></a>__aeabi_memset</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_memset$wrapper
 <LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
 </UL>
 
-<P><STRONG><a name="[f5]"></a>__aeabi_memset4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
+<P><STRONG><a name="[f3]"></a>__aeabi_memset4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 
-<P><STRONG><a name="[f6]"></a>__aeabi_memset8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
+<P><STRONG><a name="[f4]"></a>__aeabi_memset8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 
 <P><STRONG><a name="[71]"></a>__aeabi_memclr</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memset
 </UL>
 
-<P><STRONG><a name="[d4]"></a>__aeabi_memclr4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
+<P><STRONG><a name="[d2]"></a>__aeabi_memclr4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 <LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetRx
 </UL>
 
-<P><STRONG><a name="[f7]"></a>__aeabi_memclr8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
+<P><STRONG><a name="[f5]"></a>__aeabi_memclr8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 
 <P><STRONG><a name="[73]"></a>_memset$wrapper</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, memseta.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memset
@@ -344,11 +343,11 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276GetTimeOnAir
 <LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
-<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;round
-<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;floor
+<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;round
+<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;floor
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
-<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ceil
-<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ceil
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
 </UL>
 
 <P><STRONG><a name="[79]"></a>__aeabi_dsub</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, dadd.o(.text))
@@ -356,7 +355,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;round
+<BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;round
 </UL>
 
 <P><STRONG><a name="[7a]"></a>__aeabi_drsub</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, dadd.o(.text))
@@ -364,9 +363,9 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;round
-<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;floor
-<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ceil
+<BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;round
+<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;floor
+<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ceil
 </UL>
 
 <P><STRONG><a name="[7b]"></a>__aeabi_dmul</STRONG> (Thumb, 228 bytes, Stack size 48 bytes, dmul.o(.text))
@@ -374,11 +373,11 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RxChainCalibration
+<BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RxChainCalibration
 <LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetRxConfig
-<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276OnDio2Event
+<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276OnDio2Event
 <LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276GetTimeOnAir
-<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
 </UL>
 
 <P><STRONG><a name="[7c]"></a>__aeabi_ddiv</STRONG> (Thumb, 222 bytes, Stack size 32 bytes, ddiv.o(.text))
@@ -386,22 +385,21 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_round
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spTimerStart
-<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetTxConfig
+<BR>[Called By]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetTxConfig
 <LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetRxConfig
 <LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetChannel
 <LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276GetTimeOnAir
-<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
 </UL>
 
-<P><STRONG><a name="[ba]"></a>__ARM_scalbn</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, dscalb.o(.text))
+<P><STRONG><a name="[b8]"></a>__ARM_scalbn</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, dscalb.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __ARM_scalbn
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetRxConfig
 <LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276GetTimeOnAir
 </UL>
 
-<P><STRONG><a name="[f8]"></a>scalbn</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, dscalb.o(.text), UNUSED)
+<P><STRONG><a name="[f6]"></a>scalbn</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, dscalb.o(.text), UNUSED)
 
 <P><STRONG><a name="[7d]"></a>__aeabi_i2d</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, dflti.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = __aeabi_i2d &rArr; _double_epilogue &rArr; _double_round
@@ -416,12 +414,11 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RxChainCalibration
-<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spTimerStart
+<BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RxChainCalibration
 <LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetTxConfig
 <LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetRxConfig
 <LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetChannel
-<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276OnDio2Event
+<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276OnDio2Event
 <LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276GetTimeOnAir
 </UL>
 
@@ -430,7 +427,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsr
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276OnDio2Event
+<BR>[Called By]<UL><LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276OnDio2Event
 </UL>
 
 <P><STRONG><a name="[81]"></a>__aeabi_d2uiz</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, dfixui.o(.text))
@@ -438,40 +435,39 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsr
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RxChainCalibration
-<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spTimerStart
+<BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RxChainCalibration
 <LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetTxConfig
 <LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetRxConfig
 <LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetChannel
 <LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276GetTimeOnAir
 </UL>
 
-<P><STRONG><a name="[f9]"></a>__aeabi_cdcmpeq</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, cdcmple.o(.text), UNUSED)
+<P><STRONG><a name="[f7]"></a>__aeabi_cdcmpeq</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, cdcmple.o(.text), UNUSED)
 
-<P><STRONG><a name="[ea]"></a>__aeabi_cdcmple</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, cdcmple.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;round
+<P><STRONG><a name="[e9]"></a>__aeabi_cdcmple</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, cdcmple.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;round
 </UL>
 
-<P><STRONG><a name="[bd]"></a>__aeabi_cdrcmple</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, cdrcmple.o(.text))
+<P><STRONG><a name="[bb]"></a>__aeabi_cdrcmple</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, cdrcmple.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276GetTimeOnAir
-<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;round
-<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;floor
-<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ceil
-<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;round
+<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;floor
+<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ceil
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
 </UL>
 
-<P><STRONG><a name="[fa]"></a>__aeabi_uidiv</STRONG> (Thumb, 0 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
+<P><STRONG><a name="[f8]"></a>__aeabi_uidiv</STRONG> (Thumb, 0 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
 
-<P><STRONG><a name="[e3]"></a>__aeabi_uidivmod</STRONG> (Thumb, 44 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
+<P><STRONG><a name="[e1]"></a>__aeabi_uidivmod</STRONG> (Thumb, 44 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
 </UL>
 
 <P><STRONG><a name="[82]"></a>__aeabi_uldivmod</STRONG> (Thumb, 98 bytes, Stack size 40 bytes, uldiv.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsr
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsl
 </UL>
-<BR>[Called By]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
-<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+<BR>[Called By]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
 </UL>
 
 <P><STRONG><a name="[75]"></a>__aeabi_llsl</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, llshl.o(.text))
@@ -482,15 +478,15 @@ Global Symbols
 <LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2ulz
 </UL>
 
-<P><STRONG><a name="[fb]"></a>_ll_shift_l</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llshl.o(.text), UNUSED)
+<P><STRONG><a name="[f9]"></a>_ll_shift_l</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llshl.o(.text), UNUSED)
 
 <P><STRONG><a name="[76]"></a>__aeabi_lasr</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, llsshr.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
 
-<P><STRONG><a name="[fc]"></a>_ll_sshift_r</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llsshr.o(.text), UNUSED)
+<P><STRONG><a name="[fa]"></a>_ll_sshift_r</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llsshr.o(.text), UNUSED)
 
-<P><STRONG><a name="[fd]"></a>__I$use$fp</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, iusefp.o(.text), UNUSED)
+<P><STRONG><a name="[fb]"></a>__I$use$fp</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, iusefp.o(.text), UNUSED)
 
 <P><STRONG><a name="[78]"></a>_double_round</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, depilogue.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = _double_round
@@ -521,14 +517,14 @@ Global Symbols
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsl
 <LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_round
 </UL>
-<BR>[Called By]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;round
+<BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;round
 </UL>
 
 <P><STRONG><a name="[84]"></a>__aeabi_d2ulz</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, dfixul.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsr
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsl
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+<BR>[Called By]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
 </UL>
 
 <P><STRONG><a name="[70]"></a>__scatterload</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, init.o(.text))
@@ -537,14 +533,16 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_main_scatterload
 </UL>
 
-<P><STRONG><a name="[fe]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
+<P><STRONG><a name="[fc]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
 
-<P><STRONG><a name="[ff]"></a>__decompress</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __dczerorl2.o(.text), UNUSED)
+<P><STRONG><a name="[fd]"></a>__decompress</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __dczerorl2.o(.text), UNUSED)
 
-<P><STRONG><a name="[100]"></a>__decompress1</STRONG> (Thumb, 86 bytes, Stack size unknown bytes, __dczerorl2.o(.text), UNUSED)
+<P><STRONG><a name="[fe]"></a>__decompress1</STRONG> (Thumb, 86 bytes, Stack size unknown bytes, __dczerorl2.o(.text), UNUSED)
 
-<P><STRONG><a name="[e8]"></a>Base_Usart1_Init</STRONG> (Thumb, 42 bytes, Stack size 0 bytes, base_usart.o(i.Base_Usart1_Init))
-<BR><BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<P><STRONG><a name="[86]"></a>Base_Usart1_Init</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, base_usart.o(i.Base_Usart1_Init))
+<BR><BR>[Calls]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Receive_IT
+</UL>
+<BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[15]"></a>BusFault_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f1xx_it.o(i.BusFault_Handler))
@@ -560,278 +558,279 @@ Global Symbols
 <P><STRONG><a name="[22]"></a>EXTI1_IRQHandler</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f1xx_it.o(i.EXTI1_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = EXTI1_IRQHandler &rArr; HAL_GPIO_EXTI_IRQHandler
 </UL>
-<BR>[Calls]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_EXTI_IRQHandler
+<BR>[Calls]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_EXTI_IRQHandler
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f103xb.o(RESET)
 </UL>
-<P><STRONG><a name="[af]"></a>Error_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, main.o(i.Error_Handler))
-<BR><BR>[Called By]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART1_UART_Init
-<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SPI1_Init
+<P><STRONG><a name="[b0]"></a>Error_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, main.o(i.Error_Handler))
+<BR><BR>[Called By]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART1_UART_Init
+<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SPI1_Init
 </UL>
 
-<P><STRONG><a name="[9c]"></a>HAL_DMA_Abort_IT</STRONG> (Thumb, 148 bytes, Stack size 8 bytes, stm32f1xx_hal_dma.o(i.HAL_DMA_Abort_IT))
+<P><STRONG><a name="[9e]"></a>HAL_DMA_Abort_IT</STRONG> (Thumb, 148 bytes, Stack size 8 bytes, stm32f1xx_hal_dma.o(i.HAL_DMA_Abort_IT))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = HAL_DMA_Abort_IT
 </UL>
-<BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_IRQHandler
+<BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_IRQHandler
 </UL>
 
-<P><STRONG><a name="[87]"></a>HAL_Delay</STRONG> (Thumb, 32 bytes, Stack size 16 bytes, stm32f1xx_hal.o(i.HAL_Delay))
+<P><STRONG><a name="[89]"></a>HAL_Delay</STRONG> (Thumb, 32 bytes, Stack size 16 bytes, stm32f1xx_hal.o(i.HAL_Delay))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = HAL_Delay
 </UL>
-<BR>[Calls]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
+<BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay
-</UL>
-
-<P><STRONG><a name="[89]"></a>HAL_GPIO_EXTI_Callback</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, sx1276-board.o(i.HAL_GPIO_EXTI_Callback))
-<BR><BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_EXTI_IRQHandler
+<BR>[Called By]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay
 </UL>
 
-<P><STRONG><a name="[86]"></a>HAL_GPIO_EXTI_IRQHandler</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, stm32f1xx_hal_gpio.o(i.HAL_GPIO_EXTI_IRQHandler))
+<P><STRONG><a name="[8b]"></a>HAL_GPIO_EXTI_Callback</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, sx1276-board.o(i.HAL_GPIO_EXTI_Callback))
+<BR><BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_EXTI_IRQHandler
+</UL>
+
+<P><STRONG><a name="[88]"></a>HAL_GPIO_EXTI_IRQHandler</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, stm32f1xx_hal_gpio.o(i.HAL_GPIO_EXTI_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = HAL_GPIO_EXTI_IRQHandler
 </UL>
-<BR>[Calls]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_EXTI_Callback
+<BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_EXTI_Callback
 </UL>
 <BR>[Called By]<UL><LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI1_IRQHandler
 </UL>
 
-<P><STRONG><a name="[96]"></a>HAL_GPIO_Init</STRONG> (Thumb, 446 bytes, Stack size 40 bytes, stm32f1xx_hal_gpio.o(i.HAL_GPIO_Init))
+<P><STRONG><a name="[98]"></a>HAL_GPIO_Init</STRONG> (Thumb, 446 bytes, Stack size 40 bytes, stm32f1xx_hal_gpio.o(i.HAL_GPIO_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = HAL_GPIO_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspInit
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_MspInit
-<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
+<BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspInit
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_MspInit
+<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
 </UL>
 
-<P><STRONG><a name="[e7]"></a>HAL_GPIO_TogglePin</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f1xx_hal_gpio.o(i.HAL_GPIO_TogglePin))
+<P><STRONG><a name="[e6]"></a>HAL_GPIO_TogglePin</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f1xx_hal_gpio.o(i.HAL_GPIO_TogglePin))
 <BR><BR>[Called By]<UL><LI><a href="#[6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_timer_led_green_cb
 </UL>
 
-<P><STRONG><a name="[aa]"></a>HAL_GPIO_WritePin</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f1xx_hal_gpio.o(i.HAL_GPIO_WritePin))
-<BR><BR>[Called By]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
-<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HalWriteRxTx
-<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HalWriteReset
-<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HalSpiWriteNss
+<P><STRONG><a name="[ab]"></a>HAL_GPIO_WritePin</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f1xx_hal_gpio.o(i.HAL_GPIO_WritePin))
+<BR><BR>[Called By]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
+<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HalWriteRxTx
+<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HalWriteReset
+<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HalSpiWriteNss
 </UL>
 
-<P><STRONG><a name="[88]"></a>HAL_GetTick</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f1xx_hal.o(i.HAL_GetTick))
-<BR><BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_WaitFlagStateUntilTimeout
-<LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Transmit
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_OscConfig
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
-<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_TransmitReceive
-<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_WaitOnFlagUntilTimeout
-<LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;millis
+<P><STRONG><a name="[8a]"></a>HAL_GetTick</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f1xx_hal.o(i.HAL_GetTick))
+<BR><BR>[Called By]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_WaitFlagStateUntilTimeout
+<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Transmit
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_OscConfig
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
+<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_TransmitReceive
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_WaitOnFlagUntilTimeout
+<LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;millis
 </UL>
 
-<P><STRONG><a name="[d7]"></a>HAL_IncTick</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f1xx_hal.o(i.HAL_IncTick))
+<P><STRONG><a name="[d5]"></a>HAL_IncTick</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f1xx_hal.o(i.HAL_IncTick))
 <BR><BR>[Called By]<UL><LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Handler
 </UL>
 
-<P><STRONG><a name="[8a]"></a>HAL_Init</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, stm32f1xx_hal.o(i.HAL_Init))
+<P><STRONG><a name="[8c]"></a>HAL_Init</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, stm32f1xx_hal.o(i.HAL_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = HAL_Init &rArr; HAL_InitTick &rArr; HAL_NVIC_SetPriority
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_MspInit
-<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriorityGrouping
+<BR>[Calls]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_MspInit
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriorityGrouping
 </UL>
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[8c]"></a>HAL_InitTick</STRONG> (Thumb, 54 bytes, Stack size 16 bytes, stm32f1xx_hal.o(i.HAL_InitTick))
+<P><STRONG><a name="[8e]"></a>HAL_InitTick</STRONG> (Thumb, 54 bytes, Stack size 16 bytes, stm32f1xx_hal.o(i.HAL_InitTick))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = HAL_InitTick &rArr; HAL_NVIC_SetPriority
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriority
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SYSTICK_Config
+<BR>[Calls]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriority
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SYSTICK_Config
 </UL>
-<BR>[Called By]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
-<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
+<BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
 </UL>
 
-<P><STRONG><a name="[8d]"></a>HAL_MspInit</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, stm32f1xx_hal_msp.o(i.HAL_MspInit))
+<P><STRONG><a name="[8f]"></a>HAL_MspInit</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, stm32f1xx_hal_msp.o(i.HAL_MspInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = HAL_MspInit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
+<BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
 </UL>
 
-<P><STRONG><a name="[a2]"></a>HAL_NVIC_EnableIRQ</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f1xx_hal_cortex.o(i.HAL_NVIC_EnableIRQ))
-<BR><BR>[Called By]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspInit
-<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
+<P><STRONG><a name="[a4]"></a>HAL_NVIC_EnableIRQ</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f1xx_hal_cortex.o(i.HAL_NVIC_EnableIRQ))
+<BR><BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspInit
+<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
 </UL>
 
-<P><STRONG><a name="[8f]"></a>HAL_NVIC_SetPriority</STRONG> (Thumb, 60 bytes, Stack size 16 bytes, stm32f1xx_hal_cortex.o(i.HAL_NVIC_SetPriority))
+<P><STRONG><a name="[91]"></a>HAL_NVIC_SetPriority</STRONG> (Thumb, 60 bytes, Stack size 16 bytes, stm32f1xx_hal_cortex.o(i.HAL_NVIC_SetPriority))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = HAL_NVIC_SetPriority
 </UL>
-<BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_SetPriority
+<BR>[Calls]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_SetPriority
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspInit
-<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
-<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
-</UL>
-
-<P><STRONG><a name="[8b]"></a>HAL_NVIC_SetPriorityGrouping</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f1xx_hal_cortex.o(i.HAL_NVIC_SetPriorityGrouping))
-<BR><BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
+<BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspInit
+<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
 </UL>
 
-<P><STRONG><a name="[91]"></a>HAL_RCC_ClockConfig</STRONG> (Thumb, 280 bytes, Stack size 32 bytes, stm32f1xx_hal_rcc.o(i.HAL_RCC_ClockConfig))
+<P><STRONG><a name="[8d]"></a>HAL_NVIC_SetPriorityGrouping</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f1xx_hal_cortex.o(i.HAL_NVIC_SetPriorityGrouping))
+<BR><BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
+</UL>
+
+<P><STRONG><a name="[93]"></a>HAL_RCC_ClockConfig</STRONG> (Thumb, 280 bytes, Stack size 32 bytes, stm32f1xx_hal_rcc.o(i.HAL_RCC_ClockConfig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = HAL_RCC_ClockConfig &rArr; HAL_InitTick &rArr; HAL_NVIC_SetPriority
 </UL>
-<BR>[Calls]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetSysClockFreq
-<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
+<BR>[Calls]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetSysClockFreq
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
-</UL>
-
-<P><STRONG><a name="[dc]"></a>HAL_RCC_GetPCLK1Freq</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f1xx_hal_rcc.o(i.HAL_RCC_GetPCLK1Freq))
-<BR><BR>[Called By]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SetConfig
+<BR>[Called By]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 </UL>
 
-<P><STRONG><a name="[db]"></a>HAL_RCC_GetPCLK2Freq</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f1xx_hal_rcc.o(i.HAL_RCC_GetPCLK2Freq))
-<BR><BR>[Called By]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SetConfig
+<P><STRONG><a name="[da]"></a>HAL_RCC_GetPCLK1Freq</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f1xx_hal_rcc.o(i.HAL_RCC_GetPCLK1Freq))
+<BR><BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SetConfig
 </UL>
 
-<P><STRONG><a name="[92]"></a>HAL_RCC_GetSysClockFreq</STRONG> (Thumb, 74 bytes, Stack size 20 bytes, stm32f1xx_hal_rcc.o(i.HAL_RCC_GetSysClockFreq))
+<P><STRONG><a name="[d9]"></a>HAL_RCC_GetPCLK2Freq</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f1xx_hal_rcc.o(i.HAL_RCC_GetPCLK2Freq))
+<BR><BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SetConfig
+</UL>
+
+<P><STRONG><a name="[94]"></a>HAL_RCC_GetSysClockFreq</STRONG> (Thumb, 74 bytes, Stack size 20 bytes, stm32f1xx_hal_rcc.o(i.HAL_RCC_GetSysClockFreq))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = HAL_RCC_GetSysClockFreq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
+<BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
 </UL>
 
-<P><STRONG><a name="[93]"></a>HAL_RCC_OscConfig</STRONG> (Thumb, 778 bytes, Stack size 40 bytes, stm32f1xx_hal_rcc.o(i.HAL_RCC_OscConfig))
+<P><STRONG><a name="[95]"></a>HAL_RCC_OscConfig</STRONG> (Thumb, 778 bytes, Stack size 40 bytes, stm32f1xx_hal_rcc.o(i.HAL_RCC_OscConfig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = HAL_RCC_OscConfig
 </UL>
-<BR>[Calls]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
+<BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
+<BR>[Called By]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 </UL>
 
-<P><STRONG><a name="[94]"></a>HAL_SPI_Init</STRONG> (Thumb, 178 bytes, Stack size 16 bytes, stm32f1xx_hal_spi.o(i.HAL_SPI_Init))
+<P><STRONG><a name="[96]"></a>HAL_SPI_Init</STRONG> (Thumb, 178 bytes, Stack size 16 bytes, stm32f1xx_hal_spi.o(i.HAL_SPI_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = HAL_SPI_Init &rArr; HAL_SPI_MspInit &rArr; HAL_GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_MspInit
+<BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_MspInit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SPI1_Init
+<BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SPI1_Init
 </UL>
 
-<P><STRONG><a name="[95]"></a>HAL_SPI_MspInit</STRONG> (Thumb, 98 bytes, Stack size 32 bytes, spi.o(i.HAL_SPI_MspInit))
+<P><STRONG><a name="[97]"></a>HAL_SPI_MspInit</STRONG> (Thumb, 98 bytes, Stack size 32 bytes, spi.o(i.HAL_SPI_MspInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = HAL_SPI_MspInit &rArr; HAL_GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
+<BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_Init
+<BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_Init
 </UL>
 
-<P><STRONG><a name="[97]"></a>HAL_SPI_TransmitReceive</STRONG> (Thumb, 482 bytes, Stack size 40 bytes, stm32f1xx_hal_spi.o(i.HAL_SPI_TransmitReceive))
+<P><STRONG><a name="[99]"></a>HAL_SPI_TransmitReceive</STRONG> (Thumb, 482 bytes, Stack size 40 bytes, stm32f1xx_hal_spi.o(i.HAL_SPI_TransmitReceive))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_EndRxTxTransaction
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
+<BR>[Calls]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_EndRxTxTransaction
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HalSpiTransmit
+<BR>[Called By]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HalSpiTransmit
 </UL>
 
-<P><STRONG><a name="[8e]"></a>HAL_SYSTICK_Config</STRONG> (Thumb, 40 bytes, Stack size 8 bytes, stm32f1xx_hal_cortex.o(i.HAL_SYSTICK_Config))
+<P><STRONG><a name="[90]"></a>HAL_SYSTICK_Config</STRONG> (Thumb, 40 bytes, Stack size 8 bytes, stm32f1xx_hal_cortex.o(i.HAL_SYSTICK_Config))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = HAL_SYSTICK_Config
 </UL>
-<BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_SetPriority
+<BR>[Calls]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_SetPriority
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
+<BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
 </UL>
 
-<P><STRONG><a name="[9d]"></a>HAL_UART_ErrorCallback</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f1xx_hal_uart.o(i.HAL_UART_ErrorCallback))
-<BR><BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_IRQHandler
+<P><STRONG><a name="[9f]"></a>HAL_UART_ErrorCallback</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f1xx_hal_uart.o(i.HAL_UART_ErrorCallback))
+<BR><BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_IRQHandler
 <LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_DMAAbortOnError
 </UL>
 
-<P><STRONG><a name="[99]"></a>HAL_UART_IRQHandler</STRONG> (Thumb, 344 bytes, Stack size 16 bytes, stm32f1xx_hal_uart.o(i.HAL_UART_IRQHandler))
+<P><STRONG><a name="[9b]"></a>HAL_UART_IRQHandler</STRONG> (Thumb, 344 bytes, Stack size 16 bytes, stm32f1xx_hal_uart.o(i.HAL_UART_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = HAL_UART_IRQHandler &rArr; UART_Receive_IT &rArr; HAL_UART_RxCpltCallback
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_Abort_IT
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_TxCpltCallback
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_ErrorCallback
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Receive_IT
-<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_EndRxTransfer
+<BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_Abort_IT
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_TxCpltCallback
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_ErrorCallback
+<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Receive_IT
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_EndRxTransfer
 </UL>
 <BR>[Called By]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IRQHandler
 </UL>
 
-<P><STRONG><a name="[9f]"></a>HAL_UART_Init</STRONG> (Thumb, 98 bytes, Stack size 16 bytes, stm32f1xx_hal_uart.o(i.HAL_UART_Init))
+<P><STRONG><a name="[a1]"></a>HAL_UART_Init</STRONG> (Thumb, 98 bytes, Stack size 16 bytes, stm32f1xx_hal_uart.o(i.HAL_UART_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = HAL_UART_Init &rArr; HAL_UART_MspInit &rArr; HAL_GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspInit
-<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SetConfig
+<BR>[Calls]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspInit
+<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SetConfig
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART1_UART_Init
+<BR>[Called By]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART1_UART_Init
 </UL>
 
-<P><STRONG><a name="[a0]"></a>HAL_UART_MspInit</STRONG> (Thumb, 116 bytes, Stack size 32 bytes, usart.o(i.HAL_UART_MspInit))
+<P><STRONG><a name="[a2]"></a>HAL_UART_MspInit</STRONG> (Thumb, 116 bytes, Stack size 32 bytes, usart.o(i.HAL_UART_MspInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = HAL_UART_MspInit &rArr; HAL_GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriority
-<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_EnableIRQ
-<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
+<BR>[Calls]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriority
+<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_EnableIRQ
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Init
-</UL>
-
-<P><STRONG><a name="[a4]"></a>HAL_UART_Receive_IT</STRONG> (Thumb, 82 bytes, Stack size 0 bytes, stm32f1xx_hal_uart.o(i.HAL_UART_Receive_IT))
-<BR><BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_RxCpltCallback
+<BR>[Called By]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Init
 </UL>
 
-<P><STRONG><a name="[a3]"></a>HAL_UART_RxCpltCallback</STRONG> (Thumb, 66 bytes, Stack size 8 bytes, base_usart.o(i.HAL_UART_RxCpltCallback))
+<P><STRONG><a name="[87]"></a>HAL_UART_Receive_IT</STRONG> (Thumb, 82 bytes, Stack size 0 bytes, stm32f1xx_hal_uart.o(i.HAL_UART_Receive_IT))
+<BR><BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Base_Usart1_Init
+<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_RxCpltCallback
+</UL>
+
+<P><STRONG><a name="[a5]"></a>HAL_UART_RxCpltCallback</STRONG> (Thumb, 62 bytes, Stack size 8 bytes, base_usart.o(i.HAL_UART_RxCpltCallback))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = HAL_UART_RxCpltCallback
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USER_UART_Receive_Timeout
-<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Receive_IT
+<BR>[Calls]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USER_UART_Receive_Timeout
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Receive_IT
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Receive_IT
+<BR>[Called By]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Receive_IT
 </UL>
 
-<P><STRONG><a name="[a6]"></a>HAL_UART_Transmit</STRONG> (Thumb, 178 bytes, Stack size 32 bytes, stm32f1xx_hal_uart.o(i.HAL_UART_Transmit))
+<P><STRONG><a name="[a7]"></a>HAL_UART_Transmit</STRONG> (Thumb, 178 bytes, Stack size 32 bytes, stm32f1xx_hal_uart.o(i.HAL_UART_Transmit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
-<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_WaitOnFlagUntilTimeout
+<BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fputc
 <LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OnRxDone
 </UL>
 
-<P><STRONG><a name="[9e]"></a>HAL_UART_TxCpltCallback</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f1xx_hal_uart.o(i.HAL_UART_TxCpltCallback))
-<BR><BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_IRQHandler
+<P><STRONG><a name="[a0]"></a>HAL_UART_TxCpltCallback</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f1xx_hal_uart.o(i.HAL_UART_TxCpltCallback))
+<BR><BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_IRQHandler
 </UL>
 
-<P><STRONG><a name="[c3]"></a>HalAttachInterrupt</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, sx1276-board.o(i.HalAttachInterrupt))
-<BR><BR>[Called By]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276IoIrqInit
+<P><STRONG><a name="[c1]"></a>HalAttachInterrupt</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, sx1276-board.o(i.HalAttachInterrupt))
+<BR><BR>[Called By]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276IoIrqInit
 </UL>
 
-<P><STRONG><a name="[a8]"></a>HalSpiTransmit</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, sx1276_hal.o(i.HalSpiTransmit))
+<P><STRONG><a name="[a9]"></a>HalSpiTransmit</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, sx1276_hal.o(i.HalSpiTransmit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = HalSpiTransmit &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_TransmitReceive
+<BR>[Calls]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_TransmitReceive
 </UL>
-<BR>[Called By]<UL><LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SpiTransfer
-</UL>
-
-<P><STRONG><a name="[a9]"></a>HalSpiWriteNss</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, sx1276_hal.o(i.HalSpiWriteNss))
-<BR><BR>[Calls]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
-</UL>
-<BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276IoInit
-<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SpiSetNss
+<BR>[Called By]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SpiTransfer
 </UL>
 
-<P><STRONG><a name="[ab]"></a>HalWriteReset</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, sx1276_hal.o(i.HalWriteReset))
-<BR><BR>[Calls]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
+<P><STRONG><a name="[aa]"></a>HalSpiWriteNss</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, sx1276_hal.o(i.HalSpiWriteNss))
+<BR><BR>[Calls]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 </UL>
-<BR>[Called By]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetReset
+<BR>[Called By]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276IoInit
+<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SpiSetNss
 </UL>
 
-<P><STRONG><a name="[ac]"></a>HalWriteRxTx</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, sx1276_hal.o(i.HalWriteRxTx))
-<BR><BR>[Calls]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
+<P><STRONG><a name="[ac]"></a>HalWriteReset</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, sx1276_hal.o(i.HalWriteReset))
+<BR><BR>[Calls]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetAntSwLowPower
-<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetAntSw
+<BR>[Called By]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetReset
+</UL>
+
+<P><STRONG><a name="[ad]"></a>HalWriteRxTx</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, sx1276_hal.o(i.HalWriteRxTx))
+<BR><BR>[Calls]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
+</UL>
+<BR>[Called By]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetAntSwLowPower
+<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetAntSw
 </UL>
 
 <P><STRONG><a name="[13]"></a>HardFault_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f1xx_it.o(i.HardFault_Handler))
@@ -841,31 +840,31 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f103xb.o(RESET)
 </UL>
-<P><STRONG><a name="[ad]"></a>MX_GPIO_Init</STRONG> (Thumb, 204 bytes, Stack size 48 bytes, gpio.o(i.MX_GPIO_Init))
+<P><STRONG><a name="[ae]"></a>MX_GPIO_Init</STRONG> (Thumb, 204 bytes, Stack size 48 bytes, gpio.o(i.MX_GPIO_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = MX_GPIO_Init &rArr; HAL_GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriority
-<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_EnableIRQ
-<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
-<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
+<BR>[Calls]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriority
+<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_EnableIRQ
+<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[ae]"></a>MX_SPI1_Init</STRONG> (Thumb, 60 bytes, Stack size 8 bytes, spi.o(i.MX_SPI1_Init))
+<P><STRONG><a name="[af]"></a>MX_SPI1_Init</STRONG> (Thumb, 60 bytes, Stack size 8 bytes, spi.o(i.MX_SPI1_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = MX_SPI1_Init &rArr; HAL_SPI_Init &rArr; HAL_SPI_MspInit &rArr; HAL_GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_Init
-<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
+<BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_Init
+<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[b0]"></a>MX_USART1_UART_Init</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, usart.o(i.MX_USART1_UART_Init))
+<P><STRONG><a name="[b1]"></a>MX_USART1_UART_Init</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, usart.o(i.MX_USART1_UART_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = MX_USART1_UART_Init &rArr; HAL_UART_Init &rArr; HAL_UART_MspInit &rArr; HAL_GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Init
-<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
+<BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Init
+<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -883,46 +882,38 @@ Global Symbols
 <P><STRONG><a name="[4f]"></a>OnCadDone</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, sx1276_user.o(i.OnCadDone))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = OnCadDone &rArr; __2printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<BR>[Calls]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> sx1276_user.o(i.SX1276AppInit)
 </UL>
-<P><STRONG><a name="[4b]"></a>OnRxDone</STRONG> (Thumb, 68 bytes, Stack size 8 bytes, sx1276_user.o(i.OnRxDone))
-<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = OnRxDone &rArr; spTimerStart &rArr; __aeabi_ui2d &rArr; _double_epilogue &rArr; _double_round
+<P><STRONG><a name="[4b]"></a>OnRxDone</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, sx1276_user.o(i.OnRxDone))
+<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = OnRxDone &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Transmit
-<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spTimerStart
-<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;decrypt
-<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
+<BR>[Calls]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Transmit
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> sx1276_user.o(i.SX1276AppInit)
 </UL>
 <P><STRONG><a name="[4e]"></a>OnRxError</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, sx1276_user.o(i.OnRxError))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = OnRxError &rArr; __2printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<BR>[Calls]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> sx1276_user.o(i.SX1276AppInit)
 </UL>
 <P><STRONG><a name="[4d]"></a>OnRxTimeout</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, sx1276_user.o(i.OnRxTimeout))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = OnRxTimeout &rArr; __2printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<BR>[Calls]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> sx1276_user.o(i.SX1276AppInit)
 </UL>
-<P><STRONG><a name="[4a]"></a>OnTxDone</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, sx1276_user.o(i.OnTxDone))
-<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = OnTxDone &rArr; spTimerStart &rArr; __aeabi_ui2d &rArr; _double_epilogue &rArr; _double_round
-</UL>
-<BR>[Calls]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spTimerStart
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
-</UL>
+<P><STRONG><a name="[4a]"></a>OnTxDone</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, sx1276_user.o(i.OnTxDone))
 <BR>[Address Reference Count : 1]<UL><LI> sx1276_user.o(i.SX1276AppInit)
 </UL>
 <P><STRONG><a name="[4c]"></a>OnTxTimeout</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, sx1276_user.o(i.OnTxTimeout))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = OnTxTimeout &rArr; __2printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<BR>[Calls]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> sx1276_user.o(i.SX1276AppInit)
 </UL>
@@ -932,27 +923,27 @@ Global Symbols
 <P><STRONG><a name="[17]"></a>SVC_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f1xx_it.o(i.SVC_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f103xb.o(RESET)
 </UL>
-<P><STRONG><a name="[b7]"></a>SX1276AppInit</STRONG> (Thumb, 144 bytes, Stack size 64 bytes, sx1276_user.o(i.SX1276AppInit))
+<P><STRONG><a name="[b5]"></a>SX1276AppInit</STRONG> (Thumb, 144 bytes, Stack size 64 bytes, sx1276_user.o(i.SX1276AppInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = SX1276AppInit &rArr; SX1276BoardInit &rArr; SX1276IoInit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276BoardInit
+<BR>[Calls]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276BoardInit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[b8]"></a>SX1276BoardInit</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, sx1276-board.o(i.SX1276BoardInit))
+<P><STRONG><a name="[b6]"></a>SX1276BoardInit</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, sx1276-board.o(i.SX1276BoardInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = SX1276BoardInit &rArr; SX1276IoInit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276IoInit
+<BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276IoInit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276AppInit
+<BR>[Called By]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276AppInit
 </UL>
 
 <P><STRONG><a name="[60]"></a>SX1276CheckRfFrequency</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, sx1276-board.o(i.SX1276CheckRfFrequency))
 <BR>[Address Reference Count : 1]<UL><LI> sx1276-board.o(.constdata)
 </UL>
-<P><STRONG><a name="[d3]"></a>SX1276GetPaSelect</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, sx1276-board.o(i.SX1276GetPaSelect))
-<BR><BR>[Called By]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetRfTxPower
+<P><STRONG><a name="[d1]"></a>SX1276GetPaSelect</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, sx1276-board.o(i.SX1276GetPaSelect))
+<BR><BR>[Called By]<UL><LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetRfTxPower
 </UL>
 
 <P><STRONG><a name="[59]"></a>SX1276GetStatus</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, sx1276.o(i.SX1276GetStatus))
@@ -968,41 +959,41 @@ Global Symbols
 <LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
 <LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
-<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
-<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbn
-<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;round
-<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;floor
-<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ceil
+<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
+<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbn
+<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;round
+<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;floor
+<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ceil
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> sx1276-board.o(.constdata)
 </UL>
-<P><STRONG><a name="[c2]"></a>SX1276HalPinInit</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, sx1276_hal.o(i.SX1276HalPinInit))
-<BR><BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276IoInit
+<P><STRONG><a name="[c0]"></a>SX1276HalPinInit</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, sx1276_hal.o(i.SX1276HalPinInit))
+<BR><BR>[Called By]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276IoInit
 </UL>
 
 <P><STRONG><a name="[58]"></a>SX1276Init</STRONG> (Thumb, 118 bytes, Stack size 16 bytes, sx1276.o(i.SX1276Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = SX1276Init &rArr; RxChainCalibration &rArr; SX1276SetChannel &rArr; SX1276Write &rArr; SX1276WriteBuffer &rArr; SpiTransfer &rArr; HalSpiTransmit &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RxChainCalibration
-<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetReset
-<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276IoIrqInit
+<BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RxChainCalibration
+<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetReset
+<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276IoIrqInit
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Write
-<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetOpMode
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetOpMode
 <LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetModem
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> sx1276-board.o(.constdata)
 </UL>
-<P><STRONG><a name="[b9]"></a>SX1276IoInit</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, sx1276-board.o(i.SX1276IoInit))
+<P><STRONG><a name="[b7]"></a>SX1276IoInit</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, sx1276-board.o(i.SX1276IoInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = SX1276IoInit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276HalPinInit
-<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HalSpiWriteNss
+<BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276HalPinInit
+<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HalSpiWriteNss
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276BoardInit
+<BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276BoardInit
 </UL>
 
-<P><STRONG><a name="[c1]"></a>SX1276IoIrqInit</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, sx1276-board.o(i.SX1276IoIrqInit))
-<BR><BR>[Calls]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HalAttachInterrupt
+<P><STRONG><a name="[bf]"></a>SX1276IoIrqInit</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, sx1276-board.o(i.SX1276IoIrqInit))
+<BR><BR>[Calls]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HalAttachInterrupt
 </UL>
 <BR>[Called By]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Init
 </UL>
@@ -1010,44 +1001,44 @@ Global Symbols
 <P><STRONG><a name="[5c]"></a>SX1276IsChannelFree</STRONG> (Thumb, 78 bytes, Stack size 24 bytes, sx1276.o(i.SX1276IsChannelFree))
 <BR><BR>[Stack]<UL><LI>Max Depth = 184<LI>Call Chain = SX1276IsChannelFree &rArr; SX1276SetModem &rArr; SX1276SetSleep &rArr; SX1276SetOpMode &rArr; SX1276Write &rArr; SX1276WriteBuffer &rArr; SpiTransfer &rArr; HalSpiTransmit &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;millis
-<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay
+<BR>[Calls]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;millis
+<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay
 <LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetSleep
-<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetOpMode
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetOpMode
 <LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetModem
 <LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetChannel
 <LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276ReadRssi
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> sx1276-board.o(.constdata)
 </UL>
-<P><STRONG><a name="[c6]"></a>SX1276OnDio0Event</STRONG> (Thumb, 640 bytes, Stack size 32 bytes, sx1276.o(i.SX1276OnDio0Event))
+<P><STRONG><a name="[c4]"></a>SX1276OnDio0Event</STRONG> (Thumb, 640 bytes, Stack size 32 bytes, sx1276.o(i.SX1276OnDio0Event))
 <BR><BR>[Stack]<UL><LI>Max Depth = 168<LI>Call Chain = SX1276OnDio0Event &rArr; SX1276Write &rArr; SX1276WriteBuffer &rArr; SpiTransfer &rArr; HalSpiTransmit &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Read
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Write
-<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276ReadFifo
+<LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276ReadFifo
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Task
+<BR>[Called By]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Task
 </UL>
 
 <P><STRONG><a name="[c]"></a>SX1276OnDio0Irq</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, sx1276.o(i.SX1276OnDio0Irq))
 <BR>[Address Reference Count : 1]<UL><LI> sx1276.o(.data)
 </UL>
-<P><STRONG><a name="[c8]"></a>SX1276OnDio1Event</STRONG> (Thumb, 204 bytes, Stack size 16 bytes, sx1276.o(i.SX1276OnDio1Event))
+<P><STRONG><a name="[c6]"></a>SX1276OnDio1Event</STRONG> (Thumb, 204 bytes, Stack size 16 bytes, sx1276.o(i.SX1276OnDio1Event))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = SX1276OnDio1Event &rArr; SX1276Write &rArr; SX1276WriteBuffer &rArr; SpiTransfer &rArr; HalSpiTransmit &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Read
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276WriteFifo
+<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276WriteFifo
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Write
-<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276ReadFifo
+<LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276ReadFifo
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Task
+<BR>[Called By]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Task
 </UL>
 
 <P><STRONG><a name="[d]"></a>SX1276OnDio1Irq</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, sx1276.o(i.SX1276OnDio1Irq))
 <BR>[Address Reference Count : 1]<UL><LI> sx1276.o(.data)
 </UL>
-<P><STRONG><a name="[ca]"></a>SX1276OnDio2Event</STRONG> (Thumb, 180 bytes, Stack size 16 bytes, sx1276.o(i.SX1276OnDio2Event))
+<P><STRONG><a name="[c8]"></a>SX1276OnDio2Event</STRONG> (Thumb, 180 bytes, Stack size 16 bytes, sx1276.o(i.SX1276OnDio2Event))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = SX1276OnDio2Event &rArr; SX1276Write &rArr; SX1276WriteBuffer &rArr; SpiTransfer &rArr; HalSpiTransmit &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Read
@@ -1056,7 +1047,7 @@ Global Symbols
 <LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Write
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Task
+<BR>[Called By]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Task
 </UL>
 
 <P><STRONG><a name="[e]"></a>SX1276OnDio2Irq</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, sx1276.o(i.SX1276OnDio2Irq))
@@ -1068,18 +1059,18 @@ Global Symbols
 <P><STRONG><a name="[10]"></a>SX1276OnDio4Irq</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, sx1276.o(i.SX1276OnDio4Irq))
 <BR>[Address Reference Count : 1]<UL><LI> sx1276.o(.data)
 </UL>
-<P><STRONG><a name="[cb]"></a>SX1276OnTimeoutEvent</STRONG> (Thumb, 204 bytes, Stack size 32 bytes, sx1276.o(i.SX1276OnTimeoutEvent))
+<P><STRONG><a name="[c9]"></a>SX1276OnTimeoutEvent</STRONG> (Thumb, 204 bytes, Stack size 32 bytes, sx1276.o(i.SX1276OnTimeoutEvent))
 <BR><BR>[Stack]<UL><LI>Max Depth = 200<LI>Call Chain = SX1276OnTimeoutEvent &rArr; SX1276SetPublicNetwork &rArr; SX1276SetModem &rArr; SX1276SetSleep &rArr; SX1276SetOpMode &rArr; SX1276Write &rArr; SX1276WriteBuffer &rArr; SpiTransfer &rArr; HalSpiTransmit &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Read
-<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RxChainCalibration
-<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetReset
+<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RxChainCalibration
+<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetReset
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Write
 <LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetPublicNetwork
-<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetOpMode
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetOpMode
 <LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetModem
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Task
+<BR>[Called By]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Task
 </UL>
 
 <P><STRONG><a name="[50]"></a>SX1276OnTimeoutIrq</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, sx1276.o(i.SX1276OnTimeoutIrq))
@@ -1089,10 +1080,10 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = SX1276Random &rArr; SX1276SetModem &rArr; SX1276SetSleep &rArr; SX1276SetOpMode &rArr; SX1276Write &rArr; SX1276WriteBuffer &rArr; SpiTransfer &rArr; HalSpiTransmit &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Read
-<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay
+<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Write
 <LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetSleep
-<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetOpMode
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetOpMode
 <LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetModem
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> sx1276-board.o(.constdata)
@@ -1103,23 +1094,23 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276ReadBuffer
 </UL>
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RxChainCalibration
-<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetRfTxPower
+<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RxChainCalibration
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetRfTxPower
 <LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276StartCad
 <LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetTxContinuousWave
 <LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetTxConfig
-<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetTx
+<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetTx
 <LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetRxConfig
 <LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetRx
-<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetOpMode
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetOpMode
 <LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetModem
 <LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Send
 <LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276ReadRssi
 <LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Random
-<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276OnTimeoutEvent
-<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276OnDio2Event
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276OnDio1Event
-<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276OnDio0Event
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276OnTimeoutEvent
+<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276OnDio2Event
+<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276OnDio1Event
+<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276OnDio0Event
 <LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276GetTimeOnAir
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> sx1276-board.o(.constdata)
@@ -1127,21 +1118,21 @@ Global Symbols
 <P><STRONG><a name="[6c]"></a>SX1276ReadBuffer</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, sx1276.o(i.SX1276ReadBuffer))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = SX1276ReadBuffer &rArr; SpiTransfer &rArr; HalSpiTransmit &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SpiTransfer
-<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SpiSetNss
+<BR>[Calls]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SpiTransfer
+<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SpiSetNss
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Read
-<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276ReadFifo
+<LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276ReadFifo
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> sx1276-board.o(.constdata)
 </UL>
-<P><STRONG><a name="[c7]"></a>SX1276ReadFifo</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, sx1276.o(i.SX1276ReadFifo))
+<P><STRONG><a name="[c5]"></a>SX1276ReadFifo</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, sx1276.o(i.SX1276ReadFifo))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = SX1276ReadFifo &rArr; SX1276ReadBuffer &rArr; SpiTransfer &rArr; HalSpiTransmit &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276ReadBuffer
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276OnDio1Event
-<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276OnDio0Event
+<BR>[Called By]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276OnDio1Event
+<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276OnDio0Event
 </UL>
 
 <P><STRONG><a name="[68]"></a>SX1276ReadRssi</STRONG> (Thumb, 56 bytes, Stack size 8 bytes, sx1276.o(i.SX1276ReadRssi))
@@ -1157,25 +1148,25 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 184<LI>Call Chain = SX1276Send &rArr; SX1276SetTx &rArr; SX1276SetOpMode &rArr; SX1276Write &rArr; SX1276WriteBuffer &rArr; SpiTransfer &rArr; HalSpiTransmit &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Read
-<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;memcpy1
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276WriteFifo
+<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay
+<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;memcpy1
+<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276WriteFifo
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Write
-<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetTx
+<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetTx
 <LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetStby
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> sx1276-board.o(.constdata)
 </UL>
-<P><STRONG><a name="[d0]"></a>SX1276SetAntSw</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, sx1276-board.o(i.SX1276SetAntSw))
-<BR><BR>[Calls]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HalWriteRxTx
+<P><STRONG><a name="[ce]"></a>SX1276SetAntSw</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, sx1276-board.o(i.SX1276SetAntSw))
+<BR><BR>[Calls]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HalWriteRxTx
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetOpMode
+<BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetOpMode
 </UL>
 
-<P><STRONG><a name="[d1]"></a>SX1276SetAntSwLowPower</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, sx1276-board.o(i.SX1276SetAntSwLowPower))
-<BR><BR>[Calls]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HalWriteRxTx
+<P><STRONG><a name="[cf]"></a>SX1276SetAntSwLowPower</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, sx1276-board.o(i.SX1276SetAntSwLowPower))
+<BR><BR>[Calls]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HalWriteRxTx
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetOpMode
+<BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetOpMode
 </UL>
 
 <P><STRONG><a name="[5b]"></a>SX1276SetChannel</STRONG> (Thumb, 56 bytes, Stack size 8 bytes, sx1276.o(i.SX1276SetChannel))
@@ -1186,7 +1177,7 @@ Global Symbols
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2uiz
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Write
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RxChainCalibration
+<BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RxChainCalibration
 <LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetTxContinuousWave
 <LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetRx
 <LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276IsChannelFree
@@ -1213,28 +1204,28 @@ Global Symbols
 <LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetPublicNetwork
 <LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetMaxPayloadLength
 <LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Random
-<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276OnTimeoutEvent
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276OnTimeoutEvent
 <LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276IsChannelFree
 <LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Init
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> sx1276-board.o(.constdata)
 </UL>
-<P><STRONG><a name="[c0]"></a>SX1276SetOpMode</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, sx1276.o(i.SX1276SetOpMode))
+<P><STRONG><a name="[be]"></a>SX1276SetOpMode</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, sx1276.o(i.SX1276SetOpMode))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = SX1276SetOpMode &rArr; SX1276Write &rArr; SX1276WriteBuffer &rArr; SpiTransfer &rArr; HalSpiTransmit &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Read
-<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetAntSwLowPower
-<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetAntSw
+<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetAntSwLowPower
+<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetAntSw
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Write
 </UL>
 <BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276StartCad
 <LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetTxContinuousWave
-<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetTx
+<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetTx
 <LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetStby
 <LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetSleep
 <LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetRx
 <LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Random
-<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276OnTimeoutEvent
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276OnTimeoutEvent
 <LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276IsChannelFree
 <LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Init
 </UL>
@@ -1245,25 +1236,25 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Write
 <LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetModem
 </UL>
-<BR>[Called By]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276OnTimeoutEvent
+<BR>[Called By]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276OnTimeoutEvent
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> sx1276-board.o(.constdata)
 </UL>
-<P><STRONG><a name="[bf]"></a>SX1276SetReset</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, sx1276-board.o(i.SX1276SetReset))
+<P><STRONG><a name="[bd]"></a>SX1276SetReset</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, sx1276-board.o(i.SX1276SetReset))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = SX1276SetReset &rArr; delay &rArr; HAL_Delay
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HalWriteReset
-<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay
+<BR>[Calls]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HalWriteReset
+<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay
 </UL>
-<BR>[Called By]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276OnTimeoutEvent
+<BR>[Called By]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276OnTimeoutEvent
 <LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Init
 </UL>
 
-<P><STRONG><a name="[d2]"></a>SX1276SetRfTxPower</STRONG> (Thumb, 156 bytes, Stack size 16 bytes, sx1276-board.o(i.SX1276SetRfTxPower))
+<P><STRONG><a name="[d0]"></a>SX1276SetRfTxPower</STRONG> (Thumb, 156 bytes, Stack size 16 bytes, sx1276-board.o(i.SX1276SetRfTxPower))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = SX1276SetRfTxPower &rArr; SX1276Write &rArr; SX1276WriteBuffer &rArr; SpiTransfer &rArr; HalSpiTransmit &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Read
-<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276GetPaSelect
+<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276GetPaSelect
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Write
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetTxConfig
@@ -1274,9 +1265,9 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Read
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Write
-<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetOpMode
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetOpMode
 <LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetChannel
-<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
+<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> sx1276-board.o(.constdata)
 </UL>
@@ -1284,12 +1275,12 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 208<LI>Call Chain = SX1276SetRxConfig &rArr; SX1276SetModem &rArr; SX1276SetSleep &rArr; SX1276SetOpMode &rArr; SX1276Write &rArr; SX1276WriteBuffer &rArr; SpiTransfer &rArr; HalSpiTransmit &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Read
-<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetFskBandwidthRegValue
+<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetFskBandwidthRegValue
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
 <LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2uiz
 <LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
-<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbn
+<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbn
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Write
 <LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetModem
 </UL>
@@ -1298,7 +1289,7 @@ Global Symbols
 <P><STRONG><a name="[63]"></a>SX1276SetSleep</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, sx1276.o(i.SX1276SetSleep))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = SX1276SetSleep &rArr; SX1276SetOpMode &rArr; SX1276Write &rArr; SX1276WriteBuffer &rArr; SpiTransfer &rArr; HalSpiTransmit &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetOpMode
+<BR>[Calls]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetOpMode
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetModem
 <LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Random
@@ -1309,18 +1300,18 @@ Global Symbols
 <P><STRONG><a name="[64]"></a>SX1276SetStby</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, sx1276.o(i.SX1276SetStby))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = SX1276SetStby &rArr; SX1276SetOpMode &rArr; SX1276Write &rArr; SX1276WriteBuffer &rArr; SpiTransfer &rArr; HalSpiTransmit &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetOpMode
+<BR>[Calls]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetOpMode
 </UL>
 <BR>[Called By]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Send
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> sx1276-board.o(.constdata)
 </UL>
-<P><STRONG><a name="[cf]"></a>SX1276SetTx</STRONG> (Thumb, 154 bytes, Stack size 16 bytes, sx1276.o(i.SX1276SetTx))
+<P><STRONG><a name="[cd]"></a>SX1276SetTx</STRONG> (Thumb, 154 bytes, Stack size 16 bytes, sx1276.o(i.SX1276SetTx))
 <BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = SX1276SetTx &rArr; SX1276SetOpMode &rArr; SX1276Write &rArr; SX1276WriteBuffer &rArr; SpiTransfer &rArr; HalSpiTransmit &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Read
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Write
-<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetOpMode
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetOpMode
 </UL>
 <BR>[Called By]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Send
 </UL>
@@ -1332,7 +1323,7 @@ Global Symbols
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
 <LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2uiz
-<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetRfTxPower
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetRfTxPower
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Write
 <LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetModem
 </UL>
@@ -1346,7 +1337,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Read
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Write
 <LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetTxConfig
-<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetOpMode
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetOpMode
 <LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetChannel
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> sx1276-board.o(.constdata)
@@ -1356,17 +1347,17 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Read
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Write
-<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetOpMode
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetOpMode
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> sx1276-board.o(.constdata)
 </UL>
-<P><STRONG><a name="[d6]"></a>SX1276Task</STRONG> (Thumb, 60 bytes, Stack size 16 bytes, sx1276.o(i.SX1276Task))
+<P><STRONG><a name="[d4]"></a>SX1276Task</STRONG> (Thumb, 60 bytes, Stack size 16 bytes, sx1276.o(i.SX1276Task))
 <BR><BR>[Stack]<UL><LI>Max Depth = 216<LI>Call Chain = SX1276Task &rArr; SX1276OnTimeoutEvent &rArr; SX1276SetPublicNetwork &rArr; SX1276SetModem &rArr; SX1276SetSleep &rArr; SX1276SetOpMode &rArr; SX1276Write &rArr; SX1276WriteBuffer &rArr; SpiTransfer &rArr; HalSpiTransmit &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276OnTimeoutEvent
-<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276OnDio2Event
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276OnDio1Event
-<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276OnDio0Event
+<BR>[Calls]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276OnTimeoutEvent
+<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276OnDio2Event
+<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276OnDio1Event
+<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276OnDio0Event
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_scan_radio_cb
 </UL>
@@ -1376,25 +1367,25 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276WriteBuffer
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RxChainCalibration
-<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetRfTxPower
+<BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RxChainCalibration
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetRfTxPower
 <LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276StartCad
 <LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetTxContinuousWave
 <LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetTxConfig
-<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetTx
+<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetTx
 <LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetRxConfig
 <LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetRx
 <LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetPublicNetwork
-<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetOpMode
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetOpMode
 <LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetModem
 <LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetMaxPayloadLength
 <LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetChannel
 <LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Send
 <LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Random
-<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276OnTimeoutEvent
-<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276OnDio2Event
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276OnDio1Event
-<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276OnDio0Event
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276OnTimeoutEvent
+<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276OnDio2Event
+<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276OnDio1Event
+<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276OnDio0Event
 <LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Init
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> sx1276-board.o(.constdata)
@@ -1402,50 +1393,50 @@ Global Symbols
 <P><STRONG><a name="[6b]"></a>SX1276WriteBuffer</STRONG> (Thumb, 50 bytes, Stack size 16 bytes, sx1276.o(i.SX1276WriteBuffer))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = SX1276WriteBuffer &rArr; SpiTransfer &rArr; HalSpiTransmit &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SpiTransfer
-<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SpiSetNss
+<BR>[Calls]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SpiTransfer
+<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SpiSetNss
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276WriteFifo
+<BR>[Called By]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276WriteFifo
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Write
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> sx1276-board.o(.constdata)
 </UL>
-<P><STRONG><a name="[c9]"></a>SX1276WriteFifo</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, sx1276.o(i.SX1276WriteFifo))
+<P><STRONG><a name="[c7]"></a>SX1276WriteFifo</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, sx1276.o(i.SX1276WriteFifo))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = SX1276WriteFifo &rArr; SX1276WriteBuffer &rArr; SpiTransfer &rArr; HalSpiTransmit &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276WriteBuffer
 </UL>
 <BR>[Called By]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Send
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276OnDio1Event
+<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276OnDio1Event
 </UL>
 
-<P><STRONG><a name="[cc]"></a>SpiSetNss</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, sx1276-board.o(i.SpiSetNss))
-<BR><BR>[Calls]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HalSpiWriteNss
+<P><STRONG><a name="[ca]"></a>SpiSetNss</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, sx1276-board.o(i.SpiSetNss))
+<BR><BR>[Calls]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HalSpiWriteNss
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276WriteBuffer
 <LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276ReadBuffer
 </UL>
 
-<P><STRONG><a name="[cd]"></a>SpiTransfer</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, sx1276-board.o(i.SpiTransfer))
+<P><STRONG><a name="[cb]"></a>SpiTransfer</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, sx1276-board.o(i.SpiTransfer))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = SpiTransfer &rArr; HalSpiTransmit &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HalSpiTransmit
+<BR>[Calls]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HalSpiTransmit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276WriteBuffer
 <LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276ReadBuffer
 </UL>
 
 <P><STRONG><a name="[1a]"></a>SysTick_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f1xx_it.o(i.SysTick_Handler))
-<BR><BR>[Calls]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_IncTick
+<BR><BR>[Calls]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_IncTick
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f103xb.o(RESET)
 </UL>
-<P><STRONG><a name="[d8]"></a>SystemClock_Config</STRONG> (Thumb, 74 bytes, Stack size 72 bytes, main.o(i.SystemClock_Config))
+<P><STRONG><a name="[d6]"></a>SystemClock_Config</STRONG> (Thumb, 74 bytes, Stack size 72 bytes, main.o(i.SystemClock_Config))
 <BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = SystemClock_Config &rArr; HAL_RCC_ClockConfig &rArr; HAL_InitTick &rArr; HAL_NVIC_SetPriority
 </UL>
-<BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_OscConfig
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
-<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
+<BR>[Calls]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_OscConfig
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
+<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1464,19 +1455,19 @@ Global Symbols
 <P><STRONG><a name="[52]"></a>TimerRegister</STRONG> (Thumb, 106 bytes, Stack size 32 bytes, sx1276_timer.o(i.TimerRegister))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = TimerRegister &rArr; malloc &rArr; internal_alloc
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;malloc
+<BR>[Calls]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;malloc
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> sx1276_timer.o(.constdata)
 </UL>
 <P><STRONG><a name="[56]"></a>TimerReset</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, sx1276_timer.o(i.TimerReset))
-<BR><BR>[Calls]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimerListTimerReset
+<BR><BR>[Calls]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimerListTimerReset
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> sx1276_timer.o(.constdata)
 </UL>
 <P><STRONG><a name="[54]"></a>TimerStart</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, sx1276_timer.o(i.TimerStart))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = TimerStart
 </UL>
-<BR>[Calls]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimerListTimerReset
+<BR>[Calls]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimerListTimerReset
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> sx1276_timer.o(.constdata)
 </UL>
@@ -1486,21 +1477,21 @@ Global Symbols
 <P><STRONG><a name="[40]"></a>USART1_IRQHandler</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f1xx_it.o(i.USART1_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = USART1_IRQHandler &rArr; HAL_UART_IRQHandler &rArr; UART_Receive_IT &rArr; HAL_UART_RxCpltCallback
 </UL>
-<BR>[Calls]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_IRQHandler
+<BR>[Calls]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_IRQHandler
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f103xb.o(RESET)
 </UL>
-<P><STRONG><a name="[e5]"></a>USER_Clear_Usart_Receive_Flag</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, base_usart.o(i.USER_Clear_Usart_Receive_Flag))
+<P><STRONG><a name="[e4]"></a>USER_Clear_Usart_Receive_Flag</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, base_usart.o(i.USER_Clear_Usart_Receive_Flag))
 <BR><BR>[Called By]<UL><LI><a href="#[2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_scan_usart_cb
 </UL>
 
-<P><STRONG><a name="[e4]"></a>USER_Get_Usart_Receive_Flag</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, base_usart.o(i.USER_Get_Usart_Receive_Flag))
+<P><STRONG><a name="[e2]"></a>USER_Get_Usart_Receive_Flag</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, base_usart.o(i.USER_Get_Usart_Receive_Flag))
 <BR><BR>[Called By]<UL><LI><a href="#[2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_scan_usart_cb
 </UL>
 
-<P><STRONG><a name="[a5]"></a>USER_UART_Receive_Timeout</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, base_usart.o(i.USER_UART_Receive_Timeout))
+<P><STRONG><a name="[a6]"></a>USER_UART_Receive_Timeout</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, base_usart.o(i.USER_UART_Receive_Timeout))
 <BR><BR>[Called By]<UL><LI><a href="#[b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_timer_usart_cb
-<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_RxCpltCallback
+<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_RxCpltCallback
 </UL>
 
 <P><STRONG><a name="[16]"></a>UsageFault_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f1xx_it.o(i.UsageFault_Handler))
@@ -1510,73 +1501,72 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f103xb.o(RESET)
 </UL>
-<P><STRONG><a name="[dd]"></a>__0printf</STRONG> (Thumb, 22 bytes, Stack size 24 bytes, printfa.o(i.__0printf), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
+<P><STRONG><a name="[db]"></a>__0printf</STRONG> (Thumb, 22 bytes, Stack size 24 bytes, printfa.o(i.__0printf), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
 </UL>
 
-<P><STRONG><a name="[101]"></a>__1printf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0printf), UNUSED)
+<P><STRONG><a name="[ff]"></a>__1printf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0printf), UNUSED)
 
-<P><STRONG><a name="[b1]"></a>__2printf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0printf))
+<P><STRONG><a name="[b2]"></a>__2printf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0printf))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __2printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OnTxTimeout
-<LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OnTxDone
 <LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OnRxTimeout
 <LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OnRxError
 <LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OnCadDone
 </UL>
 
-<P><STRONG><a name="[102]"></a>__c89printf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0printf), UNUSED)
+<P><STRONG><a name="[100]"></a>__c89printf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0printf), UNUSED)
 
-<P><STRONG><a name="[103]"></a>printf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0printf), UNUSED)
+<P><STRONG><a name="[101]"></a>printf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0printf), UNUSED)
 
-<P><STRONG><a name="[d9]"></a>malloc</STRONG> (Thumb, 64 bytes, Stack size 32 bytes, mallocr.o(i.__malloc$realloc))
+<P><STRONG><a name="[d7]"></a>malloc</STRONG> (Thumb, 64 bytes, Stack size 32 bytes, mallocr.o(i.__malloc$realloc))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = malloc &rArr; internal_alloc
 </UL>
-<BR>[Calls]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;internal_alloc
+<BR>[Calls]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;internal_alloc
 </UL>
 <BR>[Called By]<UL><LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimerRegister
 </UL>
 
-<P><STRONG><a name="[104]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
+<P><STRONG><a name="[102]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
 
-<P><STRONG><a name="[105]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
+<P><STRONG><a name="[103]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
 
-<P><STRONG><a name="[106]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
+<P><STRONG><a name="[104]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
 
-<P><STRONG><a name="[bc]"></a>ceil</STRONG> (Thumb, 204 bytes, Stack size 24 bytes, ceil.o(i.ceil))
+<P><STRONG><a name="[ba]"></a>ceil</STRONG> (Thumb, 204 bytes, Stack size 24 bytes, ceil.o(i.ceil))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = ceil &rArr; __aeabi_dadd &rArr; _double_epilogue &rArr; _double_round
 </UL>
 <BR>[Calls]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
-<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
+<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
 </UL>
 <BR>[Called By]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276GetTimeOnAir
 </UL>
 
-<P><STRONG><a name="[b3]"></a>decrypt</STRONG> (Thumb, 132 bytes, Stack size 52 bytes, tea.o(i.decrypt))
-<BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = decrypt
-</UL>
-<BR>[Called By]<UL><LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OnRxDone
-</UL>
-
-<P><STRONG><a name="[c4]"></a>delay</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, sx1276_hal.o(i.delay))
+<P><STRONG><a name="[c2]"></a>delay</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, sx1276_hal.o(i.delay))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = delay &rArr; HAL_Delay
 </UL>
-<BR>[Calls]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
+<BR>[Calls]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 </UL>
-<BR>[Called By]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetReset
+<BR>[Called By]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetReset
 <LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Send
 <LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Random
 <LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276IsChannelFree
 </UL>
 
-<P><STRONG><a name="[be]"></a>floor</STRONG> (Thumb, 204 bytes, Stack size 24 bytes, floor.o(i.floor))
+<P><STRONG><a name="[e3]"></a>encrypt</STRONG> (Thumb, 150 bytes, Stack size 56 bytes, tea.o(i.encrypt))
+<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = encrypt
+</UL>
+<BR>[Called By]<UL><LI><a href="#[2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_scan_usart_cb
+</UL>
+
+<P><STRONG><a name="[bc]"></a>floor</STRONG> (Thumb, 204 bytes, Stack size 24 bytes, floor.o(i.floor))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = floor &rArr; __aeabi_dadd &rArr; _double_epilogue &rArr; _double_round
 </UL>
 <BR>[Calls]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
-<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
+<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
 </UL>
 <BR>[Called By]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276GetTimeOnAir
@@ -1585,68 +1575,56 @@ Global Symbols
 <P><STRONG><a name="[51]"></a>fputc</STRONG> (Thumb, 18 bytes, Stack size 16 bytes, main.o(i.fputc))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = fputc &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Transmit
+<BR>[Calls]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Transmit
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> printfa.o(i.__0printf)
 </UL>
 <P><STRONG><a name="[46]"></a>main</STRONG> (Thumb, 54 bytes, Stack size 0 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = main &rArr; SystemClock_Config &rArr; HAL_RCC_ClockConfig &rArr; HAL_InitTick &rArr; HAL_NVIC_SetPriority
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spTaskScheduler
+<BR>[Calls]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spTaskScheduler
 <LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Read
-<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276AppInit
-<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART1_UART_Init
-<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SPI1_Init
-<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
-<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
-<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Base_Usart1_Init
-<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276AppInit
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART1_UART_Init
+<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SPI1_Init
+<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
+<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Base_Usart1_Init
+<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
+<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
 </UL>
-<P><STRONG><a name="[ce]"></a>memcpy1</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, sx1276.o(i.memcpy1))
+<P><STRONG><a name="[cc]"></a>memcpy1</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, sx1276.o(i.memcpy1))
 <BR><BR>[Called By]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Send
 </UL>
 
-<P><STRONG><a name="[c5]"></a>millis</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, sx1276_hal.o(i.millis))
-<BR><BR>[Calls]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
+<P><STRONG><a name="[c3]"></a>millis</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, sx1276_hal.o(i.millis))
+<BR><BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276IsChannelFree
 </UL>
 
-<P><STRONG><a name="[bb]"></a>round</STRONG> (Thumb, 136 bytes, Stack size 32 bytes, round.o(i.round))
+<P><STRONG><a name="[b9]"></a>round</STRONG> (Thumb, 136 bytes, Stack size 32 bytes, round.o(i.round))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = round &rArr; __aeabi_dadd &rArr; _double_epilogue &rArr; _double_round
 </UL>
 <BR>[Calls]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
-<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
+<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
 <LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_drnd
 <LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
-<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdcmple
+<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdcmple
 </UL>
 <BR>[Called By]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276GetTimeOnAir
 </UL>
 
-<P><STRONG><a name="[e9]"></a>spTaskScheduler</STRONG> (Thumb, 44 bytes, Stack size 16 bytes, stask.o(i.spTaskScheduler))
+<P><STRONG><a name="[e8]"></a>spTaskScheduler</STRONG> (Thumb, 44 bytes, Stack size 16 bytes, stask.o(i.spTaskScheduler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = spTaskScheduler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[b4]"></a>spTimerStart</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, stimer.o(i.spTimerStart))
-<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = spTimerStart &rArr; __aeabi_ui2d &rArr; _double_epilogue &rArr; _double_round
-</UL>
-<BR>[Calls]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
-<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
-<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2uiz
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_getTimerTaskNum
-</UL>
-<BR>[Called By]<UL><LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OnTxDone
-<LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OnRxDone
-</UL>
-
-<P><STRONG><a name="[e6]"></a>spTimerTaskScheduler</STRONG> (Thumb, 72 bytes, Stack size 24 bytes, stimer.o(i.spTimerTaskScheduler))
+<P><STRONG><a name="[e5]"></a>spTimerTaskScheduler</STRONG> (Thumb, 72 bytes, Stack size 24 bytes, stimer.o(i.spTimerTaskScheduler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = spTimerTaskScheduler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_task_soft_timer_cb
@@ -1655,61 +1633,61 @@ Global Symbols
 <H3>
 Local Symbols
 </H3>
-<P><STRONG><a name="[98]"></a>SPI_EndRxTxTransaction</STRONG> (Thumb, 32 bytes, Stack size 16 bytes, stm32f1xx_hal_spi.o(i.SPI_EndRxTxTransaction))
+<P><STRONG><a name="[9a]"></a>SPI_EndRxTxTransaction</STRONG> (Thumb, 32 bytes, Stack size 16 bytes, stm32f1xx_hal_spi.o(i.SPI_EndRxTxTransaction))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_WaitFlagStateUntilTimeout
+<BR>[Calls]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_WaitFlagStateUntilTimeout
 </UL>
-<BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_TransmitReceive
+<BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_TransmitReceive
 </UL>
 
-<P><STRONG><a name="[b6]"></a>SPI_WaitFlagStateUntilTimeout</STRONG> (Thumb, 180 bytes, Stack size 32 bytes, stm32f1xx_hal_spi.o(i.SPI_WaitFlagStateUntilTimeout))
+<P><STRONG><a name="[b4]"></a>SPI_WaitFlagStateUntilTimeout</STRONG> (Thumb, 180 bytes, Stack size 32 bytes, stm32f1xx_hal_spi.o(i.SPI_WaitFlagStateUntilTimeout))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = SPI_WaitFlagStateUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
+<BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 </UL>
-<BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_EndRxTxTransaction
+<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_EndRxTxTransaction
 </UL>
 
-<P><STRONG><a name="[90]"></a>__NVIC_SetPriority</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, stm32f1xx_hal_cortex.o(i.__NVIC_SetPriority))
-<BR><BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriority
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SYSTICK_Config
+<P><STRONG><a name="[92]"></a>__NVIC_SetPriority</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, stm32f1xx_hal_cortex.o(i.__NVIC_SetPriority))
+<BR><BR>[Called By]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriority
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SYSTICK_Config
 </UL>
 
 <P><STRONG><a name="[49]"></a>UART_DMAAbortOnError</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, stm32f1xx_hal_uart.o(i.UART_DMAAbortOnError))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = UART_DMAAbortOnError
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_ErrorCallback
+<BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_ErrorCallback
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> stm32f1xx_hal_uart.o(i.HAL_UART_IRQHandler)
 </UL>
-<P><STRONG><a name="[9b]"></a>UART_EndRxTransfer</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, stm32f1xx_hal_uart.o(i.UART_EndRxTransfer))
-<BR><BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_IRQHandler
+<P><STRONG><a name="[9d]"></a>UART_EndRxTransfer</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, stm32f1xx_hal_uart.o(i.UART_EndRxTransfer))
+<BR><BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_IRQHandler
 </UL>
 
-<P><STRONG><a name="[9a]"></a>UART_Receive_IT</STRONG> (Thumb, 140 bytes, Stack size 8 bytes, stm32f1xx_hal_uart.o(i.UART_Receive_IT))
+<P><STRONG><a name="[9c]"></a>UART_Receive_IT</STRONG> (Thumb, 140 bytes, Stack size 8 bytes, stm32f1xx_hal_uart.o(i.UART_Receive_IT))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = UART_Receive_IT &rArr; HAL_UART_RxCpltCallback
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_RxCpltCallback
+<BR>[Calls]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_RxCpltCallback
 </UL>
-<BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_IRQHandler
+<BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_IRQHandler
 </UL>
 
-<P><STRONG><a name="[a1]"></a>UART_SetConfig</STRONG> (Thumb, 178 bytes, Stack size 16 bytes, stm32f1xx_hal_uart.o(i.UART_SetConfig))
+<P><STRONG><a name="[a3]"></a>UART_SetConfig</STRONG> (Thumb, 178 bytes, Stack size 16 bytes, stm32f1xx_hal_uart.o(i.UART_SetConfig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = UART_SetConfig
 </UL>
-<BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetPCLK2Freq
-<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetPCLK1Freq
+<BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetPCLK2Freq
+<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetPCLK1Freq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Init
+<BR>[Called By]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Init
 </UL>
 
-<P><STRONG><a name="[a7]"></a>UART_WaitOnFlagUntilTimeout</STRONG> (Thumb, 100 bytes, Stack size 24 bytes, stm32f1xx_hal_uart.o(i.UART_WaitOnFlagUntilTimeout))
+<P><STRONG><a name="[a8]"></a>UART_WaitOnFlagUntilTimeout</STRONG> (Thumb, 100 bytes, Stack size 24 bytes, stm32f1xx_hal_uart.o(i.UART_WaitOnFlagUntilTimeout))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
+<BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Transmit
+<BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Transmit
 </UL>
 
 <P><STRONG><a name="[1]"></a>_task_scan_key_cb</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stask.o(i._task_scan_key_cb))
@@ -1718,29 +1696,26 @@ Local Symbols
 <P><STRONG><a name="[3]"></a>_task_scan_radio_cb</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stask.o(i._task_scan_radio_cb))
 <BR><BR>[Stack]<UL><LI>Max Depth = 216<LI>Call Chain = _task_scan_radio_cb &rArr; SX1276Task &rArr; SX1276OnTimeoutEvent &rArr; SX1276SetPublicNetwork &rArr; SX1276SetModem &rArr; SX1276SetSleep &rArr; SX1276SetOpMode &rArr; SX1276Write &rArr; SX1276WriteBuffer &rArr; SpiTransfer &rArr; HalSpiTransmit &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Task
+<BR>[Calls]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Task
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> stask.o(.data)
 </UL>
-<P><STRONG><a name="[2]"></a>_task_scan_usart_cb</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, stask.o(i._task_scan_usart_cb))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = _task_scan_usart_cb
+<P><STRONG><a name="[2]"></a>_task_scan_usart_cb</STRONG> (Thumb, 68 bytes, Stack size 264 bytes, stask.o(i._task_scan_usart_cb))
+<BR><BR>[Stack]<UL><LI>Max Depth = 320<LI>Call Chain = _task_scan_usart_cb &rArr; encrypt
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USER_Get_Usart_Receive_Flag
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USER_Clear_Usart_Receive_Flag
+<BR>[Calls]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;encrypt
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USER_Get_Usart_Receive_Flag
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USER_Clear_Usart_Receive_Flag
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> stask.o(.data)
 </UL>
 <P><STRONG><a name="[0]"></a>_task_soft_timer_cb</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stask.o(i._task_soft_timer_cb))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = _task_soft_timer_cb &rArr; spTimerTaskScheduler
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spTimerTaskScheduler
+<BR>[Calls]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spTimerTaskScheduler
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> stask.o(.data)
 </UL>
-<P><STRONG><a name="[eb]"></a>_getTimerTaskNum</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, stimer.o(i._getTimerTaskNum))
-<BR><BR>[Called By]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spTimerStart
-</UL>
-
 <P><STRONG><a name="[7]"></a>_timer_beep_cb</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stimer.o(i._timer_beep_cb))
 <BR>[Address Reference Count : 1]<UL><LI> stimer.o(.data)
 </UL>
@@ -1751,7 +1726,7 @@ Local Symbols
 <BR>[Address Reference Count : 1]<UL><LI> stimer.o(.data)
 </UL>
 <P><STRONG><a name="[6]"></a>_timer_led_green_cb</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stimer.o(i._timer_led_green_cb))
-<BR><BR>[Calls]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_TogglePin
+<BR><BR>[Calls]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_TogglePin
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> stimer.o(.data)
 </UL>
@@ -1765,15 +1740,15 @@ Local Symbols
 <BR>[Address Reference Count : 1]<UL><LI> stimer.o(.data)
 </UL>
 <P><STRONG><a name="[b]"></a>_timer_usart_cb</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stimer.o(i._timer_usart_cb))
-<BR><BR>[Calls]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USER_UART_Receive_Timeout
+<BR><BR>[Calls]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USER_UART_Receive_Timeout
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> stimer.o(.data)
 </UL>
-<P><STRONG><a name="[d5]"></a>GetFskBandwidthRegValue</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, sx1276.o(i.GetFskBandwidthRegValue))
+<P><STRONG><a name="[d3]"></a>GetFskBandwidthRegValue</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, sx1276.o(i.GetFskBandwidthRegValue))
 <BR><BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetRxConfig
 </UL>
 
-<P><STRONG><a name="[b5]"></a>RxChainCalibration</STRONG> (Thumb, 138 bytes, Stack size 16 bytes, sx1276.o(i.RxChainCalibration))
+<P><STRONG><a name="[b3]"></a>RxChainCalibration</STRONG> (Thumb, 138 bytes, Stack size 16 bytes, sx1276.o(i.RxChainCalibration))
 <BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = RxChainCalibration &rArr; SX1276SetChannel &rArr; SX1276Write &rArr; SX1276WriteBuffer &rArr; SpiTransfer &rArr; HalSpiTransmit &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Read
@@ -1783,50 +1758,50 @@ Local Symbols
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Write
 <LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276SetChannel
 </UL>
-<BR>[Called By]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276OnTimeoutEvent
+<BR>[Called By]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276OnTimeoutEvent
 <LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SX1276Init
 </UL>
 
-<P><STRONG><a name="[da]"></a>TimerListTimerReset</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, sx1276_timer.o(i.TimerListTimerReset))
+<P><STRONG><a name="[d8]"></a>TimerListTimerReset</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, sx1276_timer.o(i.TimerListTimerReset))
 <BR><BR>[Called By]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimerStart
 <LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimerReset
 </UL>
 
-<P><STRONG><a name="[e0]"></a>_fp_digits</STRONG> (Thumb, 334 bytes, Stack size 56 bytes, printfa.o(i._fp_digits), UNUSED)
+<P><STRONG><a name="[de]"></a>_fp_digits</STRONG> (Thumb, 334 bytes, Stack size 56 bytes, printfa.o(i._fp_digits), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
 <LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
-<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
+<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
 <LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2ulz
 </UL>
-<BR>[Called By]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
+<BR>[Called By]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
 </UL>
 
-<P><STRONG><a name="[de]"></a>_printf_core</STRONG> (Thumb, 1744 bytes, Stack size 136 bytes, printfa.o(i._printf_core), UNUSED)
+<P><STRONG><a name="[dc]"></a>_printf_core</STRONG> (Thumb, 1744 bytes, Stack size 136 bytes, printfa.o(i._printf_core), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
-<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
-<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_pre_padding
-<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_post_padding
-<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_pre_padding
+<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_post_padding
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
 </UL>
-<BR>[Called By]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__0printf
-</UL>
-
-<P><STRONG><a name="[e2]"></a>_printf_post_padding</STRONG> (Thumb, 36 bytes, Stack size 24 bytes, printfa.o(i._printf_post_padding), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
+<BR>[Called By]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__0printf
 </UL>
 
-<P><STRONG><a name="[e1]"></a>_printf_pre_padding</STRONG> (Thumb, 46 bytes, Stack size 24 bytes, printfa.o(i._printf_pre_padding), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
+<P><STRONG><a name="[e0]"></a>_printf_post_padding</STRONG> (Thumb, 36 bytes, Stack size 24 bytes, printfa.o(i._printf_post_padding), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
 </UL>
 
-<P><STRONG><a name="[df]"></a>internal_alloc</STRONG> (Thumb, 76 bytes, Stack size 24 bytes, mallocr.o(i.internal_alloc))
+<P><STRONG><a name="[df]"></a>_printf_pre_padding</STRONG> (Thumb, 46 bytes, Stack size 24 bytes, printfa.o(i._printf_pre_padding), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
+</UL>
+
+<P><STRONG><a name="[dd]"></a>internal_alloc</STRONG> (Thumb, 76 bytes, Stack size 24 bytes, mallocr.o(i.internal_alloc))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = internal_alloc
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
+<BR>[Calls]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;malloc
+<BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;malloc
 </UL>
 <P>
 <H3>

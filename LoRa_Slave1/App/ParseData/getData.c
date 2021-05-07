@@ -14,11 +14,9 @@ void GenerateTask(void)
 	
 		generateData = (uint8_t *) malloc(50);
     GenerateData(generateData);
-		//printf("generateData:%s\r\n", generateData);
 		generateDataSize = strlen(generateData);
-		HAL_UART_Transmit(&huart1, generateData, generateDataSize, 0xFF);
-		//printf("===================\r\n");
-		//Radio.Send(generateData, sizeof(generateData));
+		printf("tx:%s DataSize:%d\r\n", generateData, generateDataSize);
+		Radio.Send(generateData, generateDataSize);
 		free(generateData);
 }
 
@@ -92,6 +90,8 @@ static void GenerateData(uint8_t *generateData)
     strcat((char *)generateData, str_temp);
     strcat((char *)generateData, SPLIT_CHAR);
     strcat((char *)generateData, str_humidity);
+		strcat((char *)generateData, SPLIT_CHAR);
+    strcat((char *)generateData, str_lightIntensity);
 
 		
 		//HAL_GPIO_TogglePin(MCU_LED_GPIO_Port, MCU_LED_Pin);

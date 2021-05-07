@@ -30,6 +30,8 @@ lora_master\stask.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.
 lora_master\stask.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
 lora_master\stask.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h
 lora_master\stask.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
+lora_master\stask.o: ../Core/Inc/usart.h
+lora_master\stask.o: ../Core/Inc/main.h
 lora_master\stask.o: ..\App\radio\inc\sx1276.h
 lora_master\stask.o: ..\App\radio\inc\radio.h
 lora_master\stask.o: ..\App\radio\inc\sx1276_timer.h

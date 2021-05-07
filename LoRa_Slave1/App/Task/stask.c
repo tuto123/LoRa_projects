@@ -87,9 +87,15 @@ static void _task_scan_radio_cb(void *args)
 返 回 值 ： 无
 作    者 ： sun
 *************************************************/
+static int ms;
 static void _task_scan_value_cb(void *args)
 {
-		GenerateTask();
+		ms++;
+		if(ms == 300000)
+		{
+			GenerateTask();
+			ms = 0;
+		}
 }
 
 /************************************************

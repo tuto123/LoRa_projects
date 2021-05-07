@@ -13,13 +13,14 @@ extern uint32_t userControlFanSpeed;
 void GenerateTask()
 {
     uint8_t *generateData;
-		uint16_t generateDataSize;
+		uint8_t generateDataSize;
 	
 		generateData = malloc(50);
     GenerateData(generateData);
 		generateDataSize = strlen(generateData);
-		HAL_UART_Transmit(&huart1, generateData, generateDataSize, 0xFF);
-		//Radio.Send(generateData, sizeof(generateData));
+		//printf("tx:%s DataSize:%d\r\n", generateData, generateDataSize);
+		Radio.Send(generateData, generateDataSize);
+		
 		free(generateData);
 }
 
@@ -105,7 +106,5 @@ static void GenerateData(uint8_t *generateData)
     strcat((char *)generateData, str_lightStatus);
 		
 		//HAL_GPIO_TogglePin(MCU_LED_GPIO_Port, MCU_LED_Pin);
-		
-		HAL_Delay(3000);
 }
 

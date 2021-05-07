@@ -108,11 +108,11 @@ int main(void)
 	//printf("DHT11 checked success!!!\r\n");
 	Base_Usart1_Init();
 	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_1);
-	//SX1276AppInit();
-	//uint8_t LoraVersion;
-	//LoraVersion = SX1276Read( REG_LR_VERSION );
-	//printf("Lora Version:%d!\r\n",LoraVersion);
-	//printf("Master Start!\r\n");
+	SX1276AppInit();
+	uint8_t LoraVersion;
+	LoraVersion = SX1276Read( REG_LR_VERSION );
+	printf("Lora Version:%d!\r\n",LoraVersion);
+	printf("Master Start!\r\n");
   /* USER CODE END 2 */
 
   /* Infinite loop */

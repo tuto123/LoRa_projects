@@ -27,7 +27,14 @@ Project File Date:  05/02/2021
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 1 (build 61)', folder: 'G:\design_tool\KEIL_MDK\Keil5\ARM\ARMCC\Bin'
 Build target 'LoRa_Slave'
-"LoRa_Slave\LoRa_Slave.axf" - 0 Error(s), 0 Warning(s).
+compiling getData.c...
+..\App\ParseData\getData.c(17): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+  		generateDataSize = strlen(generateData);
+..\App\ParseData\getData.c: 1 warning, 0 errors
+linking...
+Program Size: Code=22396 RO-data=632 RW-data=344 ZI-data=2480  
+FromELF: creating hex file...
+"LoRa_Slave\LoRa_Slave.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -45,7 +52,7 @@ Package Vendor: ARM
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:4.3.0
-Build Time Elapsed:  00:00:00
+Build Time Elapsed:  00:00:03
 </pre>
 </body>
 </html>

@@ -2,6 +2,7 @@
 #include "stask.h"
 #include "stimer.h"
 #include "base_usart.h"
+#include "usart.h"
 #include "sx1276.h"
 #define spTASK_SIZE(array) (sizeof(array)/sizeof(*array))
 #define  TASK_INVALID  0xFF
@@ -56,14 +57,23 @@ static void _task_scan_key_cb(void *args)
 #include "string.h"
 #include "cJSON.h"
 uint8_t  key[]="123456789987654321";
+uint8_t encryptKey[] = "lifu123@outlook.com";
 /**************************************/
 static void _task_scan_usart_cb(void *args)
 {
 		if(USER_Get_Usart_Receive_Flag())
 		{
-			//USER_UART1_SendData(usart1_s.RecvBuffer,usart1_s.RecvLen);
-			Radio.Send(usart1_s.RxMes,usart1_s.RecvLen);	
-			USER_Clear_Usart_Receive_Flag();			
+			if(usart1_s.RecvLen > 0 && usart1_s.RecvLen <= 248)	
+			{
+				uint8_t sendData[256];
+				for(int i = 0; i < usart1_s.RecvLen; i++)
+				{
+						sendData[i] = usart1_s.RxMes[i];
+				}
+				uint8_t encryptSize = encrypt(sendData, usart1_s.RecvLen, encryptKey);
+				Radio.Send(sendData, encryptSize);
+				USER_Clear_Usart_Receive_Flag();
+			}				
 		}
 }
 /************************************************

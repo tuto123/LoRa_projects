@@ -109,8 +109,6 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-		//LED_GREEN_TOG();
-		//HAL_Delay(200);
 		spTaskScheduler();
     /* USER CODE BEGIN 3 */
   }

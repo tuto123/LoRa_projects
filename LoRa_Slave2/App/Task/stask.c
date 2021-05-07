@@ -67,21 +67,33 @@ static void _task_scan_usart_cb(void *args)
 {
 		if(USER_Get_Usart_Receive_Flag())
 		{
+			USER_Clear_Usart_Receive_Flag();
 			//USER_UART1_SendData(usart1_s.RecvBuffer,usart1_s.RecvLen);
 			//Radio.Send(usart1_s.RxMes,usart1_s.RecvLen);	
-#if 0
+#if 0		
 			if(usart1_s.RecvLen > 0 && usart1_s.RecvLen <= 248)	
 			{
-				decrypt(usart1_s.RxMes, usart1_s.RecvLen, encryptKey);
+				printf("\r\nusart1_s.RxMes:%s RecvLen:%d\r\n", usart1_s.RxMes, usart1_s.RecvLen);
+				uint8_t MyMes[usart1_s.RecvLen];
+				memset(MyMes, 0, usart1_s.RecvLen);
+				memcpy(MyMes, usart1_s.RxMes, usart1_s.RecvLen);
+				for(int i = 0; i < usart1_s.RecvLen; i++)
+				{
+					//MyMes[i] = usart1_s.RxMes[i]; 
+				}
+				uint16_t encryptSize = encrypt(MyMes, usart1_s.RecvLen, encryptKey);
+				printf("encrypt:%s encryptSize:%d\r\n", MyMes, encryptSize);
+				decrypt(MyMes, encryptSize, encryptKey);
+				printf("decrypt:%s\r\n", MyMes);
 				cJSON *json_ret,*json_fanSpeed,*json_lightStatus;
-				json_ret = cJSON_Parse(usart1_s.RxMes); //判断是否为JSON格式
+				json_ret = cJSON_Parse(MyMes); //判断是否为JSON格式
 				if(json_ret == NULL)
 				{
-						//printf("Not standard cjson data...\r");
+					printf("Not standard cjson data: %s\r\n", MyMes);
 				}
-
+				
 				json_fanSpeed = cJSON_GetObjectItem(json_ret,"FanSpeed");
-				json_lightStatus = cJSON_GetObjectItem(json_ret,"LightStatus");
+				json_lightStatus = cJSON_GetObjectItem(json_ret,"LightStat");
 			
 				if(json_fanSpeed != NULL)
 				{
@@ -118,7 +130,7 @@ static void _task_scan_usart_cb(void *args)
 					}
 				}
 			
-				USER_Clear_Usart_Receive_Flag();
+				
 
 				free(json_ret);
 				free(json_fanSpeed);
@@ -146,9 +158,15 @@ static void _task_scan_radio_cb(void *args)
 返 回 值 ： 无
 作    者 ： sun
 *************************************************/
+static int ms;
 static void _task_scan_value_cb(void *args)
 {
-		GenerateTask();
+		ms++;
+		if(ms == 300000)
+		{
+			GenerateTask();
+			ms = 0;
+		}
 }
 
 /************************************************
